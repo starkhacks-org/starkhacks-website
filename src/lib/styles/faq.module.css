@@ -1,0 +1,70 @@
+.faq {
+	position: absolute;
+	top: 5804px;
+	left: 0;
+	width: 100%;
+	color: white;
+	z-index: 1;
+}
+
+.content {
+	position: relative;
+	z-index: 2;
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 2rem;
+}
+
+.title {
+	font-family: 'Demoarchimotov01', sans-serif;
+	font-weight: 500;
+	font-size: clamp(2rem, 5vw, 3.125rem);
+	line-height: 1.2;
+	color: white;
+	margin: 0 0 2rem 0;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	text-align: center;
+}
+
+.columns {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 2rem;
+	max-width: 1000px;
+	margin: 0 auto;
+}
+
+.column {
+	border: 2px solid rgba(255, 142, 42, 0.3);
+	border-radius: 8px;
+	padding: 1.5rem;
+	background: rgba(137, 137, 137, 0.05);
+	backdrop-filter: blur(45px);
+}
+
+.columnTitle {
+	font-family: 'Demoarchimotov01', sans-serif;
+	font-weight: 500;
+	font-size: clamp(1rem, 2vw, 1.25rem);
+	color: #ff8e2a;
+	margin: 0 0 1rem 0;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+}
+
+.placeholder {
+	font-family: 'Demoarchimotov01', sans-serif;
+	font-weight: 500;
+	font-size: clamp(0.875rem, 1.5vw, 1rem);
+	line-height: 1.5;
+	color: rgba(255, 255, 255, 0.75);
+	margin: 0;
+}
+
+@media (max-width: 768px) {
+	.columns {
+		grid-template-columns: 1fr;
+	}
+}
+

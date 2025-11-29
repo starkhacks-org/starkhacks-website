@@ -1,0 +1,11 @@
+.pageWrapper {
+	position: relative;
+	width: 100%;
+	min-height: 9240px; /* 8880px (footer top) + 359px (footer height) + some padding */
+	background-image: url('/full-hero.jpg');
+	background-size: 100% auto; /* Cover full width, show full image height */
+	background-position: top center;
+	background-repeat: no-repeat;
+	background-attachment: scroll;
+}
+

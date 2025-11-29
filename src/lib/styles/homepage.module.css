@@ -1,7 +1,6 @@
 .homepage {
-	min-height: 100vh;
-	position: relative;
-	overflow-x: hidden;
-	background-color: transparent;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  background-color: transparent;
 }
-

@@ -1,80 +1,80 @@
 /* Custom Font Face Declaration - Demoarchimotov01 */
 @font-face {
-	font-family: 'Demoarchimotov01';
-	src: url('/fonts/Demoarchimotov01Thin-K7DPy.otf') format('opentype');
-	font-weight: 100;
-	font-style: normal;
-	font-display: swap;
+  font-family: "Demoarchimotov01";
+  src: url("/fonts/Demoarchimotov01Thin-K7DPy.otf") format("opentype");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-	font-family: 'Demoarchimotov01';
-	src: url('/fonts/Demoarchimotov01Thinitalic-2Oz5d.otf') format('opentype');
-	font-weight: 100;
-	font-style: italic;
-	font-display: swap;
+  font-family: "Demoarchimotov01";
+  src: url("/fonts/Demoarchimotov01Thinitalic-2Oz5d.otf") format("opentype");
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
 }
 
 @font-face {
-	font-family: 'Demoarchimotov01';
-	src: url('/fonts/Demoarchimotov01Medium-rg1Ky.otf') format('opentype');
-	font-weight: 500;
-	font-style: normal;
-	font-display: swap;
+  font-family: "Demoarchimotov01";
+  src: url("/fonts/Demoarchimotov01Medium-rg1Ky.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-	font-family: 'Demoarchimotov01';
-	src: url('/fonts/Demoarchimotov01Mediumitalic-MVqXJ.otf') format('opentype');
-	font-weight: 500;
-	font-style: italic;
-	font-display: swap;
+  font-family: "Demoarchimotov01";
+  src: url("/fonts/Demoarchimotov01Mediumitalic-MVqXJ.otf") format("opentype");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
 }
 
 @font-face {
-	font-family: 'Demoarchimotov01';
-	src: url('/fonts/Demoarchimotov01Black-8MD5g.otf') format('opentype');
-	font-weight: 900;
-	font-style: normal;
-	font-display: swap;
+  font-family: "Demoarchimotov01";
+  src: url("/fonts/Demoarchimotov01Black-8MD5g.otf") format("opentype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-	font-family: 'Demoarchimotov01';
-	src: url('/fonts/Demoarchimotov01Blackitalic-Yz9rO.otf') format('opentype');
-	font-weight: 900;
-	font-style: italic;
-	font-display: swap;
+  font-family: "Demoarchimotov01";
+  src: url("/fonts/Demoarchimotov01Blackitalic-Yz9rO.otf") format("opentype");
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
 }
 
 :root {
-	font-family: 'Demoarchimotov01', Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-	line-height: 1.5;
-	font-weight: 500; /* Medium weight - matches the font's available weight */
+  font-family: "Demoarchimotov01", Inter, system-ui, Avenir, Helvetica, Arial,
+    sans-serif;
+  line-height: 1.5;
+  font-weight: 500; /* Medium weight - matches the font's available weight */
 
-	color-scheme: light dark;
-	color: rgba(255, 255, 255, 0.87);
-	background-color: transparent;
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: transparent;
 
-	font-synthesis: none;
-	text-rendering: optimizeLegibility;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 html {
-	background-color: transparent;
+  background-color: transparent;
 }
 
 body {
-	margin: 0;
-	min-width: 320px;
-	min-height: 100vh;
-	overflow-x: hidden;
-	background-color: transparent;
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-color: transparent;
 }
 
 * {
-	box-sizing: border-box;
+  box-sizing: border-box;
 }
-

@@ -1,0 +1,55 @@
+.tracks {
+	position: relative;
+	width: 100%;
+	color: white;
+	z-index: 1;
+	margin-top: 4rem;
+}
+
+.content {
+	position: relative;
+	z-index: 2;
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 2rem;
+}
+
+.titleContainer {
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+	margin-bottom: 1rem;
+}
+
+.accentRectangle {
+	width: 20px;
+	height: 20px;
+	background-color: #ff8e2a;
+	flex-shrink: 0;
+}
+
+.title {
+	font-family: 'Demoarchimotov01', sans-serif;
+	font-weight: 500;
+	font-size: clamp(2rem, 5vw, 3.125rem);
+	line-height: 1.2;
+	color: white;
+	margin: 0;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+}
+
+.subtitle {
+	font-family: 'Demoarchimotov01', sans-serif;
+	font-weight: 500;
+	font-size: clamp(0.875rem, 2vw, 1rem);
+	line-height: 1.5;
+	color: white;
+	margin: 0;
+}
+
+.buildIt {
+	color: #ff8e2a;
+	font-weight: 500;
+}
+
