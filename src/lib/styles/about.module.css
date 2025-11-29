@@ -22,11 +22,11 @@
   margin-bottom: 1.5rem;
 }
 
-.accentRectangle {
-  width: 20px;
-  height: 20px;
-  background-color: #ff8e2a;
+.accentTriangle {
+  width: 18px;
+  height: 18px;
   flex-shrink: 0;
+  display: block;
 }
 
 .title {

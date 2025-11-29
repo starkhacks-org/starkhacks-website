@@ -6,7 +6,7 @@
 	<div class={aboutStyles.content}>
 		<!-- Title with Accent -->
 		<div class={aboutStyles.titleContainer}>
-			<div class={aboutStyles.accentRectangle}></div>
+			<img src="/triangle.svg" alt="" class={aboutStyles.accentTriangle} />
 			<h2 class={aboutStyles.title}>ABOUT THE HACK</h2>
 		</div>
 		

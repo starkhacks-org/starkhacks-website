@@ -1,55 +1,51 @@
 .tracks {
-	position: relative;
-	width: 100%;
-	color: white;
-	z-index: 1;
-	margin-top: 4rem;
+  position: absolute;
+  top: calc(160vh + 1000px);
+  left: 0;
+  width: 100%;
+  color: white;
+  z-index: 1;
 }
 
 .content {
-	position: relative;
-	z-index: 2;
-	max-width: 1200px;
-	margin: 0 auto;
-	padding: 2rem;
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
 }
 
 .titleContainer {
-	display: flex;
-	align-items: center;
-	gap: 0.75rem;
-	margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
 }
 
-.accentRectangle {
-	width: 20px;
-	height: 20px;
-	background-color: #ff8e2a;
-	flex-shrink: 0;
+.accentTriangle {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  display: block;
 }
 
 .title {
-	font-family: 'Demoarchimotov01', sans-serif;
-	font-weight: 500;
-	font-size: clamp(2rem, 5vw, 3.125rem);
-	line-height: 1.2;
-	color: white;
-	margin: 0;
-	text-transform: uppercase;
-	letter-spacing: 0.05em;
+  font-family: "Demoarchimotov01", sans-serif;
+  font-weight: 500;
+  font-size: clamp(2rem, 5vw, 3.125rem);
+  line-height: 1.2;
+  color: white;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
-.subtitle {
-	font-family: 'Demoarchimotov01', sans-serif;
-	font-weight: 500;
-	font-size: clamp(0.875rem, 2vw, 1rem);
-	line-height: 1.5;
-	color: white;
-	margin: 0;
+.comingSoon {
+  font-family: "Demoarchimotov01", sans-serif;
+  font-weight: 500;
+  font-size: clamp(3rem, 6vw, 4.5rem);
+  line-height: 1.5;
+  color: white;
+  margin: 16rem 0 0 0;
+  text-align: center;
 }
-
-.buildIt {
-	color: #ff8e2a;
-	font-weight: 500;
-}
-
