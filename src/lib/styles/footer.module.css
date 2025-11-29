@@ -1,6 +1,6 @@
 .footer {
   position: absolute;
-  top: calc(100vw * 5.26);
+  top: calc(100vw * 5.26 - 200px);
   left: 0;
   width: 100%;
   height: auto;
