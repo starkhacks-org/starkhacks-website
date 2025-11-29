@@ -4,10 +4,16 @@
 
 <section class={sponsorsStyles.sponsors}>
 	<div class={sponsorsStyles.content}>
-		<h2 class={sponsorsStyles.title}>Sponsors</h2>
+		<div class={sponsorsStyles.titleContainer}>
+			<img src="/triangle.svg" alt="" class={sponsorsStyles.accentTriangle} />
+			<h2 class={sponsorsStyles.title}>Sponsors</h2>
+		</div>
 		<p class={sponsorsStyles.subtitle}>
-			Stark Hacks is made possible through the support of our sponsors and partner organizations - thank you for fuelling innovation and helping us bring our ideas to life!
+			Comming Soon! 
 		</p>
+        <p class={sponsorsStyles.subtitle}>
+            Reach out to <a href="mailto:sponsors@starkhacks.com">sponsors@starkhacks.com</a> if you're interested in sponsorsing.
+        </p>
 	</div>
 </section>
 
