@@ -1,8 +1,7 @@
 <script>
-	// Homepage
+	import Navigation from '$lib/components/Navigation.svelte';
+	import HeroSection from '$lib/components/HeroSection.svelte';
 </script>
 
-<main>
-	<h1>Hello World</h1>
-</main>
-
+<Navigation />
+<HeroSection />

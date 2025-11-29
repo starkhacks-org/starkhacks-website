@@ -1,0 +1,157 @@
+.countdown {
+  position: relative;
+  z-index: 10;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  display: flex;
+  gap: clamp(0.25rem, 1vw, 0.5rem);
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 0 auto;
+  background: transparent;
+  padding: 0;
+  position: relative;
+}
+
+.timeBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.1875rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.value {
+  font-family: "Demoarchimotov01", sans-serif;
+  font-weight: 400;
+  font-size: clamp(1.8rem, 4vw, 2.2rem);
+  color: #100f0d;
+  line-height: 1.2;
+  min-width: 60px;
+  text-align: center;
+  letter-spacing: -0.02em;
+}
+
+.label {
+  font-family: "Demoarchimotov01", sans-serif;
+  font-weight: 500;
+  font-size: clamp(0.875rem, 1.8vw, 1.2rem);
+  color: #0f0e0c;
+  opacity: 0.85;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.progressBar {
+  width: 100%;
+  margin-top: 0.5rem;
+  max-width: 430px;
+  display: flex;
+  justify-content: center;
+}
+
+.progressContainer {
+  position: relative;
+  width: 100%;
+  max-width: 430px;
+  height: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.progressBarBg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  object-fit: contain;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.progressFillSvg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 6px;
+  object-fit: contain;
+  z-index: 2;
+  pointer-events: none;
+  transition: width 0.5s ease, opacity 0.3s ease;
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .progressFill {
+    transition: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .countdown {
+    padding: 0;
+  }
+
+  .container {
+    flex-direction: row;
+    gap: 0.25rem;
+    padding: 0;
+    flex-wrap: wrap;
+    background: transparent;
+  }
+
+  .timeBlock {
+    flex: 1 1 calc(33.333% - 1rem);
+    min-width: 80px;
+  }
+
+  .progressBar {
+    max-width: 300px;
+  }
+
+  .progressContainer {
+    max-width: 300px;
+  }
+
+  .progressBarBg {
+    height: 6px;
+  }
+
+  .progressFillSvg {
+    height: 6px;
+  }
+
+  .value {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    color: #100f0d;
+  }
+
+  .label {
+    font-size: clamp(0.75rem, 2vw, 0.9rem);
+    color: #0f0e0c;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .timeBlock {
+    flex: 1 1 100%;
+    width: 100%;
+  }
+}
