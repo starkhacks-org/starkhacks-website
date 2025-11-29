@@ -1,106 +1,105 @@
 .apply {
-	position: absolute;
-	top: calc(100vw * 5.26 - 1500px);
-	left: 0;
-	width: 100%;
-	color: white;
-	z-index: 1;
+  position: absolute;
+  top: calc(100vw * 5.26 - 1500px);
+  left: 0;
+  width: 100%;
+  color: white;
+  z-index: 1;
 }
 
 .content {
-	position: relative;
-	z-index: 2;
-	max-width: 1200px;
-	margin: 0 auto;
-	padding: 2rem;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	gap: 2rem;
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
 }
 
 .textContainer {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	gap: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .stopWatching {
-	font-family: "Demoarchimotov01", sans-serif;
-	font-weight: 500;
-	font-size: clamp(2rem, 5vw, 4rem);
-	line-height: 1.2;
-	color: white;
-	margin: 0;
-	text-transform: uppercase;
-	letter-spacing: 0.05em;
-	text-align: center;
+  font-family: "Demoarchimotov01", sans-serif;
+  font-weight: 500;
+  font-size: clamp(2rem, 5vw, 4rem);
+  line-height: 1.2;
+  color: white;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-align: center;
 }
 
 .startBuilding {
-	font-family: "Demoarchimotov01", sans-serif;
-	font-weight: 500;
-	font-size: clamp(2rem, 5vw, 4rem);
-	line-height: 1.2;
-	color: #ff8e2a;
-	margin: 0;
-	text-transform: uppercase;
-	letter-spacing: 0.05em;
-	text-align: center;
+  font-family: "Demoarchimotov01", sans-serif;
+  font-weight: 500;
+  font-size: clamp(2rem, 5vw, 4rem);
+  line-height: 1.2;
+  color: #ff8e2a;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-align: center;
 }
 
 .applyButton {
-	position: relative;
-	background: none;
-	border: none;
-	cursor: pointer;
-	padding: 0;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	transition: transform 0.2s;
+  position: relative;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s;
 }
 
 .applyButton:hover {
-	transform: scale(1.05);
+  transform: scale(1.05);
 }
 
 .applyBoxSvg {
-	width: 281px;
-	height: 75px;
-	display: block;
+  width: 281px;
+  height: 75px;
+  display: block;
 }
 
 .applyText {
-	position: absolute;
-	font-family: "Demoarchimotov01", sans-serif;
-	font-weight: 500;
-	font-size: clamp(1rem, 2vw, 1.25rem);
-	color: white;
-	text-transform: uppercase;
-	letter-spacing: 0.1em;
-	z-index: 1;
+  position: absolute;
+  font-family: "Demoarchimotov01", sans-serif;
+  font-weight: 500;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  z-index: 1;
 }
 
 @media (max-width: 768px) {
-	.apply {
-		top: calc(100vw * 5.26 - 300px);
-	}
+  .apply {
+    top: calc(100vw * 5.26 - 300px);
+  }
 
-	.content {
-		padding: 1rem;
-		gap: 1.5rem;
-	}
+  .content {
+    padding: 1rem;
+    gap: 1.5rem;
+  }
 
-	.applyBoxSvg {
-		width: 240px;
-		height: 64px;
-	}
+  .applyBoxSvg {
+    width: 240px;
+    height: 64px;
+  }
 
-	.applyText {
-		font-size: clamp(0.875rem, 1.5vw, 1rem);
-	}
+  .applyText {
+    font-size: clamp(0.875rem, 1.5vw, 1rem);
+  }
 }
-
