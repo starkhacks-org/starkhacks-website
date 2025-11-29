@@ -7,7 +7,7 @@ export default defineConfig({
     devSourcemap: true,
   },
   server: {
-    allowedHosts: ["12bb61eaa490.ngrok-free.app"],
+    allowedHosts: [".ngrok-free.app"],
   },
   build: {
     cssCodeSplit: true,

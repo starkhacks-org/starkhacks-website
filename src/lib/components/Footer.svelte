@@ -4,9 +4,12 @@
 
 <footer class={footerStyles.footer}>
 	<div class={footerStyles.content}>
-		<p class={footerStyles.text}>Made with</p>
-		<p class={footerStyles.text}>by the</p>
-		<p class={footerStyles.clubName}>humanoid robot club</p>
+		<p class={footerStyles.text}>
+			Made with <img src="/heart.svg" alt="heart" class={footerStyles.heart} /> by the
+		</p>
+		<p class={footerStyles.clubName}>
+			<a href="https://humanoidrobot.club/" class={footerStyles.clubLink}>humanoid robot club</a>
+		</p>
 	</div>
 </footer>
 
