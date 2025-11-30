@@ -10,16 +10,17 @@
 .content {
   position: relative;
   z-index: 2;
-  max-width: 1200px;
+  max-width: 1600px;
   margin: 0 auto;
   padding: 2rem;
+  width: 100%;
 }
 
 .titleContainer {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 .accentTriangle {
@@ -40,14 +41,124 @@
   letter-spacing: 0.05em;
 }
 
-.comingSoon {
+.subtitle {
   font-family: "Demoarchimotov01", sans-serif;
   font-weight: 500;
-  font-size: clamp(3rem, 6vw, 4.5rem);
+  font-size: clamp(0.875rem, 2vw, 1rem);
   line-height: 1.5;
   color: white;
-  margin: 16rem 0 0 0;
+  margin: 0 0 2rem 0;
+}
+
+.highlight {
+  color: #ff8e2a;
+}
+
+.tracksContainer {
+  display: flex;
+  gap: 2.5rem;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  margin-top: 2rem;
+  width: 100%;
+  overflow-x: auto;
+}
+
+@media (max-width: 1400px) {
+  .tracksContainer {
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 1200px) {
+  .tracksContainer {
+    gap: 1.5rem;
+  }
+}
+
+.trackItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  flex: 0 0 auto;
+  width: 300px;
+}
+
+.headingBox {
+  position: relative;
+  width: 243px;
+  height: 102px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.outerBoxSvg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.trackName {
+  position: relative;
+  z-index: 1;
+  font-family: "Demoarchimotov01", sans-serif;
+  font-weight: 500;
+  font-size: clamp(1.1rem, 1.5vw, 1.47rem);
+  line-height: normal;
+  color: white;
   text-align: center;
+  margin: 0;
+  padding: 0 1rem;
+  text-transform: uppercase;
+}
+
+.trackName p {
+  margin: 0;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.imageBox {
+  position: relative;
+  width: 300px;
+  height: 240px;
+  overflow: hidden;
+  background-image: url('/boxes.svg');
+  background-repeat: no-repeat;
+  flex-shrink: 0;
+  /* Scale to fit height: 240px / 390px = 0.615, so width becomes 1327 * 0.615 = 816px */
+  background-size: 816px 240px;
+}
+
+/* Position each track's image from boxes.svg */
+/* SVG is 1327px wide, scaled to 816px (scale factor 0.6153846) */
+/* Scale factor: 240/390 = 0.6153846 */
+/* Background positions: (x_position - 27) * 0.6153846 */
+/* Track 1: Space Exploration - images at x=92, center around x=180 */
+.imageBox[data-track-index="0"] {
+  background-position: -40px -9px;
+}
+
+/* Track 2: Gaming/Entertainment - images at x=396.583, center around x=485 */
+.imageBox[data-track-index="1"] {
+  background-position: -227px -9px;
+}
+
+/* Track 3: Wearable Technology - images at x=667.284, center around x=755 */
+.imageBox[data-track-index="2"] {
+  background-position: -394px -9px;
+}
+
+/* Track 4: AI & Automation - images at x=965, center around x=1053 */
+.imageBox[data-track-index="3"] {
+  background-position: -577px -9px;
 }
 
 /* Laptop size optimizations */
