@@ -1,5 +1,6 @@
 <script>
 	import navStyles from '../styles/navigation.module.css';
+	import { getApplyUrl } from '../utils/applyRedirect';
 	
 	let mobileMenuOpen = false;
 	
@@ -37,7 +38,7 @@
 			<li role="none"><a href="#sponsors" class={navStyles.link} onclick={closeMenu} role="menuitem">SPONSORS</a></li>
 			<li role="none"><a href="#faq" class={navStyles.link} onclick={closeMenu} role="menuitem">FAQ</a></li>
 			<li role="none">
-				<a href="#join" class={navStyles.joinButton} onclick={closeMenu} role="menuitem">
+				<a href={getApplyUrl()} class={navStyles.joinButton} onclick={closeMenu} role="menuitem">
 					<img src="/apply-box.svg" alt="" class={navStyles.applyBoxSvg} />
 					<img src="/apply-text.svg" alt="APPLY" class={navStyles.applyTextSvg} />
 				</a>
