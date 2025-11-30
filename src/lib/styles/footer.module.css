@@ -64,6 +64,41 @@
   opacity: 0.8;
 }
 
+.socialMedia {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.socialLink {
+  display: inline-block;
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.socialLink:hover {
+  opacity: 0.8;
+  transform: scale(1.1);
+}
+
+.socialIcon {
+  width: 24px;
+  height: 24px;
+  display: block;
+  filter: brightness(0) invert(1);
+}
+
+.copyright {
+  font-family: "Demoarchimotov01", sans-serif;
+  font-weight: 500;
+  font-size: clamp(0.75rem, 1.5vw, 1rem);
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0.75rem 0 0 0;
+  text-transform: lowercase;
+}
+
 /* Laptop size optimizations */
 @media (min-width: 1280px) and (max-width: 1366px) {
   /* 13" laptops */
