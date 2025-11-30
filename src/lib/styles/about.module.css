@@ -1,6 +1,6 @@
 .about {
   position: absolute;
-  top: 160vh;
+  top: calc(100vw * 5.26 * 0.165);
   left: 0;
   width: 100%;
   color: white;
@@ -137,6 +137,35 @@
   text-transform: uppercase;
   letter-spacing: 0.05em;
   margin: 0;
+}
+
+/* Laptop size optimizations */
+@media (min-width: 1280px) and (max-width: 1366px) {
+  /* 13" laptops */
+  .about {
+    top: calc(100vw * 5.26 * 0.164);
+  }
+}
+
+@media (min-width: 1366px) and (max-width: 1440px) {
+  /* 13-14" laptops */
+  .about {
+    top: calc(100vw * 5.26 * 0.165);
+  }
+}
+
+@media (min-width: 1440px) and (max-width: 1920px) {
+  /* 14-15" laptops */
+  .about {
+    top: calc(100vw * 5.26 * 0.166);
+  }
+}
+
+@media (min-width: 1920px) and (max-width: 2560px) {
+  /* 15-16" laptops */
+  .about {
+    top: calc(100vw * 5.26 * 0.167);
+  }
 }
 
 @media (max-width: 768px) {

@@ -1,6 +1,6 @@
 .tracks {
   position: absolute;
-  top: calc(160vh + 1000px);
+  top: calc(100vw * 5.26 * 0.286);
   left: 0;
   width: 100%;
   color: white;
@@ -48,4 +48,33 @@
   color: white;
   margin: 16rem 0 0 0;
   text-align: center;
+}
+
+/* Laptop size optimizations */
+@media (min-width: 1280px) and (max-width: 1366px) {
+  /* 13" laptops */
+  .tracks {
+    top: calc(100vw * 5.26 * 0.285);
+  }
+}
+
+@media (min-width: 1366px) and (max-width: 1440px) {
+  /* 13-14" laptops */
+  .tracks {
+    top: calc(100vw * 5.26 * 0.286);
+  }
+}
+
+@media (min-width: 1440px) and (max-width: 1920px) {
+  /* 14-15" laptops */
+  .tracks {
+    top: calc(100vw * 5.26 * 0.287);
+  }
+}
+
+@media (min-width: 1920px) and (max-width: 2560px) {
+  /* 15-16" laptops */
+  .tracks {
+    top: calc(100vw * 5.26 * 0.288);
+  }
 }

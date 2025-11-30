@@ -65,14 +65,20 @@
 
 html {
   background-color: transparent;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 body {
   margin: 0;
+  padding: 0;
   min-width: 320px;
-  min-height: 100vh;
   overflow-x: hidden;
+  overflow-y: auto;
   background-color: transparent;
+  height: calc(100vw * 5.26);
+  max-height: calc(100vw * 5.26);
 }
 
 * {

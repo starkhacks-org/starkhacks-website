@@ -1,6 +1,6 @@
 .faq {
 	position: absolute;
-	top: 5804px;
+	top: calc(100vw * 5.26 * 0.638);
 	left: 0;
 	width: 100%;
 	color: white;
@@ -60,6 +60,35 @@
 	line-height: 1.5;
 	color: rgba(255, 255, 255, 0.75);
 	margin: 0;
+}
+
+/* Laptop size optimizations */
+@media (min-width: 1280px) and (max-width: 1366px) {
+	/* 13" laptops */
+	.faq {
+		top: calc(100vw * 5.26 * 0.637);
+	}
+}
+
+@media (min-width: 1366px) and (max-width: 1440px) {
+	/* 13-14" laptops */
+	.faq {
+		top: calc(100vw * 5.26 * 0.638);
+	}
+}
+
+@media (min-width: 1440px) and (max-width: 1920px) {
+	/* 14-15" laptops */
+	.faq {
+		top: calc(100vw * 5.26 * 0.639);
+	}
+}
+
+@media (min-width: 1920px) and (max-width: 2560px) {
+	/* 15-16" laptops */
+	.faq {
+		top: calc(100vw * 5.26 * 0.64);
+	}
 }
 
 @media (max-width: 768px) {
