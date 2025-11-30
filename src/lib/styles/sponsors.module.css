@@ -20,15 +20,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.75rem;
   margin-bottom: 1rem;
-}
-
-.accentTriangle {
-  width: 18px;
-  height: 18px;
-  flex-shrink: 0;
-  display: block;
 }
 
 .title {
@@ -42,15 +34,66 @@
   letter-spacing: 0.05em;
 }
 
+.comingSoon {
+  font-family: "Demoarchimotov01", sans-serif;
+  font-weight: 500;
+  font-size: clamp(0.875rem, 2vw, 1rem);
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.75);
+  margin: 1rem auto 0;
+  text-align: center;
+  font-style: italic;
+}
+
 .subtitle {
   font-family: "Demoarchimotov01", sans-serif;
   font-weight: 500;
   font-size: clamp(0.875rem, 2vw, 1rem);
   line-height: 1.5;
   color: rgba(255, 255, 255, 0.75);
-  margin: 0;
+  margin: 2rem auto 0;
   max-width: 761px;
-  margin: 0 auto;
+}
+
+.subtitle a {
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.subtitle a:hover {
+  color: #ff8e2a;
+}
+
+.logoCollage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin: 1rem auto;
+  padding: 1rem;
+}
+
+.logoWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 240px;
+  height: 240px;
+}
+
+.logo {
+  object-fit: contain;
+  opacity: 0.9;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.logoWrapper:hover .logo {
+  opacity: 1;
+  transform: scale(1.05);
 }
 
 /* Laptop size optimizations */
@@ -58,6 +101,11 @@
   /* 13" laptops */
   .sponsors {
     top: calc(100vw * 5.26 * 0.519);
+  }
+
+  .logoWrapper {
+    width: 220px;
+    height: 220px;
   }
 }
 
@@ -79,5 +127,32 @@
   /* 15-16" laptops */
   .sponsors {
     top: calc(100vw * 5.26 * 0.522);
+  }
+
+  .logoWrapper {
+    width: 270px;
+    height: 270px;
+  }
+}
+
+@media (max-width: 768px) {
+  .logoCollage {
+    gap: 1.5rem;
+  }
+
+  .logoWrapper {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logoCollage {
+    gap: 1rem;
+  }
+
+  .logoWrapper {
+    width: 170px;
+    height: 170px;
   }
 }

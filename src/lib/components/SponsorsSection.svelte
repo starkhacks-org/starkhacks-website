@@ -5,15 +5,26 @@
 <section class={sponsorsStyles.sponsors}>
 	<div class={sponsorsStyles.content}>
 		<div class={sponsorsStyles.titleContainer}>
-			<img src="/triangle.svg" alt="" class={sponsorsStyles.accentTriangle} />
-			<h2 class={sponsorsStyles.title}>Sponsors</h2>
+			<h2 class={sponsorsStyles.title}>SPONSORS</h2>
 		</div>
-		<p class={sponsorsStyles.subtitle}>
-			Comming Soon! 
+		
+		<!-- Logo Collage -->
+		<div class={sponsorsStyles.logoCollage}>
+			<div class={sponsorsStyles.logoWrapper}>
+				<img src="/Ford_logo_flat.svg" alt="Ford" class={sponsorsStyles.logo} />
+			</div>
+			<div class={sponsorsStyles.logoWrapper}>
+				<img src="/Espressif_Logo.svg" alt="Espressif" class={sponsorsStyles.logo} />
+			</div>
+		</div>
+		
+		<p class={sponsorsStyles.comingSoon}>
+			and many more coming soon
 		</p>
-        <p class={sponsorsStyles.subtitle}>
-            Reach out to <a href="mailto:sponsors@starkhacks.com">sponsors@starkhacks.com</a> if you're interested in sponsorsing.
-        </p>
+		
+		<p class={sponsorsStyles.subtitle}>
+			Reach out to <a href="mailto:sponsorship@starkhacks.com">sponsorship@starkhacks.com</a> if you're interested in sponsoring.
+		</p>
 	</div>
 </section>
 
