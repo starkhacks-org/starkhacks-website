@@ -58,6 +58,47 @@
   flex-shrink: 1;
 }
 
+/* Ensure boxes don't overflow on smaller laptops */
+@media (min-width: 1024px) and (max-width: 1280px) {
+  .box {
+    width: calc((100% - 28px) / 3);
+    max-width: 320px;
+    min-width: 250px;
+  }
+
+  .boxContent {
+    padding: 15px clamp(15px, 3vw, 35px) 20px;
+  }
+
+  .headingSvg {
+    width: clamp(150px, 12vw, 180px);
+  }
+
+  .questionButton {
+    font-size: 13px;
+    line-height: 18px;
+    padding: 8px 0;
+  }
+
+  .answerText {
+    font-size: 13px;
+    line-height: 18px;
+  }
+
+  .questionsList {
+    font-size: 13px;
+  }
+
+  .boxSeparator {
+    width: clamp(16px, 1.5vw, 24px);
+    margin: 0 clamp(3px, 0.5vw, 6px);
+  }
+
+  .content {
+    padding: 0 clamp(1rem, 2.5vw, 40px);
+  }
+}
+
 .boxBackground {
   position: absolute;
   top: 0;
@@ -194,28 +235,207 @@
   flex-shrink: 0;
 }
 
-/* Laptop size optimizations */
+/* Small laptops (1280px - 1366px) */
 @media (min-width: 1280px) and (max-width: 1366px) {
   .faq {
     top: calc(100vw * 5.26 * 0.637);
   }
+
+  .content {
+    padding: 0 clamp(1rem, 3vw, 50px);
+  }
+
+  .box {
+    width: calc((100% - 30px) / 3);
+    max-width: 350px;
+    min-width: 260px;
+  }
+
+  .boxContent {
+    padding: 18px clamp(18px, 3.5vw, 40px) 25px;
+  }
+
+  .headingSvg {
+    width: clamp(160px, 13vw, 200px);
+  }
+
+  .title {
+    font-size: clamp(1.1rem, 2.2vw, 1.6rem);
+  }
+
+  .triangleIcon {
+    width: clamp(14px, 1.1vw, 16px);
+    height: clamp(14px, 1.1vw, 16px);
+  }
+
+  .questionButton {
+    font-size: 14px;
+    line-height: 20px;
+    padding: 10px 0;
+  }
+
+  .answerText {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .questionsList {
+    font-size: 14px;
+  }
+
+  .boxSeparator {
+    width: clamp(18px, 1.8vw, 28px);
+    margin: 0 clamp(3.5px, 0.6vw, 7px);
+  }
 }
 
+/* Standard laptops (1366px - 1440px) */
 @media (min-width: 1366px) and (max-width: 1440px) {
   .faq {
     top: calc(100vw * 5.26 * 0.638);
   }
+
+  .content {
+    padding: 0 clamp(1rem, 3.5vw, 60px);
+  }
+
+  .box {
+    width: calc((100% - 32px) / 3);
+    max-width: 380px;
+    min-width: 270px;
+  }
+
+  .boxContent {
+    padding: 20px clamp(20px, 3.8vw, 45px) 28px;
+  }
+
+  .headingSvg {
+    width: clamp(170px, 14vw, 220px);
+  }
+
+  .title {
+    font-size: clamp(1.2rem, 2.3vw, 1.75rem);
+  }
+
+  .triangleIcon {
+    width: clamp(15px, 1.2vw, 17px);
+    height: clamp(15px, 1.2vw, 17px);
+  }
+
+  .questionButton {
+    font-size: 15px;
+    line-height: 21px;
+  }
+
+  .answerText {
+    font-size: 15px;
+    line-height: 21px;
+  }
+
+  .questionsList {
+    font-size: 15px;
+  }
+
+  .boxSeparator {
+    width: clamp(20px, 1.9vw, 30px);
+    margin: 0 clamp(4px, 0.65vw, 8px);
+  }
 }
 
+/* Large laptops (1440px - 1920px) */
 @media (min-width: 1440px) and (max-width: 1920px) {
   .faq {
     top: calc(100vw * 5.26 * 0.639);
   }
+
+  .content {
+    padding: 0 clamp(1.5rem, 4vw, 75px);
+  }
+
+  .box {
+    width: calc((100% - 34px) / 3);
+    max-width: 400px;
+    min-width: 280px;
+  }
+
+  .boxContent {
+    padding: 20px clamp(20px, 4vw, 50px) 30px;
+  }
+
+  .headingSvg {
+    width: clamp(180px, 15vw, 236px);
+  }
+
+  .title {
+    font-size: clamp(1.3rem, 2.4vw, 1.9rem);
+  }
+
+  .triangleIcon {
+    width: clamp(16px, 1.3vw, 18px);
+    height: clamp(16px, 1.3vw, 18px);
+  }
+
+  .boxSeparator {
+    width: clamp(20px, 2vw, 32px);
+    margin: 0 clamp(4.25px, 0.68vw, 8.5px);
+  }
 }
 
-@media (min-width: 1920px) and (max-width: 2560px) {
+/* Full HD and larger (1920px+) */
+@media (min-width: 1920px) {
   .faq {
     top: calc(100vw * 5.26 * 0.64);
+  }
+
+  .content {
+    padding: 0 75px;
+    max-width: 1600px;
+  }
+
+  .box {
+    width: calc((100% - 34px) / 3);
+    max-width: 450px;
+    min-width: 300px;
+  }
+
+  .boxContent {
+    padding: 25px 55px 35px;
+  }
+
+  .headingSvg {
+    width: 236px;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .triangleIcon {
+    width: 18px;
+    height: 18px;
+  }
+
+  .boxSeparator {
+    width: 32px;
+    margin: 0 8.5px;
+  }
+}
+
+/* Medium screens - transition point */
+@media (min-width: 1200px) and (max-width: 1280px) {
+  .boxesContainer {
+    gap: 0;
+  }
+
+  .box {
+    width: calc((100% - 28px) / 3);
+    max-width: 330px;
+    min-width: 260px;
+  }
+
+  .boxSeparator {
+    width: clamp(18px, 1.7vw, 26px);
+    margin: 0 clamp(3.5px, 0.6vw, 7px);
   }
 }
 
