@@ -10,12 +10,16 @@
 		
 		<!-- Logo Collage -->
 		<div class={sponsorsStyles.logoCollage}>
-			<div class={sponsorsStyles.logoWrapper}>
-				<img src="/Ford_logo_flat.svg" alt="Ford" class={sponsorsStyles.logo} />
-			</div>
-			<div class={sponsorsStyles.logoWrapper}>
-				<img src="/Espressif_Logo.svg" alt="Espressif" class={sponsorsStyles.logo} />
-			</div>
+			<a href="https://ford.com" target="_blank" rel="noopener noreferrer" class={sponsorsStyles.logoLink}>
+				<div class={sponsorsStyles.logoWrapper}>
+					<img src="/Ford_logo_flat.svg" alt="Ford" class={sponsorsStyles.logo} />
+				</div>
+			</a>
+			<a href="https://www.espressif.com/" target="_blank" rel="noopener noreferrer" class={sponsorsStyles.logoLink}>
+				<div class={sponsorsStyles.logoWrapper}>
+					<img src="/Espressif_Logo.svg" alt="Espressif" class={sponsorsStyles.logo} />
+				</div>
+			</a>
 		</div>
 		
 		<p class={sponsorsStyles.comingSoon}>
