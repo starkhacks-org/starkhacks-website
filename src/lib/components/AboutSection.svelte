@@ -2,7 +2,7 @@
 	import aboutStyles from '../styles/about.module.css';
 </script>
 
-<section class={aboutStyles.about}>
+<section id="about" class={aboutStyles.about}>
 	<div class={aboutStyles.content}>
 		<!-- Title with Accent -->
 		<div class={aboutStyles.titleContainer}>

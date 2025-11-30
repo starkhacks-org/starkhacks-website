@@ -2,7 +2,7 @@
 	import sponsorsStyles from '../styles/sponsors.module.css';
 </script>
 
-<section class={sponsorsStyles.sponsors}>
+<section id="sponsors" class={sponsorsStyles.sponsors}>
 	<div class={sponsorsStyles.content}>
 		<div class={sponsorsStyles.titleContainer}>
 			<h2 class={sponsorsStyles.title}>SPONSORS</h2>

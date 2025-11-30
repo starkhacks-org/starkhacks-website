@@ -2,7 +2,7 @@
 	import tracksStyles from '../styles/tracks.module.css';
 </script>
 
-<section class={tracksStyles.tracks}>
+<section id="tracks" class={tracksStyles.tracks}>
 	<div class={tracksStyles.content}>
 		<div class={tracksStyles.titleContainer}>
 			<img src="/triangle.svg" alt="" class={tracksStyles.accentTriangle} />
