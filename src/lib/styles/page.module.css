@@ -1,12 +1,11 @@
 .pageWrapper {
   position: relative;
   width: 100%;
-  height: calc(100vw * 5.26);
-  max-height: calc(100vw * 5.26);
+  min-height: calc(100vw * 5.26);
   background-image: url("/full-hero.jpg");
   background-size: 100% auto; /* Cover full width, show full image height */
   background-position: top center;
   background-repeat: no-repeat;
   background-attachment: scroll;
-  overflow: hidden;
+  overflow-x: hidden;
 }

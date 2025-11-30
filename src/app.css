@@ -77,8 +77,7 @@ body {
   overflow-x: hidden;
   overflow-y: auto;
   background-color: transparent;
-  height: calc(100vw * 5.26);
-  max-height: calc(100vw * 5.26);
+  min-height: 100%;
 }
 
 * {
