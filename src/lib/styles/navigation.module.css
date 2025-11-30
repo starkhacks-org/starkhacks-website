@@ -29,25 +29,12 @@
   opacity: 0.8;
 }
 
-.logoIcon {
-  width: 70px;
-  height: 69px;
+.logoImg {
+  height: 50px;
+  width: auto;
   object-fit: contain;
   flex-shrink: 0;
   display: block;
-  image-rendering: -webkit-optimize-contrast;
-  image-rendering: crisp-edges;
-}
-
-.logoText {
-  width: 128px;
-  height: 42px;
-  object-fit: contain;
-  flex-shrink: 0;
-  display: block;
-  image-rendering: -webkit-optimize-contrast;
-  image-rendering: crisp-edges;
-  align-self: center;
 }
 
 .menu {
@@ -184,14 +171,8 @@
     padding: 1rem;
   }
 
-  .logoIcon {
-    width: 50px;
-    height: 49px;
-  }
-
-  .logoText {
-    width: 100px;
-    height: 32px;
+  .logoImg {
+    height: 40px;
   }
 
   .link {
@@ -218,14 +199,8 @@
     padding: 0.75rem;
   }
 
-  .logoIcon {
-    width: 40px;
-    height: 39px;
-  }
-
-  .logoText {
-    width: 80px;
-    height: 26px;
+  .logoImg {
+    height: 32px;
   }
 
   .link {

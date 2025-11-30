@@ -16,8 +16,7 @@
 <nav class={navStyles.nav}>
 	<div class={navStyles.container}>
 		<a href="/" class={navStyles.logo}>
-			<img src="/logo-icon.png" alt="StarkHacks Robot Icon" class={navStyles.logoIcon} />
-			<img src="/logo-text.png" alt="Humanoid Robot Club" class={navStyles.logoText} />
+			<img src="/StarkHacks.svg" alt="StarkHacks" class={navStyles.logoImg} />
 		</a>
 		
 		<button 
