@@ -1,0 +1,76 @@
+{
+  "general": [
+    {
+      "question": "What is Stark Hacks?",
+      "answer": "Stark Hacks is a 36-hour hardware hackathon at Purdue University where students design and build innovative projects to win exciting prizes!"
+    },
+    {
+      "question": "Who can participate?",
+      "answer": "Any university student with a passion for building - all majors and experience levels are welcome. Non-Purdue students must be over the age of 18 on April 17, 2026."
+    },
+    {
+      "question": "What do I bring?",
+      "answer": "Bring your laptop, student ID (PUID only) /government ID, and any personal tools or hardware you like to use toiletries, sleeping bag etc. We'll handle the rest."
+    },
+    {
+      "question": "Will hardware be provided?",
+      "answer": "Yes. Basic Components, sensors, and tools will be available in a kit for each team. List will be released close to the hackathon and you can also bring your own equipment."
+    },
+    {
+      "question": "Do I have to have a team to participate?",
+      "answer": "No, you do not need to be in a team."
+    },
+    {
+      "question": "How are teams formed?",
+      "answer": "You can come with a team of up to four members or find one during the opening mixer."
+    }
+  ],
+  "registration": [
+    {
+      "question": "How do I apply?",
+      "answer": "Submit your application at starkhacks.com/apply. Selected participants will receive confirmation via email."
+    },
+    {
+      "question": "Is there a registration fee?",
+      "answer": "No. Stark Hacks is completely free for all accepted participants."
+    },
+    {
+      "question": "Do I get guaranteed admission if I apply early?",
+      "answer": "No, priority applications don't guarantee admission - but they increase your chances since spots fill up quickly."
+    },
+    {
+      "question": "What's included for participants?",
+      "answer": "All meals during the hackathon along with plenty of snacks, energy drinks and tons of snacks are covered."
+    },
+    {
+      "question": "Can I register as an individual?",
+      "answer": "Yes! You can register solo and form a team during the event if you'd like."
+    },
+    {
+      "question": "When will registration close?",
+      "answer": "Priority Deadline: 16 January 2026\nRegular Deadline: 30 January 2026"
+    }
+  ],
+  "miscellaneous": [
+    {
+      "question": "Where is the venue?",
+      "answer": "The event takes place at the Purdue Armory, right on campus. Address: 812 3rd Street, West Lafayette, IN - 47907. Other details will be released closer to the hackathon"
+    },
+    {
+      "question": "Can I attend virtually?",
+      "answer": "The event is only offered in-person!"
+    },
+    {
+      "question": "Can I start on my project before the hackathon?",
+      "answer": "We will allow participants to work on aspects of the project a week before the hackathon. More details will be released closer to the hackathon itself."
+    },
+    {
+      "question": "What if I don't have an idea for what I want to build?",
+      "answer": "That's absolutely fine! Most participants come up with their ideas during the hackathon through brainstorming sessions, team discussions, and sponsor challenges."
+    },
+    {
+      "question": "Do you have travel reimbursements?",
+      "answer": "StarkHacks currently does not plan to offer travel reimbursements or sponsorship for participant travel. This may change in the future, and we will update the website and our socials. We recommend arranging your trip early to secure the best rates."
+    }
+  ]
+}

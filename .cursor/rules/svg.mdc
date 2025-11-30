@@ -1,0 +1,6 @@
+---
+description: copying svgs
+alwaysApply: false
+---
+
+- when given SVGs use cp to copy it to the project directory instead of copying text

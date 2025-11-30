@@ -1,60 +1,224 @@
 <script>
 	import faqStyles from '../styles/faq.module.css';
+	import faqData from '../data/faq.json';
+	import { onMount } from 'svelte';
+
+	/** @type {number | null} */
+	let expandedGeneral = null;
+	/** @type {number | null} */
+	let expandedRegistration = null;
+	/** @type {number | null} */
+	let expandedMiscellaneous = null;
+
+	/**
+	 * @param {'general' | 'registration' | 'miscellaneous'} category
+	 * @param {number} index
+	 * @param {MouseEvent} event
+	 */
+	function toggleQuestion(category, index, event) {
+		// Get the button that was clicked
+		const button = event.currentTarget;
+		if (!button || !(button instanceof HTMLButtonElement)) return;
+		
+		// Find the answer container (next sibling after button)
+		const answerContainer = button.nextElementSibling;
+		if (!answerContainer || !(answerContainer instanceof HTMLElement)) return;
+		
+		// Get all answer containers in the same category box
+		const box = button.closest(`.${faqStyles.box}`);
+		if (!box || !(box instanceof HTMLElement)) return;
+		
+		const allAnswers = box.querySelectorAll(`.${faqStyles.answerContainer}`);
+		
+		// Check if this question is currently expanded
+		const isCurrentlyExpanded = answerContainer.classList.contains('expanded');
+		
+		// Collapse all answers in this box first
+		allAnswers.forEach((/** @type {Element} */ answer) => {
+			if (answer instanceof HTMLElement) {
+				answer.classList.remove('expanded');
+				answer.style.maxHeight = '0';
+				answer.style.padding = '0';
+				answer.style.opacity = '0';
+			}
+		});
+		
+		// If it wasn't expanded, expand it now
+		if (!isCurrentlyExpanded) {
+			answerContainer.classList.add('expanded');
+			// Get the actual height of the content
+			const answerText = answerContainer.querySelector(`.${faqStyles.answerText}`);
+			if (answerText instanceof HTMLElement) {
+				const height = answerText.scrollHeight;
+				answerContainer.style.maxHeight = `${height + 24}px`; // Add padding
+				answerContainer.style.padding = '8px 0 16px';
+				answerContainer.style.opacity = '1';
+			}
+		}
+		
+		// Update state for reactivity
+		if (category === 'general') {
+			expandedGeneral = isCurrentlyExpanded ? null : index;
+		} else if (category === 'registration') {
+			expandedRegistration = isCurrentlyExpanded ? null : index;
+		} else if (category === 'miscellaneous') {
+			expandedMiscellaneous = isCurrentlyExpanded ? null : index;
+		}
+	}
+
+	/**
+	 * @param {'general' | 'registration' | 'miscellaneous'} category
+	 * @param {number} index
+	 * @returns {boolean}
+	 */
+	function isExpanded(category, index) {
+		if (category === 'general') {
+			return expandedGeneral === index;
+		} else if (category === 'registration') {
+			return expandedRegistration === index;
+		} else if (category === 'miscellaneous') {
+			return expandedMiscellaneous === index;
+		}
+		return false;
+	}
+
+	onMount(() => {
+		// Dynamic font sizing logic
+		function adjustFontSizes() {
+			const boxes = document.querySelectorAll(`.${faqStyles.box}`);
+			boxes.forEach((box) => {
+				/** @type {HTMLElement | null} */
+				const content = box.querySelector(`.${faqStyles.questionsList}`);
+				if (!content) return;
+
+				let fontSize = 16;
+				const minFontSize = 12;
+				content.style.fontSize = `${fontSize}px`;
+
+				// Check if content overflows
+				while (content.scrollHeight > content.clientHeight && fontSize > minFontSize) {
+					fontSize -= 0.5;
+					content.style.fontSize = `${fontSize}px`;
+				}
+			});
+		}
+
+		// Adjust on mount and window resize
+		setTimeout(adjustFontSizes, 100);
+		window.addEventListener('resize', adjustFontSizes);
+		return () => window.removeEventListener('resize', adjustFontSizes);
+	});
 </script>
 
 <section id="faq" class={faqStyles.faq}>
 	<div class={faqStyles.content}>
-		<h2 class={faqStyles.title}>FAQ</h2>
+		<h2 class={faqStyles.title}>
+			<img src="/triangle.svg" alt="" class={faqStyles.triangleIcon} />
+			FREQUENTLY ASKED QUESTIONS
+		</h2>
 		
-		<div class={faqStyles.columns}>
-			<div class={faqStyles.column}>
-				<h3 class={faqStyles.columnTitle}>General Questions</h3>
-				<p class={faqStyles.placeholder}>
-					<strong>What is Stark Hacks?</strong><br />
-					Stark Hacks is the world's largest hardware hackathon, bringing together hundreds of students to build innovative hardware projects over 36 hours.
-				</p>
-				<p class={faqStyles.placeholder}>
-					<strong>When and where is it?</strong><br />
-					The hackathon takes place on April 17-19, 2026. More details about the location will be announced soon.
-				</p>
-				<p class={faqStyles.placeholder}>
-					<strong>Who can participate?</strong><br />
-					Stark Hacks is open to all college students. No prior experience is required!
-				</p>
+		<div class={faqStyles.boxesContainer}>
+			<!-- General Box -->
+			<div class={faqStyles.box}>
+				<img src="/box-left.svg" alt="" class={faqStyles.boxBackground} />
+				<div class={faqStyles.boxContent}>
+					<div class={faqStyles.headingContainer}>
+						<img src="/general.svg" alt="GENERAL" class={faqStyles.headingSvg} />
+					</div>
+					<div class={faqStyles.questionsList}>
+						{#each faqData.general as question, index}
+							<div class={faqStyles.questionItem}>
+								<button
+									class={faqStyles.questionButton}
+									class:expanded={isExpanded('general', index)}
+									on:click={(e) => toggleQuestion('general', index, e)}
+									aria-expanded={isExpanded('general', index)}
+								>
+									<span class={faqStyles.questionText}>{question.question}</span>
+								</button>
+								<div
+									class={faqStyles.answerContainer}
+								>
+									<p class={faqStyles.answerText}>{question.answer}</p>
+								</div>
+								{#if index < faqData.general.length - 1}
+									<img src="/q-sep.svg" alt="" class={faqStyles.questionSeparator} />
+								{/if}
+							</div>
+						{/each}
+					</div>
+				</div>
 			</div>
-			
-			<div class={faqStyles.column}>
-				<h3 class={faqStyles.columnTitle}>Registration & Logistics</h3>
-				<p class={faqStyles.placeholder}>
-					<strong>How do I apply?</strong><br />
-					Click the "APPLY" button in the navigation bar to submit your application. Applications will be reviewed on a rolling basis.
-				</p>
-				<p class={faqStyles.placeholder}>
-					<strong>Is there a fee?</strong><br />
-					Stark Hacks is completely free to attend! Food, hardware, and all materials will be provided at no cost.
-				</p>
-				<p class={faqStyles.placeholder}>
-					<strong>What should I bring?</strong><br />
-					Bring your laptop, charger, and enthusiasm! All hardware components and tools will be provided on-site.
-				</p>
+
+			<!-- Separator between boxes -->
+			<img src="/seperator.svg" alt="" class={faqStyles.boxSeparator} />
+
+			<!-- Registration Box -->
+			<div class={faqStyles.box}>
+				<img src="/box-middle.svg" alt="" class={faqStyles.boxBackground} />
+				<div class={faqStyles.boxContent}>
+					<div class={faqStyles.headingContainer}>
+						<img src="/reg.svg" alt="REGISTRATION" class={faqStyles.headingSvg} />
+					</div>
+					<div class={faqStyles.questionsList}>
+						{#each faqData.registration as question, index}
+							<div class={faqStyles.questionItem}>
+								<button
+									class={faqStyles.questionButton}
+									class:expanded={isExpanded('registration', index)}
+									on:click={(e) => toggleQuestion('registration', index, e)}
+									aria-expanded={isExpanded('registration', index)}
+								>
+									<span class={faqStyles.questionText}>{question.question}</span>
+								</button>
+								<div
+									class={faqStyles.answerContainer}
+								>
+									<p class={faqStyles.answerText}>{question.answer}</p>
+								</div>
+								{#if index < faqData.registration.length - 1}
+									<img src="/q-sep.svg" alt="" class={faqStyles.questionSeparator} />
+								{/if}
+							</div>
+						{/each}
+					</div>
+				</div>
 			</div>
-			
-			<div class={faqStyles.column}>
-				<h3 class={faqStyles.columnTitle}>Competition Details</h3>
-				<p class={faqStyles.placeholder}>
-					<strong>What are the tracks?</strong><br />
-					More information about competition tracks will be announced soon. Stay tuned for updates!
-				</p>
-				<p class={faqStyles.placeholder}>
-					<strong>What's the prize pool?</strong><br />
-					This year's prize pool totals $100K, with prizes distributed across multiple categories and tracks.
-				</p>
-				<p class={faqStyles.placeholder}>
-					<strong>How are projects judged?</strong><br />
-					Projects will be evaluated based on innovation, technical complexity, execution, and potential impact. Detailed judging criteria will be shared before the event.
-				</p>
+
+			<!-- Separator between boxes -->
+			<img src="/seperator.svg" alt="" class={faqStyles.boxSeparator} />
+
+			<!-- Miscellaneous Box -->
+			<div class={faqStyles.box}>
+				<img src="/box-right.svg" alt="" class={faqStyles.boxBackground} />
+				<div class={faqStyles.boxContent}>
+					<div class={faqStyles.headingContainer}>
+						<img src="/misc.svg" alt="MISCELLANEOUS" class={faqStyles.headingSvg} />
+					</div>
+					<div class={faqStyles.questionsList}>
+						{#each faqData.miscellaneous as question, index}
+							<div class={faqStyles.questionItem}>
+								<button
+									class={faqStyles.questionButton}
+									class:expanded={isExpanded('miscellaneous', index)}
+									on:click={(e) => toggleQuestion('miscellaneous', index, e)}
+									aria-expanded={isExpanded('miscellaneous', index)}
+								>
+									<span class={faqStyles.questionText}>{question.question}</span>
+								</button>
+								<div
+									class={faqStyles.answerContainer}
+								>
+									<p class={faqStyles.answerText}>{question.answer}</p>
+								</div>
+								{#if index < faqData.miscellaneous.length - 1}
+									<img src="/q-sep.svg" alt="" class={faqStyles.questionSeparator} />
+								{/if}
+							</div>
+						{/each}
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
 </section>
-

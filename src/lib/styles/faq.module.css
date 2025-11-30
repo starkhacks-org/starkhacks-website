@@ -1,99 +1,301 @@
 .faq {
-	position: absolute;
-	top: calc(100vw * 5.26 * 0.638);
-	left: 0;
-	width: 100%;
-	color: white;
-	z-index: 1;
+  position: absolute;
+  top: calc(100vw * 5.26 * 0.638);
+  left: 0;
+  width: 100%;
+  color: white;
+  z-index: 1;
 }
 
 .content {
-	position: relative;
-	z-index: 2;
-	max-width: 1200px;
-	margin: 0 auto;
-	padding: 2rem;
+  position: relative;
+  z-index: 2;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 clamp(1rem, 4vw, 75px);
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 .title {
-	font-family: 'Demoarchimotov01', sans-serif;
-	font-weight: 500;
-	font-size: clamp(2rem, 5vw, 3.125rem);
-	line-height: 1.2;
-	color: white;
-	margin: 0 0 2rem 0;
-	text-transform: uppercase;
-	letter-spacing: 0.05em;
-	text-align: center;
+  font-family: "Demoarchimotov01", sans-serif;
+  font-weight: 500;
+  font-size: clamp(1.25rem, 2.5vw, 2rem);
+  line-height: 1.2;
+  color: white;
+  margin: 0 0 3rem 0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
-.columns {
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	gap: 2rem;
-	max-width: 1000px;
-	margin: 0 auto;
+.triangleIcon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
 }
 
-.column {
-	border: 2px solid rgba(255, 142, 42, 0.3);
-	border-radius: 8px;
-	padding: 1.5rem;
-	background: rgba(137, 137, 137, 0.05);
-	backdrop-filter: blur(45px);
+.boxesContainer {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0;
+  position: relative;
+  flex-wrap: nowrap;
+  max-width: 100%;
+  width: 100%;
 }
 
-.columnTitle {
-	font-family: 'Demoarchimotov01', sans-serif;
-	font-weight: 500;
-	font-size: clamp(1rem, 2vw, 1.25rem);
-	color: #ff8e2a;
-	margin: 0 0 1rem 0;
-	text-transform: uppercase;
-	letter-spacing: 0.05em;
+.box {
+  position: relative;
+  width: calc((100% - 34px) / 3);
+  max-width: 400px;
+  min-width: 280px;
+  height: clamp(500px, 80vh, 780px);
+  flex-shrink: 1;
 }
 
-.placeholder {
-	font-family: 'Demoarchimotov01', sans-serif;
-	font-weight: 500;
-	font-size: clamp(0.875rem, 1.5vw, 1rem);
-	line-height: 1.5;
-	color: rgba(255, 255, 255, 0.75);
-	margin: 0;
+.boxBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.boxContent {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 20px clamp(20px, 4vw, 50px) 30px;
+  box-sizing: border-box;
+}
+
+.headingContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.headingSvg {
+  width: clamp(180px, 15vw, 236px);
+  height: auto;
+  object-fit: contain;
+}
+
+.questionsList {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 10px;
+  font-size: 16px;
+}
+
+.questionsList::-webkit-scrollbar {
+  width: 4px;
+}
+
+.questionsList::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.questionsList::-webkit-scrollbar-thumb {
+  background: rgba(255, 142, 42, 0.5);
+  border-radius: 2px;
+}
+
+.questionItem {
+  margin-bottom: 0;
+}
+
+.questionButton {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 12px 0;
+  text-align: left;
+  cursor: pointer;
+  color: white;
+  font-family: "Demoarchimotov01", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 22px;
+  transition: color 0.2s ease;
+  position: relative;
+}
+
+.questionButton:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.questionButton.expanded {
+  color: white;
+}
+
+.questionText {
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.answerContainer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    padding 0.3s ease-out, opacity 0.3s ease-out;
+  padding: 0;
+  opacity: 0;
+}
+
+/* Expanded state - will be applied via JavaScript */
+.answerContainer.expanded {
+  padding: 8px 0 16px;
+  opacity: 1;
+  transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), padding 0.3s ease-in,
+    opacity 0.3s ease-in;
+}
+
+.answerText {
+  font-family: "Demoarchimotov01", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 22px;
+  color: rgba(255, 255, 255, 0.65);
+  margin: 0;
+  padding-top: 8px;
+}
+
+.questionSeparator {
+  width: 100%;
+  max-width: 376px;
+  height: 2px;
+  margin: 12px 0;
+  display: block;
+  opacity: 1;
+}
+
+.boxSeparator {
+  width: clamp(20px, 2vw, 32px);
+  height: clamp(150px, 15vh, 241px);
+  object-fit: contain;
+  margin: 0 clamp(4.25px, 0.68vw, 8.5px);
+  align-self: center;
+  flex-shrink: 0;
 }
 
 /* Laptop size optimizations */
 @media (min-width: 1280px) and (max-width: 1366px) {
-	/* 13" laptops */
-	.faq {
-		top: calc(100vw * 5.26 * 0.637);
-	}
+  .faq {
+    top: calc(100vw * 5.26 * 0.637);
+  }
 }
 
 @media (min-width: 1366px) and (max-width: 1440px) {
-	/* 13-14" laptops */
-	.faq {
-		top: calc(100vw * 5.26 * 0.638);
-	}
+  .faq {
+    top: calc(100vw * 5.26 * 0.638);
+  }
 }
 
 @media (min-width: 1440px) and (max-width: 1920px) {
-	/* 14-15" laptops */
-	.faq {
-		top: calc(100vw * 5.26 * 0.639);
-	}
+  .faq {
+    top: calc(100vw * 5.26 * 0.639);
+  }
 }
 
 @media (min-width: 1920px) and (max-width: 2560px) {
-	/* 15-16" laptops */
-	.faq {
-		top: calc(100vw * 5.26 * 0.64);
-	}
+  .faq {
+    top: calc(100vw * 5.26 * 0.64);
+  }
+}
+
+/* Tablet and smaller screens */
+@media (max-width: 1200px) {
+  .boxesContainer {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .box {
+    width: 100%;
+    max-width: 491px;
+    height: auto;
+    min-height: 600px;
+  }
+
+  .boxSeparator {
+    transform: rotate(90deg);
+    width: 241px;
+    height: 32px;
+    margin: 20px 0;
+  }
+
+  .content {
+    padding: 0 2rem;
+  }
+
+  .title {
+    padding-left: 0;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .triangleIcon {
+    position: static;
+  }
 }
 
 @media (max-width: 768px) {
-	.columns {
-		grid-template-columns: 1fr;
-	}
-}
+  .content {
+    padding: 0 1rem;
+  }
 
+  .title {
+    font-size: clamp(1.5rem, 6vw, 2rem);
+    margin-bottom: 2rem;
+  }
+
+  .box {
+    max-width: 100%;
+    min-height: 500px;
+  }
+
+  .boxContent {
+    padding: 15px 20px 20px;
+  }
+
+  .headingSvg {
+    width: 180px;
+    height: auto;
+  }
+
+  .questionsList {
+    font-size: 14px;
+  }
+
+  .questionButton {
+    font-size: 14px;
+    line-height: 20px;
+    padding: 10px 0;
+  }
+
+  .answerText {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .questionSeparator {
+    width: 100%;
+  }
+}
