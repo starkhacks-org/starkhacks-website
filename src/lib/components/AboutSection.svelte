@@ -33,7 +33,7 @@
 				<div class={aboutStyles.statCard}>
 					<img src="/stat-dollar.svg" alt="" class={aboutStyles.statBoxIcon} />
 					<div class={aboutStyles.statText}>
-						<div class={aboutStyles.statValue}>$100 K</div>
+						<div class={aboutStyles.statValue}>$100K</div>
 						<div class={aboutStyles.statLabel}>PRIZE POOL</div>
 					</div>
 				</div>

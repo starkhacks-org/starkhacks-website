@@ -1,6 +1,6 @@
 .sponsors {
   position: absolute;
-  top: calc(160vh + 2800px);
+  top: calc(100vw * 5.26 * 0.52);
   left: 0;
   width: 100%;
   color: white;
@@ -51,4 +51,33 @@
   margin: 0;
   max-width: 761px;
   margin: 0 auto;
+}
+
+/* Laptop size optimizations */
+@media (min-width: 1280px) and (max-width: 1366px) {
+  /* 13" laptops */
+  .sponsors {
+    top: calc(100vw * 5.26 * 0.519);
+  }
+}
+
+@media (min-width: 1366px) and (max-width: 1440px) {
+  /* 13-14" laptops */
+  .sponsors {
+    top: calc(100vw * 5.26 * 0.52);
+  }
+}
+
+@media (min-width: 1440px) and (max-width: 1920px) {
+  /* 14-15" laptops */
+  .sponsors {
+    top: calc(100vw * 5.26 * 0.521);
+  }
+}
+
+@media (min-width: 1920px) and (max-width: 2560px) {
+  /* 15-16" laptops */
+  .sponsors {
+    top: calc(100vw * 5.26 * 0.522);
+  }
 }

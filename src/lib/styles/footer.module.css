@@ -1,10 +1,10 @@
 .footer {
   position: absolute;
-  top: calc(100vw * 5.26 - 200px);
+  top: calc(100vw * 5.26 * 0.96);
   left: 0;
   width: 100%;
   height: auto;
-  min-height: 150px;
+  max-height: calc(100vw * 5.26 * 0.04);
   background-color: transparent;
   color: white;
   z-index: 1;
@@ -62,4 +62,37 @@
 
 .clubLink:hover {
   opacity: 0.8;
+}
+
+/* Laptop size optimizations */
+@media (min-width: 1280px) and (max-width: 1366px) {
+  /* 13" laptops */
+  .footer {
+    top: calc(100vw * 5.26 * 0.959);
+    max-height: calc(100vw * 5.26 * 0.041);
+  }
+}
+
+@media (min-width: 1366px) and (max-width: 1440px) {
+  /* 13-14" laptops */
+  .footer {
+    top: calc(100vw * 5.26 * 0.96);
+    max-height: calc(100vw * 5.26 * 0.04);
+  }
+}
+
+@media (min-width: 1440px) and (max-width: 1920px) {
+  /* 14-15" laptops */
+  .footer {
+    top: calc(100vw * 5.26 * 0.961);
+    max-height: calc(100vw * 5.26 * 0.039);
+  }
+}
+
+@media (min-width: 1920px) and (max-width: 2560px) {
+  /* 15-16" laptops */
+  .footer {
+    top: calc(100vw * 5.26 * 0.962);
+    max-height: calc(100vw * 5.26 * 0.038);
+  }
 }
