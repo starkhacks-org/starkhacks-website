@@ -107,6 +107,31 @@
   object-fit: contain;
 }
 
+.socialMediaContainer {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-left: 0;
+  transform: translateY(-0.2rem);
+}
+
+.socialLink {
+  display: inline-block;
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.socialLink:hover {
+  opacity: 0.8;
+  transform: scale(1.1);
+}
+
+.socialIcon {
+  width: 1.5rem;
+  height: 1.5rem;
+  display: block;
+  filter: brightness(0) invert(1);
+}
+
 .mobileToggle {
   display: none;
   flex-direction: column;
@@ -174,6 +199,12 @@
     opacity: 1;
   }
 
+  .socialMediaContainer {
+    justify-content: center;
+    margin-left: 0;
+    margin-top: 0.5rem;
+  }
+
   .menu:global(.open) {
     transform: translateX(0) !important;
   }
@@ -228,6 +259,11 @@
     width: 73px;
     height: 11px;
   }
+
+  .socialIcon {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
 }
 
 @media (max-width: 480px) {
@@ -255,5 +291,10 @@
   .applyTextSvg {
     width: 63px;
     height: 10px;
+  }
+
+  .socialIcon {
+    width: 1.1rem;
+    height: 1.1rem;
   }
 }

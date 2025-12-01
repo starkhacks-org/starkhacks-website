@@ -78,6 +78,17 @@
 			<li role="none"><a href="#speakers" class={navStyles.link} on:click={closeMenu} role="menuitem">SPEAKERS</a></li>
 			<li role="none"><a href="#sponsors" class={navStyles.link} on:click={closeMenu} role="menuitem">SPONSORS</a></li>
 			<li role="none"><a href="#faq" class={navStyles.link} on:click={closeMenu} role="menuitem">FAQ</a></li>
+			<li role="none" class={navStyles.socialMediaContainer}>
+				<a href="https://www.instagram.com/humanoid.purdue/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class={navStyles.socialLink}>
+					<img src="/icon-instagram.svg" alt="Instagram" class={navStyles.socialIcon} />
+				</a>
+				<a href="https://www.linkedin.com/company/humanoid-purdue/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class={navStyles.socialLink}>
+					<img src="/icon-linkedin.svg" alt="LinkedIn" class={navStyles.socialIcon} />
+				</a>
+				<a href="https://x.com/HumanoidPurdue" target="_blank" rel="noopener noreferrer" aria-label="Twitter" class={navStyles.socialLink}>
+					<img src="/icon-twitter.svg" alt="Twitter" class={navStyles.socialIcon} />
+				</a>
+			</li>
 			<li role="none">
 				<a href={getApplyUrl()} target="_blank" rel="noopener noreferrer" class={navStyles.joinButton} on:click={closeMenu} role="menuitem">
 					<img src="/apply-box.svg" alt="" class={navStyles.applyBoxSvg} />
