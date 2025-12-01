@@ -17,6 +17,6 @@ export function isApplicationOpen(): boolean {
  * @returns '/apply' if applications are open, '/coming-soon' otherwise
  */
 export function getApplyUrl(): string {
-	return isApplicationOpen() ? '/apply' : '/coming-soon';
+	return '/apply';
 }
 

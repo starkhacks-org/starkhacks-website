@@ -79,7 +79,7 @@
 			<li role="none"><a href="#sponsors" class={navStyles.link} on:click={closeMenu} role="menuitem">SPONSORS</a></li>
 			<li role="none"><a href="#faq" class={navStyles.link} on:click={closeMenu} role="menuitem">FAQ</a></li>
 			<li role="none">
-				<a href={getApplyUrl()} class={navStyles.joinButton} on:click={closeMenu} role="menuitem">
+				<a href={getApplyUrl()} target="_blank" rel="noopener noreferrer" class={navStyles.joinButton} on:click={closeMenu} role="menuitem">
 					<img src="/apply-box.svg" alt="" class={navStyles.applyBoxSvg} />
 					<img src="/apply-text.svg" alt="APPLY" class={navStyles.applyTextSvg} />
 				</a>

@@ -3,7 +3,7 @@
 	
 	function handleApplyClick() {
 		// Open apply page in new tab
-		window.open('https://starkhacks.com/apply', '_blank');
+		window.open('/apply', '_blank');
 	}
 </script>
 
