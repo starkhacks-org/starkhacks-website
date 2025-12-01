@@ -33,7 +33,10 @@
 				<div class={aboutStyles.statCard}>
 					<img src="/stat-dollar.svg" alt="" class={aboutStyles.statBoxIcon} />
 					<div class={aboutStyles.statText}>
-						<div class={aboutStyles.statValue}>$100K</div>
+						<div class={aboutStyles.statValue}>
+							<span class={aboutStyles.desktopOnly}>$100,000</span>
+							<span class={aboutStyles.mobileOnly}>$100K</span>
+						</div>
 						<div class={aboutStyles.statLabel}>PRIZE POOL</div>
 					</div>
 				</div>
@@ -42,7 +45,10 @@
 				<div class={aboutStyles.statCard}>
 					<img src="/stat-globe.svg" alt="" class={aboutStyles.statBoxIcon} />
 					<div class={aboutStyles.statText}>
-						<div class={aboutStyles.statLabel}>OPEN TO ALL<br />COLLEGE STUDENTS</div>
+						<div class={aboutStyles.statLabel}>
+							<span class={aboutStyles.desktopOnly}>OPEN TO<br />STUDENTS</span>
+							<span class={aboutStyles.mobileOnly}>OPEN TO ALL<br />COLLEGE STUDENTS</span>
+						</div>
 					</div>
 				</div>
 				
@@ -59,7 +65,10 @@
 				<div class={aboutStyles.statCard}>
 					<img src="/stat-person.svg" alt="" class={aboutStyles.statBoxIcon} />
 					<div class={aboutStyles.statText}>
-						<div class={aboutStyles.statValue}>500+</div>
+						<div class={aboutStyles.statValue}>
+							<span class={aboutStyles.desktopOnly}>600+</span>
+							<span class={aboutStyles.mobileOnly}>500+</span>
+						</div>
 						<div class={aboutStyles.statLabel}>PARTICIPANTS</div>
 					</div>
 				</div>

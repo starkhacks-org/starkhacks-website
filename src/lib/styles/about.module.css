@@ -41,8 +41,8 @@
 }
 
 .description {
-  font-family: "Demoarchimotov01", sans-serif;
-  font-weight: 500;
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 400;
   font-size: clamp(0.875rem, 2vw, 1rem);
   line-height: 1.5;
   color: rgba(255, 255, 255, 0.75);
@@ -55,8 +55,8 @@
 }
 
 .callToAction {
-  font-family: "Demoarchimotov01", sans-serif;
-  font-weight: 500;
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 400;
   font-size: clamp(0.875rem, 2vw, 1rem);
   line-height: 1.5;
   color: white;
@@ -120,7 +120,7 @@
 }
 
 .statValue {
-  font-family: "Demoarchimotov01", sans-serif;
+  font-family: "Space Grotesk", sans-serif;
   font-weight: 500;
   font-size: clamp(1.25rem, 2vw, 1.5rem);
   line-height: 1.2;
@@ -137,6 +137,15 @@
   text-transform: uppercase;
   letter-spacing: 0.05em;
   margin: 0;
+  white-space: nowrap;
+}
+
+.desktopOnly {
+  display: block;
+}
+
+.mobileOnly {
+  display: none;
 }
 
 /* Laptop size optimizations */
@@ -207,5 +216,13 @@
 
   .statLabel {
     font-size: clamp(0.875rem, 1.2vw, 1rem);
+  }
+
+  .desktopOnly {
+    display: none;
+  }
+
+  .mobileOnly {
+    display: block;
   }
 }
