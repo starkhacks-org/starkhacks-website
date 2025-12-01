@@ -122,7 +122,7 @@
 	<div class={faqStyles.content}>
 		<h2 class={faqStyles.title}>
 			<img src="/triangle.svg" alt="" class={faqStyles.triangleIcon} />
-			FREQUENTLY ASKED QUESTIONS
+			FAQ
 		</h2>
 		
 		<div class={faqStyles.boxesContainer}>
