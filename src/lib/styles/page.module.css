@@ -16,15 +16,22 @@
   .pageWrapper {
     /* Use mobile-specific background image */
     background-image: url("/full-hero-mobile.jpg");
-    /* Ensure full image height is scrollable */
-    min-height: calc(100vw * 5.26);
-    height: calc(100vw * 5.26);
-    overflow-y: auto;
+    /* Push background image down a bit */
+    background-position: top 60px center;
+    /* Ensure full image height is scrollable, extend to include FAQ section */
+    min-height: calc(100vw * 5.26 + 350px);
+    height: auto;
+    overflow-y: visible;
     overflow-x: hidden;
   }
 
   /* Hide all direct children (all sections) on mobile */
   .pageWrapper > :global(*) {
     display: none !important;
+  }
+
+  /* Show FAQ section on mobile */
+  .pageWrapper > :global(#faq) {
+    display: block !important;
   }
 }

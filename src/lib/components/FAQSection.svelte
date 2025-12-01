@@ -50,8 +50,13 @@
 			const answerText = answerContainer.querySelector(`.${faqStyles.answerText}`);
 			if (answerText instanceof HTMLElement) {
 				const height = answerText.scrollHeight;
-				answerContainer.style.maxHeight = `${height + 24}px`; // Add padding
-				answerContainer.style.padding = '8px 0 16px';
+				// Use smaller padding on mobile
+				const isMobile = window.innerWidth <= 768;
+				const padding = isMobile ? 6 : 24;
+				const paddingTop = isMobile ? '2px' : '8px';
+				const paddingBottom = isMobile ? '4px' : '16px';
+				answerContainer.style.maxHeight = `${height + padding}px`;
+				answerContainer.style.padding = `${paddingTop} 0 ${paddingBottom}`;
 				answerContainer.style.opacity = '1';
 			}
 		}
@@ -83,8 +88,11 @@
 	}
 
 	onMount(() => {
-		// Dynamic font sizing logic
+		// Dynamic font sizing logic (skip on mobile to prevent glitches)
 		function adjustFontSizes() {
+			// Skip on mobile devices
+			if (window.innerWidth <= 768) return;
+			
 			const boxes = document.querySelectorAll(`.${faqStyles.box}`);
 			boxes.forEach((box) => {
 				/** @type {HTMLElement | null} */
