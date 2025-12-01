@@ -8,6 +8,9 @@
 	let toggleButton;
 	
 	function toggleMobileMenu() {
+		// Only toggle on mobile/tablet
+		if (window.innerWidth > 1024) return;
+		
 		mobileMenuOpen = !mobileMenuOpen;
 		
 		if (menuElement) {
@@ -26,6 +29,9 @@
 	}
 	
 	function closeMenu() {
+		// Only close on mobile/tablet
+		if (window.innerWidth > 1024) return;
+		
 		mobileMenuOpen = false;
 		if (menuElement) {
 			menuElement.classList.remove('open');
@@ -37,10 +43,13 @@
 	}
 	
 	onMount(() => {
-		// Ensure menu is closed on mount
-		if (menuElement) {
+		// Ensure menu is closed on mount, but only apply transform on mobile
+		if (menuElement && window.innerWidth <= 1024) {
 			menuElement.classList.remove('open');
 			menuElement.style.transform = 'translateX(100%)';
+		} else if (menuElement) {
+			// On desktop, ensure no transform is applied
+			menuElement.style.transform = '';
 		}
 	});
 </script>
