@@ -16,7 +16,7 @@
 				Stark Hacks is the world's largest hardware hackathon, a 36-hour engineering marathon where ideas come off the screen and into real circuits.
 			</p>
 			<p class={aboutStyles.paragraph}>
-				Organized by the Humanoid Robot Club, hundreds of students prototype, solder, test, and create side by side. This spring, we're setting an official Guinness World Record for World's Largest Hardware Hackathon.
+				Organized by the Humanoid Robot Club, hundreds of students prototype, solder, test, and create side by side. This spring, we're setting an official World Record for World's Largest Hardware Hackathon.
 			</p>
 		</div>
 		

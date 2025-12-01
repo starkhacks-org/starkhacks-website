@@ -20,10 +20,10 @@
 			Choose your field. <span class={tracksStyles.highlight}>Build your breakthrough.</span>
 		</p>
 		
-		<div class={tracksStyles.tracksContainer}>
-			{#each tracks as track, index}
-				<div class={tracksStyles.trackItem}>
-					<div class={tracksStyles.headingBox}>
+		<div class={tracksStyles.tracksWrapper}>
+			<div class={tracksStyles.headingBoxes}>
+				{#each tracks as track, index}
+					<div class={tracksStyles.headingBox} data-track-index={index}>
 						<img src="/outer-box.svg" alt="" class={tracksStyles.outerBoxSvg} />
 						<div class={tracksStyles.trackName}>
 							{#each track.lines as line}
@@ -31,10 +31,11 @@
 							{/each}
 						</div>
 					</div>
-					<div class={tracksStyles.imageBox} data-track-index={index} role="img" aria-label={track.name}>
-					</div>
-				</div>
-			{/each}
+				{/each}
+			</div>
+			<div class={tracksStyles.boxesImageContainer}>
+				<img src="/boxes.svg" alt="Tracks" class={tracksStyles.boxesSvg} />
+			</div>
 		</div>
 	</div>
 </section>

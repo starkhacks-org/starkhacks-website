@@ -21,6 +21,8 @@
   align-items: center;
   gap: 0.75rem;
   margin-bottom: 0.5rem;
+  margin-left: 7rem;
+  justify-content: flex-start;
 }
 
 .accentTriangle {
@@ -47,43 +49,45 @@
   font-size: clamp(0.875rem, 2vw, 1rem);
   line-height: 1.5;
   color: white;
-  margin: 0 0 2rem 0;
+  margin: 0 0 2rem 7rem;
 }
 
 .highlight {
   color: #ff8e2a;
 }
 
-.tracksContainer {
+.tracksWrapper {
+  position: relative;
+  margin-top: 5rem;
   display: flex;
-  gap: 2.5rem;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.headingBoxes {
+  display: flex;
   justify-content: center;
   align-items: flex-start;
   flex-wrap: nowrap;
-  margin-top: 2rem;
+  gap: 1.5rem;
+  margin-bottom: 0.5rem;
+  margin-left: -5rem;
   width: 100%;
-  overflow-x: auto;
+  position: relative;
+  z-index: 2;
 }
 
 @media (max-width: 1400px) {
-  .tracksContainer {
-    gap: 2rem;
+  .headingBoxes {
+    gap: 1.25rem;
   }
 }
 
 @media (max-width: 1200px) {
-  .tracksContainer {
-    gap: 1.5rem;
+  .headingBoxes {
+    gap: 1rem;
   }
-}
-
-.trackItem {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-  flex: 0 0 auto;
-  width: 300px;
 }
 
 .headingBox {
@@ -110,12 +114,12 @@
   z-index: 1;
   font-family: "Demoarchimotov01", sans-serif;
   font-weight: 500;
-  font-size: clamp(1.1rem, 1.5vw, 1.47rem);
+  font-size: clamp(0.95rem, 1.3vw, 1.3rem);
   line-height: normal;
   color: white;
   text-align: center;
   margin: 0;
-  padding: 0 1rem;
+  padding: 0 0.25rem;
   text-transform: uppercase;
 }
 
@@ -125,40 +129,21 @@
   white-space: nowrap;
 }
 
-.imageBox {
+.boxesImageContainer {
   position: relative;
-  width: 300px;
-  height: 240px;
-  overflow: hidden;
-  background-image: url('/boxes.svg');
-  background-repeat: no-repeat;
-  flex-shrink: 0;
-  /* Scale to fit height: 240px / 390px = 0.615, so width becomes 1327 * 0.615 = 816px */
-  background-size: 816px 240px;
+  width: 100%;
+  max-width: 1200px;
+  height: 360px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-/* Position each track's image from boxes.svg */
-/* SVG is 1327px wide, scaled to 816px (scale factor 0.6153846) */
-/* Scale factor: 240/390 = 0.6153846 */
-/* Background positions: (x_position - 27) * 0.6153846 */
-/* Track 1: Space Exploration - images at x=92, center around x=180 */
-.imageBox[data-track-index="0"] {
-  background-position: -40px -9px;
-}
-
-/* Track 2: Gaming/Entertainment - images at x=396.583, center around x=485 */
-.imageBox[data-track-index="1"] {
-  background-position: -227px -9px;
-}
-
-/* Track 3: Wearable Technology - images at x=667.284, center around x=755 */
-.imageBox[data-track-index="2"] {
-  background-position: -394px -9px;
-}
-
-/* Track 4: AI & Automation - images at x=965, center around x=1053 */
-.imageBox[data-track-index="3"] {
-  background-position: -577px -9px;
+.boxesSvg {
+  width: 100%;
+  height: 100%;
+  max-width: 1200px;
+  object-fit: contain;
 }
 
 /* Laptop size optimizations */
