@@ -524,9 +524,8 @@
 
 @media (max-width: 768px) {
   .faq {
-    /* Position FAQ on mobile background image, accounting for 60px offset */
-    /* Maintain similar proportional positioning as desktop (63.8% of image height) */
-    top: calc(100vw * 5.26 * 0.638 + 60px);
+    /* Position FAQ on mobile background image - moved down very slightly */
+    top: calc(100vw * 5.26 * 0.605);
     /* Ensure FAQ doesn't prevent scrolling */
     position: absolute;
     width: 100%;
@@ -545,8 +544,8 @@
 
   .title {
     font-size: clamp(0.625rem, 3vw, 0.875rem);
-    margin-bottom: 0.5rem;
-    margin-top: 1rem;
+    margin-bottom: -2rem;
+    margin-top: 4.75rem;
     gap: 4px;
     letter-spacing: 0.02em;
     text-align: left;
@@ -592,7 +591,7 @@
   }
 
   .boxContent {
-    padding: 24px 5px 8px;
+    padding: 58px 5px 8px;
     height: 100%;
     overflow: hidden;
     box-sizing: border-box;

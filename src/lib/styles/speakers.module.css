@@ -94,8 +94,7 @@
 
 @media (max-width: 768px) {
   .speakers {
-    /* 60px → 3.75rem to avoid hard pixel offset while keeping similar spacing */
-    top: calc(100vw * 5.26 * 0.48 + 3.75rem);
+    top: calc(100vw * 5.26 * 0.48);
     position: absolute;
     width: 100%;
     left: 0;

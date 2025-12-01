@@ -117,8 +117,7 @@
 
 @media (max-width: 768px) {
   .apply {
-    /* 60px → 3.75rem */
-    top: calc(100vw * 5.26 * 0.83 + 3.75rem);
+    top: calc(100vw * 5.26 * 0.83);
     position: absolute;
     width: 100%;
     left: 0;

@@ -140,7 +140,7 @@
 @media (max-width: 768px) {
   .errorWrapper {
     background-image: url("/full-hero-mobile.jpg");
-    background-position: top 60px center;
+    background-position: top center;
     min-height: 100vh;
     padding-bottom: 150px;
   }

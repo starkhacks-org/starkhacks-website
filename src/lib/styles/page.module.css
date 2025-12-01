@@ -16,8 +16,8 @@
   .pageWrapper {
     /* Use mobile-specific background image */
     background-image: url("/full-hero-mobile.jpg");
-    /* Push background image down a bit */
-    background-position: top 60px center;
+    /* Background image starts from top since navbar is hidden */
+    background-position: top center;
     /* Ensure full image height is scrollable, extend to include all sections and footer */
     min-height: calc(100vw * 5.26 + 200px);
     height: auto;

@@ -135,5 +135,11 @@
 		scroll-behavior: smooth;
 		scroll-padding-top: 100px;
 	}
+
+	@media (max-width: 768px) {
+		:global(html) {
+			scroll-padding-top: 0;
+		}
+	}
 </style>
 
