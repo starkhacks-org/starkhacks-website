@@ -18,8 +18,8 @@
     background-image: url("/full-hero-mobile.jpg");
     /* Push background image down a bit */
     background-position: top 60px center;
-    /* Ensure full image height is scrollable, extend to include FAQ section */
-    min-height: calc(100vw * 5.26 + 350px);
+    /* Ensure full image height is scrollable, extend to include FAQ and Apply sections */
+    min-height: calc(100vw * 5.26);
     height: auto;
     overflow-y: visible;
     overflow-x: hidden;
@@ -32,6 +32,16 @@
 
   /* Show FAQ section on mobile */
   .pageWrapper > :global(#faq) {
+    display: block !important;
+  }
+
+  /* Show Apply section on mobile */
+  .pageWrapper > :global(#apply) {
+    display: block !important;
+  }
+
+  /* Show Speakers section on mobile */
+  .pageWrapper > :global(#speakers) {
     display: block !important;
   }
 }

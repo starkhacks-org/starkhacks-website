@@ -4,6 +4,7 @@
 
 <section id="speakers" class={speakersStyles.speakers}>
 	<div class={speakersStyles.content}>
+		<h2 class={speakersStyles.title}>SPEAKERS</h2>
 	</div>
 </section>
 

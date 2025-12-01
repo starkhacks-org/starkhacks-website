@@ -500,8 +500,11 @@
   .title {
     font-size: clamp(0.625rem, 3vw, 0.875rem);
     margin-bottom: 0.5rem;
+    margin-top: 1rem;
     gap: 4px;
     letter-spacing: 0.02em;
+    text-align: left;
+    justify-content: flex-start;
   }
 
   .triangleIcon {
