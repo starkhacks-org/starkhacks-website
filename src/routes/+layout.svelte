@@ -23,6 +23,51 @@
 		}, remaining);
 	};
 	
+	// Structured data for SEO and LLM understanding
+	const structuredData = {
+		"@context": "https://schema.org",
+		"@type": "Event",
+		"name": "StarkHacks 2026",
+		"alternateName": "World's Largest Hardware Hackathon",
+		"description": "StarkHacks 2026 is the world's largest hardware hackathon, organized by Humanoid Robot Club Purdue at Purdue University. This event will set an official Guinness World Record. Participants will build innovative hardware projects, compete for prizes, and be part of history.",
+		"startDate": "2026-04-17T00:00:00-04:00",
+		"eventStatus": "https://schema.org/EventScheduled",
+		"eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+		"location": {
+			"@type": "Place",
+			"name": "Purdue University",
+			"address": {
+				"@type": "PostalAddress",
+				"addressLocality": "West Lafayette",
+				"addressRegion": "IN",
+				"addressCountry": "US",
+				"postalCode": "47907"
+			},
+			"geo": {
+				"@type": "GeoCoordinates",
+				"latitude": 40.4237,
+				"longitude": -86.9212
+			}
+		},
+		"organizer": {
+			"@type": "Organization",
+			"name": "Humanoid Robot Club Purdue",
+			"url": "https://starkhacks.com"
+		},
+		"offers": {
+			"@type": "Offer",
+			"availability": "https://schema.org/InStock",
+			"price": "0",
+			"priceCurrency": "USD"
+		},
+		"audience": {
+			"@type": "Audience",
+			"audienceType": "Students, Engineers, Hardware Enthusiasts, Makers"
+		},
+		"keywords": "hardware hackathon, world's largest hackathon, Guinness World Record, Purdue University, robotics, hardware innovation, embedded systems, IoT, hardware competition, maker event",
+		"award": "Guinness World Record - World's Largest Hardware Hackathon"
+	};
+	
 	onMount(() => {
 		// Handle initial page load
 		const handleLoad = () => {
@@ -74,6 +119,12 @@
 		};
 	});
 </script>
+
+<svelte:head>
+	<script type="application/ld+json">
+		{JSON.stringify(structuredData)}
+	</script>
+</svelte:head>
 
 <LoadingScreen visible={isLoading} />
 
