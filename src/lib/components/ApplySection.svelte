@@ -9,6 +9,11 @@
 
 <section id="apply" class={applyStyles.apply}>
 	<div class={applyStyles.content}>
+		<div class={applyStyles.textContainer}>
+			<h2 class={applyStyles.stopWatching}>Stop Watching</h2>
+			<h2 class={applyStyles.startBuilding}>Start Building</h2>
+		</div>
+
 		<button class={applyStyles.applyButton} on:click={handleApplyClick}>
 			<img src="/apply-box.svg" alt="" class={applyStyles.applyBoxSvg} />
 			<span class={applyStyles.applyText}>Apply Now</span>

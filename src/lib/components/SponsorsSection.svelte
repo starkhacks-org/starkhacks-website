@@ -5,42 +5,13 @@
 <section id="sponsors" class={sponsorsStyles.sponsors}>
 	<div class={sponsorsStyles.content}>
 		<div class={sponsorsStyles.titleContainer}>
-			<h2 class={sponsorsStyles.title}>SPONSORS</h2>
+			<img
+				src="/sponsors.svg"
+				alt="Sponsors"
+				class={sponsorsStyles.titleImage}
+			/>
 		</div>
-		
-		<!-- Logo Collage -->
-		<div class={sponsorsStyles.logoCollage}>
-			<a href="https://ford.com" target="_blank" rel="noopener noreferrer" class={sponsorsStyles.logoLink}>
-				<div class={sponsorsStyles.logoWrapper}>
-					<img src="/Ford_logo_flat.svg" alt="Ford" class={sponsorsStyles.logo} />
-				</div>
-			</a>
-			<a href="https://www.espressif.com/" target="_blank" rel="noopener noreferrer" class={sponsorsStyles.logoLink}>
-				<div class={sponsorsStyles.logoWrapper}>
-					<img src="/Espressif_Logo.svg" alt="Espressif" class={sponsorsStyles.logo} />
-				</div>
-			</a>
-			<a href="https://engineering.purdue.edu/ICON" target="_blank" rel="noopener noreferrer" class={sponsorsStyles.logoLink}>
-				<div class={sponsorsStyles.logoWrapper}>
-					<img src="/icon_purdue.png" alt="ICON" class={sponsorsStyles.logo} />
-				</div>
-			</a>
-			<a href="https://www.unitree.com/" target="_blank" rel="noopener noreferrer" class={sponsorsStyles.logoLink}>
-				<div class={sponsorsStyles.logoWrapper}>
-					<img src="/unitree.png" alt="Unitree" class={sponsorsStyles.logo} />
-				</div>
-			</a>
-			<a href="https://www.purdue.edu/sfab" target="_blank" rel="noopener noreferrer" class={sponsorsStyles.logoLink}>
-				<div class={sponsorsStyles.logoWrapper}>
-					<img src="/sfab_purdue.jpg" alt="SFAB" class={sponsorsStyles.logo} />
-				</div>
-			</a>
-		</div>
-		
-		<p class={sponsorsStyles.comingSoon}>
-			and many more coming soon
-		</p>
-		
+
 		<p class={sponsorsStyles.subtitle}>
 			Reach out to <a href="mailto:sponsorship@starkhacks.com">sponsorship@starkhacks.com</a> if you're interested in sponsoring.
 		</p>
