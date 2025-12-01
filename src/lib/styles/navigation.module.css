@@ -115,6 +115,8 @@
   border: none;
   cursor: pointer;
   padding: 0.5rem;
+  z-index: 1001;
+  position: relative;
 }
 
 .mobileToggle span {
@@ -143,10 +145,13 @@
     transform: translateX(100%);
     transition: transform 0.3s ease;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    z-index: 1002;
+    visibility: visible;
+    opacity: 1;
   }
 
-  .menu.open {
-    transform: translateX(0);
+  .menu:global(.open) {
+    transform: translateX(0) !important;
   }
 
   .mobileToggle {
@@ -176,10 +181,17 @@
 @media (max-width: 768px) {
   .nav {
     padding: 1rem;
+    background: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
   }
 
   .logoImg {
     height: 40px;
+  }
+
+  .menu {
+    top: 60px;
   }
 
   .link {
@@ -195,10 +207,6 @@
     width: 73px;
     height: 11px;
   }
-
-  .menu {
-    top: 60px;
-  }
 }
 
 @media (max-width: 480px) {
@@ -208,6 +216,10 @@
 
   .logoImg {
     height: 32px;
+  }
+
+  .menu {
+    top: 56px;
   }
 
   .link {
