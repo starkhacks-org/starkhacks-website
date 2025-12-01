@@ -58,7 +58,7 @@
 	});
 </script>
 
-<div class={countdownStyles.countdown} role="timer" aria-live="polite" aria-label="Countdown to StarkHacks 2026">
+<div class={countdownStyles.countdown} role="timer" aria-live="polite" aria-label="Countdown to StarkHacks">
 	<div class={countdownStyles.container}>
 		<div class={countdownStyles.timeBlock}>
 			<div class={countdownStyles.value} aria-label="{days} days">{days}</div>

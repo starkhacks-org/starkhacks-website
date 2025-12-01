@@ -27,9 +27,9 @@
 	const structuredData = {
 		"@context": "https://schema.org",
 		"@type": "Event",
-		"name": "StarkHacks 2026",
+		"name": "StarkHacks",
 		"alternateName": "World's Largest Hardware Hackathon",
-		"description": "StarkHacks 2026 is the world's largest hardware hackathon, organized by Humanoid Robot Club Purdue at Purdue University. This event will set an official Guinness World Record. Participants will build innovative hardware projects, compete for prizes, and be part of history.",
+		"description": "StarkHacks is the world's largest hardware hackathon, organized by Humanoid Robot Club Purdue at Purdue University. This event will set an official Guinness World Record. Participants will build innovative hardware projects, compete for prizes, and be part of history.",
 		"startDate": "2026-04-17T00:00:00-04:00",
 		"eventStatus": "https://schema.org/EventScheduled",
 		"eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",

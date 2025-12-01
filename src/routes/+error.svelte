@@ -17,8 +17,8 @@
 </script>
 
 <svelte:head>
-	<title>{is404 ? '404 - Page Not Found' : 'Error'} | StarkHacks 2026</title>
-	<meta name="description" content="Page not found. Return to StarkHacks 2026 homepage." />
+	<title>{is404 ? '404 - Page Not Found' : 'Error'} | StarkHacks</title>
+	<meta name="description" content="Page not found. Return to StarkHacks homepage." />
 </svelte:head>
 
 <Navigation />
