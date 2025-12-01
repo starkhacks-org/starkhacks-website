@@ -10,7 +10,8 @@
 .content {
   position: relative;
   z-index: 2;
-  max-width: 1600px;
+  /* 1600px → 100rem */
+  max-width: 100rem;
   margin: 0 auto;
   padding: 2rem;
   width: 100%;
@@ -92,8 +93,9 @@
 
 .headingBox {
   position: relative;
-  width: 243px;
-  height: 102px;
+  /* 243px → 15.1875rem, 102px → 6.375rem */
+  width: 15.1875rem;
+  height: 6.375rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -132,8 +134,9 @@
 .boxesImageContainer {
   position: relative;
   width: 100%;
-  max-width: 1200px;
-  height: 360px;
+  /* 1200px → 75rem, 360px → 22.5rem */
+  max-width: 75rem;
+  height: 22.5rem;
   display: flex;
   justify-content: center;
   align-items: center;

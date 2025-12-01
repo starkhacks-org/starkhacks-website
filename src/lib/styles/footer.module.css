@@ -13,7 +13,8 @@
 .content {
   position: relative;
   z-index: 2;
-  max-width: 1200px;
+  /* 1200px → 75rem */
+  max-width: 75rem;
   margin: 0 auto;
   padding: 1rem 1rem 0 1rem;
   text-align: center;
@@ -38,8 +39,9 @@
 }
 
 .heart {
-  width: 28px;
-  height: 28px;
+  /* 28px → 1.75rem */
+  width: 1.75rem;
+  height: 1.75rem;
   display: inline-block;
   vertical-align: middle;
 }
@@ -83,8 +85,9 @@
 }
 
 .socialIcon {
-  width: 24px;
-  height: 24px;
+  /* 24px → 1.5rem */
+  width: 1.5rem;
+  height: 1.5rem;
   display: block;
   filter: brightness(0) invert(1);
 }
@@ -135,7 +138,8 @@
 
 @media (max-width: 768px) {
   .footer {
-    top: calc(100vw * 5.26 * 0.98 + 60px);
+    /* 60px → 3.75rem */
+    top: calc(100vw * 5.26 * 0.98 + 3.75rem);
     position: absolute;
     width: 100%;
     left: 0;
@@ -158,13 +162,14 @@
   }
 
   .heart {
-    width: 20px;
-    height: 20px;
+    /* 20px → 1.25rem */
+    width: 1.25rem;
+    height: 1.25rem;
   }
 
   .socialIcon {
-    width: 20px;
-    height: 20px;
+    width: 1.25rem;
+    height: 1.25rem;
   }
 
   .copyright {

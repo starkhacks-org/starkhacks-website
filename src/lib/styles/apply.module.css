@@ -10,7 +10,8 @@
 .content {
   position: relative;
   z-index: 2;
-  max-width: 1200px;
+  /* 1200px → 75rem */
+  max-width: 75rem;
   margin: 0 auto;
   padding: 2rem;
   display: flex;
@@ -68,8 +69,9 @@
 }
 
 .applyBoxSvg {
-  width: 281px;
-  height: 75px;
+  /* 281px → 17.5625rem, 75px → 4.6875rem */
+  width: 17.5625rem;
+  height: 4.6875rem;
   display: block;
 }
 
@@ -115,7 +117,8 @@
 
 @media (max-width: 768px) {
   .apply {
-    top: calc(100vw * 5.26 * 0.83 + 60px);
+    /* 60px → 3.75rem */
+    top: calc(100vw * 5.26 * 0.83 + 3.75rem);
     position: absolute;
     width: 100%;
     left: 0;
@@ -134,8 +137,9 @@
   }
 
   .applyBoxSvg {
-    width: 110px;
-    height: 30px;
+    /* 110px → 6.875rem, 30px → 1.875rem */
+    width: 6.875rem;
+    height: 1.875rem;
   }
 
   .applyText {
