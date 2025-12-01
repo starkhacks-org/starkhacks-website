@@ -2,6 +2,7 @@
   position: relative;
   width: 100%;
   min-height: calc(100vw * 5.26);
+  height: calc(100vw * 5.26);
   background-image: url("/full-hero.jpg");
   background-size: 100% auto; /* Cover full width, show full image height */
   background-position: top center;

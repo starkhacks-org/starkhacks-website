@@ -20,7 +20,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 1rem;
+  margin-bottom: -3rem;
 }
 
 .title {
@@ -40,7 +40,7 @@
   font-size: clamp(0.875rem, 2vw, 1rem);
   line-height: 1.5;
   color: rgba(255, 255, 255, 0.75);
-  margin: 1rem auto 0;
+  margin: 7rem auto 0;
   text-align: center;
   font-style: italic;
 }
@@ -56,7 +56,7 @@
 }
 
 .subtitle a {
-  color: rgba(255, 255, 255, 0.85);
+  color: #ff8e2a;
   text-decoration: none;
   transition: color 0.3s ease;
 }
@@ -67,17 +67,21 @@
 
 .logoCollage {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 2rem;
-  margin: 1rem auto;
-  padding: 1rem;
+  gap: 0.5rem;
+  row-gap: 0;
+  margin: -3rem auto 0;
+  padding: 0.25rem;
+  max-width: 850px;
 }
 
 .logoLink {
   text-decoration: none;
   display: inline-block;
   transition: transform 0.3s ease;
+  margin-bottom: -6rem;
 }
 
 .logoLink:hover {
@@ -146,7 +150,12 @@
 
 @media (max-width: 768px) {
   .logoCollage {
-    gap: 1.5rem;
+    gap: 0.375rem;
+    row-gap: 0;
+  }
+  
+  .logoLink {
+    margin-bottom: -4.5rem;
   }
 
   .logoWrapper {
@@ -157,7 +166,12 @@
 
 @media (max-width: 480px) {
   .logoCollage {
-    gap: 1rem;
+    gap: 0.25rem;
+    row-gap: 0;
+  }
+  
+  .logoLink {
+    margin-bottom: -3rem;
   }
 
   .logoWrapper {

@@ -20,6 +20,21 @@
 					<img src="/Espressif_Logo.svg" alt="Espressif" class={sponsorsStyles.logo} />
 				</div>
 			</a>
+			<a href="https://engineering.purdue.edu/ICON" target="_blank" rel="noopener noreferrer" class={sponsorsStyles.logoLink}>
+				<div class={sponsorsStyles.logoWrapper}>
+					<img src="/icon_purdue.png" alt="ICON" class={sponsorsStyles.logo} />
+				</div>
+			</a>
+			<a href="https://www.unitree.com/" target="_blank" rel="noopener noreferrer" class={sponsorsStyles.logoLink}>
+				<div class={sponsorsStyles.logoWrapper}>
+					<img src="/unitree.png" alt="Unitree" class={sponsorsStyles.logo} />
+				</div>
+			</a>
+			<a href="https://www.purdue.edu/sfab" target="_blank" rel="noopener noreferrer" class={sponsorsStyles.logoLink}>
+				<div class={sponsorsStyles.logoWrapper}>
+					<img src="/sfab_purdue.jpg" alt="SFAB" class={sponsorsStyles.logo} />
+				</div>
+			</a>
 		</div>
 		
 		<p class={sponsorsStyles.comingSoon}>

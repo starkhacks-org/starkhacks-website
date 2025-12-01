@@ -15,7 +15,7 @@
   z-index: 2;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 1rem;
+  padding: 1rem 1rem 0 1rem;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -96,6 +96,7 @@
   line-height: 1.5;
   color: rgba(255, 255, 255, 0.6);
   margin: 0.75rem 0 0 0;
+  padding-bottom: 0;
   text-transform: lowercase;
 }
 
