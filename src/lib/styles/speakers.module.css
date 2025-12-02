@@ -117,12 +117,6 @@
   }
 
   .title {
-    font-size: clamp(0.625rem, 3vw, 0.875rem);
-    margin: 0;
-    padding-left: 2rem;
-    letter-spacing: 0.05em;
-    text-align: left;
-    gap: 4px;
-    justify-content: flex-start;
+    display: none;
   }
 }

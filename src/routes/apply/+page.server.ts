@@ -5,3 +5,4 @@ export const load: PageServerLoad = async () => {
 	throw redirect(302, 'https://tally.so/r/A7PrJ0');
 };
 
+

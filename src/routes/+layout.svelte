@@ -1,6 +1,7 @@
 <script>
 	import '../app.css';
 	import LoadingScreen from '$lib/components/LoadingScreen.svelte';
+	import GoogleAnalytics from '$lib/components/GoogleAnalytics.svelte';
 	import { onMount } from 'svelte';
 	import { navigating } from '$app/stores';
 	
@@ -127,6 +128,8 @@
 </svelte:head>
 
 <LoadingScreen visible={isLoading} />
+
+<GoogleAnalytics />
 
 <slot />
 
