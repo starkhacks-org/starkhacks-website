@@ -28,10 +28,11 @@
 	const structuredData = {
 		"@context": "https://schema.org",
 		"@type": "Event",
-		"name": "StarkHacks",
-		"alternateName": "World's Largest Hardware Hackathon",
-		"description": "StarkHacks is the world's largest hardware hackathon, organized by Humanoid Robot Club Purdue at Purdue University. This event will set an official Guinness World Record. Participants will build innovative hardware projects, compete for prizes, and be part of history.",
+		"name": "StarkHacks - Purdue Hardware Hackathon",
+		"alternateName": ["World's Largest Hardware Hackathon", "Purdue Hardware Hackathon", "Indiana Hardware Hackathon"],
+		"description": "StarkHacks is the world's largest hardware hackathon and the premier Purdue hardware hackathon, organized by Humanoid Robot Club Purdue at Purdue University in West Lafayette, Indiana. This Indiana hardware hackathon will set an official Guinness World Record. Participants will build innovative hardware projects, compete for $100,000 in prizes, and be part of history at this Purdue hackathon.",
 		"startDate": "2026-04-17T00:00:00-04:00",
+		"endDate": "2026-04-19T23:59:59-04:00",
 		"eventStatus": "https://schema.org/EventScheduled",
 		"eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
 		"location": {
@@ -39,6 +40,7 @@
 			"name": "Purdue University",
 			"address": {
 				"@type": "PostalAddress",
+				"streetAddress": "Purdue University",
 				"addressLocality": "West Lafayette",
 				"addressRegion": "IN",
 				"addressCountry": "US",
@@ -65,8 +67,13 @@
 			"@type": "Audience",
 			"audienceType": "Students, Engineers, Hardware Enthusiasts, Makers"
 		},
-		"keywords": "hardware hackathon, world's largest hackathon, Guinness World Record, Purdue University, robotics, hardware innovation, embedded systems, IoT, hardware competition, maker event",
-		"award": "Guinness World Record - World's Largest Hardware Hackathon"
+		"keywords": "hardware hackathon, purdue hardware hackathon, purdue hackathon, world's largest hardware hackathon, indiana hardware hackathon, hardware hackathon purdue, purdue university hackathon, hardware hackathon indiana, world's largest hackathon, Guinness World Record, Purdue University, West Lafayette, Indiana, Humanoid Robot Club Purdue, robotics hackathon, hardware innovation, embedded systems, IoT, hardware competition, maker event, purdue robotics hackathon, indiana hackathon",
+		"award": "Guinness World Record - World's Largest Hardware Hackathon",
+		"about": {
+			"@type": "Thing",
+			"name": "Hardware Hackathon",
+			"description": "A hardware hackathon is an event where participants build physical hardware projects, combining software and electronics to create innovative solutions."
+		}
 	};
 	
 	onMount(() => {

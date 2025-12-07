@@ -13,10 +13,10 @@
 		<!-- Description Paragraphs -->
 		<div class={aboutStyles.description}>
 			<p class={aboutStyles.paragraph}>
-				Stark Hacks is the world's largest hardware hackathon, a 36-hour engineering marathon where ideas come off the screen and into real circuits.
+				Stark Hacks is the world's largest hardware hackathon and the premier Purdue hardware hackathon, a 36-hour engineering marathon where ideas come off the screen and into real circuits. This Indiana hardware hackathon brings together hundreds of students from Purdue University and beyond to build innovative hardware projects.
 			</p>
 			<p class={aboutStyles.paragraph}>
-				Organized by the Humanoid Robot Club, hundreds of students prototype, solder, test, and create side by side. This spring, we're setting an official World Record for World's Largest Hardware Hackathon.
+				Organized by the Humanoid Robot Club at Purdue University, hundreds of students prototype, solder, test, and create side by side at this Purdue hackathon. This spring, we're setting an official World Record for World's Largest Hardware Hackathon, making this the most significant hardware hackathon event in Indiana and beyond.
 			</p>
 		</div>
 		

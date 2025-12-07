@@ -2,7 +2,7 @@
   "general": [
     {
       "question": "What is Stark Hacks?",
-      "answer": "Stark Hacks is a 36-hour hardware hackathon at Purdue University where students design and build innovative projects to win exciting prizes!"
+      "answer": "Stark Hacks is the world's largest hardware hackathon and the premier Purdue hardware hackathon. This 36-hour Indiana hardware hackathon at Purdue University brings together hundreds of students to design and build innovative hardware projects, compete for $100,000 in prizes, and help us set a Guinness World Record!"
     },
     {
       "question": "Who can participate?",
@@ -54,7 +54,7 @@
   "miscellaneous": [
     {
       "question": "Where is the venue?",
-      "answer": "The event takes place at the Purdue Armory, right on campus. Address: 812 3rd Street, West Lafayette, IN - 47907. Other details will be released closer to the hackathon"
+      "answer": "This Purdue hardware hackathon takes place at the Purdue Armory, right on campus in West Lafayette, Indiana. Address: 812 3rd Street, West Lafayette, IN - 47907. Other details will be released closer to the hackathon"
     },
     {
       "question": "Can I attend virtually?",
@@ -62,7 +62,7 @@
     },
     {
       "question": "Can I start on my project before the hackathon?",
-      "answer": "We will allow participants to work on aspects of the project a week before the hackathon. More details will be released closer to the hackathon itself."
+      "answer": "No, you cannot start on your project before the hackathon. All aspects of the project must be done during the 36 hours of the hackathon."
     },
     {
       "question": "What if I don't have an idea for what I want to build?",

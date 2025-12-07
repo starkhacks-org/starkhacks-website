@@ -12,12 +12,12 @@
 </script>
 
 <svelte:head>
-	<title>StarkHacks</title>
-	<meta name="description" content="Join StarkHacks on April 17 at Purdue University in West Lafayette, Indiana. The world's largest hardware hackathon organized by Humanoid Robot Club Purdue, setting an official Guinness World Record. Build innovative hardware projects, compete for prizes, and be part of history." />
-	<meta property="og:title" content="StarkHacks - World's Largest Hardware Hackathon | Guinness World Record" />
-	<meta property="og:description" content="Join the world's largest hardware hackathon on April 17 at Purdue University. Organized by Humanoid Robot Club Purdue. Setting an official Guinness World Record. Build innovative hardware projects and be part of history." />
-	<meta name="twitter:title" content="StarkHacks - World's Largest Hardware Hackathon | Guinness World Record" />
-	<meta name="twitter:description" content="Join the world's largest hardware hackathon on April 17 at Purdue University. Organized by Humanoid Robot Club Purdue. Setting an official Guinness World Record." />
+	<title>StarkHacks - Purdue Hardware Hackathon | World's Largest Hardware Hackathon | Indiana</title>
+	<meta name="description" content="Join StarkHacks, the world's largest hardware hackathon at Purdue University in West Lafayette, Indiana. This Purdue hardware hackathon is organized by Humanoid Robot Club Purdue and will set an official Guinness World Record. Build innovative hardware projects, compete for $100K in prizes, and be part of history on April 17-19, 2026." />
+	<meta property="og:title" content="StarkHacks - Purdue Hardware Hackathon | World's Largest Hardware Hackathon" />
+	<meta property="og:description" content="Join StarkHacks, the world's largest hardware hackathon at Purdue University in Indiana. This Purdue hardware hackathon will set an official Guinness World Record. Build innovative hardware projects, compete for $100K in prizes, and be part of history on April 17-19, 2026." />
+	<meta name="twitter:title" content="StarkHacks - Purdue Hardware Hackathon | World's Largest Hardware Hackathon" />
+	<meta name="twitter:description" content="Join StarkHacks, the world's largest hardware hackathon at Purdue University in Indiana. This Purdue hardware hackathon will set an official Guinness World Record. Build innovative hardware projects and compete for $100K in prizes." />
 </svelte:head>
 
 <Navigation />
