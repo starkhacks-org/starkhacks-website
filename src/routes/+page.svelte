@@ -12,12 +12,12 @@
 </script>
 
 <svelte:head>
-	<title>StarkHacks - Purdue Hardware Hackathon | World's Largest Hardware Hackathon | Indiana</title>
-	<meta name="description" content="Join StarkHacks, the world's largest hardware hackathon at Purdue University in West Lafayette, Indiana. This Purdue hardware hackathon is organized by Humanoid Robot Club Purdue and will set an official Guinness World Record. Build innovative hardware projects, compete for $100K in prizes, and be part of history on April 17-19, 2026." />
-	<meta property="og:title" content="StarkHacks - Purdue Hardware Hackathon | World's Largest Hardware Hackathon" />
-	<meta property="og:description" content="Join StarkHacks, the world's largest hardware hackathon at Purdue University in Indiana. This Purdue hardware hackathon will set an official Guinness World Record. Build innovative hardware projects, compete for $100K in prizes, and be part of history on April 17-19, 2026." />
-	<meta name="twitter:title" content="StarkHacks - Purdue Hardware Hackathon | World's Largest Hardware Hackathon" />
-	<meta name="twitter:description" content="Join StarkHacks, the world's largest hardware hackathon at Purdue University in Indiana. This Purdue hardware hackathon will set an official Guinness World Record. Build innovative hardware projects and compete for $100K in prizes." />
+	<title>StarkHacks</title>
+	<meta name="description" content="World's largest hardware hackathon at Purdue University. Join StarkHacks on April 17-19, 2026 in West Lafayette, Indiana. This Purdue hardware hackathon will set an official Guinness World Record. Build innovative hardware projects, compete for $100K in prizes, and be part of history." />
+	<meta property="og:title" content="StarkHacks" />
+	<meta property="og:description" content="World's largest hardware hackathon at Purdue University. Join StarkHacks on April 17-19, 2026 in West Lafayette, Indiana. This Purdue hardware hackathon will set an official Guinness World Record. Build innovative hardware projects, compete for $100K in prizes, and be part of history." />
+	<meta name="twitter:title" content="StarkHacks" />
+	<meta name="twitter:description" content="World's largest hardware hackathon at Purdue University. Join StarkHacks on April 17-19, 2026 in West Lafayette, Indiana. This Purdue hardware hackathon will set an official Guinness World Record. Build innovative hardware projects and compete for $100K in prizes." />
 </svelte:head>
 
 <Navigation />

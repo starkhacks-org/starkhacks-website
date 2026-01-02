@@ -13,7 +13,7 @@
 		<img src="/center-box.svg" alt="" class={heroStyles.boxSvg} />
 		<div class={heroStyles.content}>
 			<div class={heroStyles.titleContainer}>
-				<h1 class="sr-only">StarkHacks - Purdue Hardware Hackathon | World's Largest Hardware Hackathon</h1>
+				<h1 class="sr-only">StarkHacks - World's Largest Hardware Hackathon</h1>
 				<img src="/stark-hacks-text.svg" alt="StarkHacks - Purdue Hardware Hackathon" class={heroStyles.titleSvg} />
 			</div>
 			
