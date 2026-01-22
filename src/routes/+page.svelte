@@ -13,11 +13,11 @@
 
 <svelte:head>
 	<title>StarkHacks</title>
-	<meta name="description" content="World's largest hardware hackathon at Purdue University. Join StarkHacks on April 17-19, 2026 in West Lafayette, Indiana. This Purdue hardware hackathon will set an official Guinness World Record. Build innovative hardware projects, compete for $100K in prizes, and be part of history." />
+	<meta name="description" content="Stark Hacks is the world's largest hardware hackathon and the premier Purdue hardware hackathon, a 36-hour engineering marathon where ideas come off the screen and into real circuits. This Indiana hardware hackathon brings together hundreds of students from Purdue University and beyond to build innovative hardware projects. Organized by the Humanoid Robot Club at Purdue University, we're setting an official World Record for World's Largest Hardware Hackathon." />
 	<meta property="og:title" content="StarkHacks" />
-	<meta property="og:description" content="World's largest hardware hackathon at Purdue University. Join StarkHacks on April 17-19, 2026 in West Lafayette, Indiana. This Purdue hardware hackathon will set an official Guinness World Record. Build innovative hardware projects, compete for $100K in prizes, and be part of history." />
+	<meta property="og:description" content="Stark Hacks is the world's largest hardware hackathon and the premier Purdue hardware hackathon, a 36-hour engineering marathon where ideas come off the screen and into real circuits. This Indiana hardware hackathon brings together hundreds of students from Purdue University and beyond to build innovative hardware projects. Organized by the Humanoid Robot Club at Purdue University, we're setting an official World Record for World's Largest Hardware Hackathon." />
 	<meta name="twitter:title" content="StarkHacks" />
-	<meta name="twitter:description" content="World's largest hardware hackathon at Purdue University. Join StarkHacks on April 17-19, 2026 in West Lafayette, Indiana. This Purdue hardware hackathon will set an official Guinness World Record. Build innovative hardware projects and compete for $100K in prizes." />
+	<meta name="twitter:description" content="Stark Hacks is the world's largest hardware hackathon and the premier Purdue hardware hackathon, a 36-hour engineering marathon where ideas come off the screen and into real circuits. This Indiana hardware hackathon brings together hundreds of students from Purdue University and beyond to build innovative hardware projects." />
 </svelte:head>
 
 <Navigation />
