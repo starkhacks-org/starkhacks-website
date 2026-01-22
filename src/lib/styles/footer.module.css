@@ -8,6 +8,8 @@
   background-color: transparent;
   color: white;
   z-index: 1;
+  padding-bottom: 0;
+  margin-bottom: 0;
 }
 
 .content {
