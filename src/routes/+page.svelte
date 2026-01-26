@@ -13,11 +13,11 @@
 
 <svelte:head>
 	<title>StarkHacks</title>
-	<meta name="description" content="Stark Hacks is the world's largest hardware hackathon and the premier Purdue hardware hackathon, a 36-hour engineering marathon where ideas come off the screen and into real circuits. This Indiana hardware hackathon brings together hundreds of students from Purdue University and beyond to build innovative hardware projects. Organized by the Humanoid Robot Club at Purdue University, we're setting an official World Record for World's Largest Hardware Hackathon." />
+	<meta name="description" content="StarkHacks is the world's largest hardware hackathon at Purdue University. A 36-hour engineering marathon setting an official Guinness World Record. April 17-19, 2026." />
 	<meta property="og:title" content="StarkHacks" />
-	<meta property="og:description" content="Stark Hacks is the world's largest hardware hackathon and the premier Purdue hardware hackathon, a 36-hour engineering marathon where ideas come off the screen and into real circuits. This Indiana hardware hackathon brings together hundreds of students from Purdue University and beyond to build innovative hardware projects. Organized by the Humanoid Robot Club at Purdue University, we're setting an official World Record for World's Largest Hardware Hackathon." />
+	<meta property="og:description" content="StarkHacks is the world's largest hardware hackathon at Purdue University. A 36-hour engineering marathon setting an official Guinness World Record. April 17-19, 2026." />
 	<meta name="twitter:title" content="StarkHacks" />
-	<meta name="twitter:description" content="Stark Hacks is the world's largest hardware hackathon and the premier Purdue hardware hackathon, a 36-hour engineering marathon where ideas come off the screen and into real circuits. This Indiana hardware hackathon brings together hundreds of students from Purdue University and beyond to build innovative hardware projects." />
+	<meta name="twitter:description" content="StarkHacks is the world's largest hardware hackathon at Purdue University. A 36-hour engineering marathon setting an official Guinness World Record. April 17-19, 2026." />
 </svelte:head>
 
 <Navigation />
