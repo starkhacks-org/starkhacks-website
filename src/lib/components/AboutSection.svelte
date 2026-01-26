@@ -66,8 +66,8 @@
 					<img src="/stat-person.svg" alt="" class={aboutStyles.statBoxIcon} />
 					<div class={aboutStyles.statText}>
 						<div class={aboutStyles.statValue}>
-							<span class={aboutStyles.desktopOnly}>600+</span>
-							<span class={aboutStyles.mobileOnly}>500+</span>
+							<span class={aboutStyles.desktopOnly}>1000+</span>
+							<span class={aboutStyles.mobileOnly}>1000+</span>
 						</div>
 						<div class={aboutStyles.statLabel}>PARTICIPANTS</div>
 					</div>
