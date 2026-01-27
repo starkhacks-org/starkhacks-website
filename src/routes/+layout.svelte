@@ -25,7 +25,89 @@
 	};
 	
 	// Structured data for SEO and LLM understanding
-	const structuredData = {
+	// Organization with social media links (sameAs)
+	const organizationData = {
+		"@context": "https://schema.org",
+		"@type": "Organization",
+		"@id": "https://starkhacks.com/#organization",
+		"name": "StarkHacks",
+		"alternateName": "Humanoid Robot Club Purdue",
+		"url": "https://starkhacks.com",
+		"logo": "https://starkhacks.com/StarkHacks.svg",
+		"sameAs": [
+			"https://x.com/HumanoidPurdue",
+			"https://www.linkedin.com/company/starkhacks/",
+			"https://www.instagram.com/humanoid.purdue/"
+		]
+	};
+
+	// WebSite with potentialAction for application form
+	const websiteData = {
+		"@context": "https://schema.org",
+		"@type": "WebSite",
+		"@id": "https://starkhacks.com/#website",
+		"url": "https://starkhacks.com",
+		"name": "StarkHacks",
+		"description": "World's largest hardware hackathon at Purdue University",
+		"publisher": {
+			"@id": "https://starkhacks.com/#organization"
+		},
+		"potentialAction": {
+			"@type": "ApplyAction",
+			"target": {
+				"@type": "EntryPoint",
+				"urlTemplate": "https://starkhacks.com/apply",
+				"actionPlatform": [
+					"http://schema.org/DesktopWebPlatform",
+					"http://schema.org/MobileWebPlatform"
+				]
+			},
+			"name": "Apply to StarkHacks"
+		}
+	};
+
+	// SiteNavigationElement for navigation structure
+	const navigationData = {
+		"@context": "https://schema.org",
+		"@type": "SiteNavigationElement",
+		"@id": "https://starkhacks.com/#navigation",
+		"name": "Main Navigation",
+		"hasPart": [
+			{
+				"@type": "WebPageElement",
+				"name": "About",
+				"url": "https://starkhacks.com/#about"
+			},
+			{
+				"@type": "WebPageElement",
+				"name": "Tracks",
+				"url": "https://starkhacks.com/#tracks"
+			},
+			{
+				"@type": "WebPageElement",
+				"name": "Speakers",
+				"url": "https://starkhacks.com/#speakers"
+			},
+			{
+				"@type": "WebPageElement",
+				"name": "Sponsors",
+				"url": "https://starkhacks.com/#sponsors"
+			},
+			{
+				"@type": "WebPageElement",
+				"name": "FAQ",
+				"url": "https://starkhacks.com/#faq"
+			},
+			{
+				"@type": "WebPageElement",
+				"name": "Apply",
+				"url": "https://starkhacks.com/apply"
+			}
+		]
+	};
+
+	// Event structured data (updated to reference Organization)
+	const eventData = {
 		"@context": "https://schema.org",
 		"@type": "Event",
 		"name": "StarkHacks - Purdue Hardware Hackathon",
@@ -53,9 +135,7 @@
 			}
 		},
 		"organizer": {
-			"@type": "Organization",
-			"name": "Humanoid Robot Club Purdue",
-			"url": "https://starkhacks.com"
+			"@id": "https://starkhacks.com/#organization"
 		},
 		"offers": {
 			"@type": "Offer",
@@ -129,7 +209,10 @@
 </script>
 
 <svelte:head>
-	{@html `<script type="application/ld+json">${JSON.stringify(structuredData)}</script>`}
+	{@html `<script type="application/ld+json">${JSON.stringify(organizationData)}</script>`}
+	{@html `<script type="application/ld+json">${JSON.stringify(websiteData)}</script>`}
+	{@html `<script type="application/ld+json">${JSON.stringify(navigationData)}</script>`}
+	{@html `<script type="application/ld+json">${JSON.stringify(eventData)}</script>`}
 </svelte:head>
 
 <LoadingScreen visible={isLoading} />

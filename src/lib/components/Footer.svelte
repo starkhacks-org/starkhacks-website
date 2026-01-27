@@ -14,7 +14,7 @@
 			<a href="https://www.instagram.com/humanoid.purdue/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class={footerStyles.socialLink}>
 				<img src="/icon-instagram.svg" alt="Instagram" class={footerStyles.socialIcon} />
 			</a>
-			<a href="https://www.linkedin.com/company/humanoid-purdue/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class={footerStyles.socialLink}>
+			<a href="https://www.linkedin.com/company/starkhacks/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class={footerStyles.socialLink}>
 				<img src="/icon-linkedin.svg" alt="LinkedIn" class={footerStyles.socialIcon} />
 			</a>
 			<a href="https://x.com/HumanoidPurdue" target="_blank" rel="noopener noreferrer" aria-label="Twitter" class={footerStyles.socialLink}>
