@@ -29,11 +29,19 @@ This project uses `@sveltejs/adapter-cloudflare`. **Do not** use `npx wrangler d
 
 **In Cloudflare Pages (Git integration):**
 
-1. **Framework preset:** SvelteKit (or leave default and set the options below).
+1. **Framework preset:** **SvelteKit** (not "Svelte" — Svelte uses `public`, we use `.svelte-kit/cloudflare`).
 2. **Build command:** `npm run build`
 3. **Build output directory:** `.svelte-kit/cloudflare`
+4. **Root directory:** leave blank unless the app lives in a subfolder (e.g. monorepo).
 
-Cloudflare will run `npm run build`, then deploy the output from `.svelte-kit/cloudflare`. No custom deploy command is needed.
+Cloudflare runs `npm run build`, then deploys the output from `.svelte-kit/cloudflare`. No custom deploy command is needed. A `wrangler.toml` in the repo sets `pages_build_output_dir` for compatibility.
+
+**If nothing gets deployed:**
+
+- **Preset:** Use **SvelteKit**, not Svelte. Wrong preset → wrong build directory → no valid output.
+- **Build output directory:** Must be exactly `.svelte-kit/cloudflare` (no trailing slash).
+- **Build logs:** If the build fails (non‑zero exit), nothing is deployed. Check the build log for errors.
+- **Node version:** Add env var `NODE_VERSION` = `20` (Settings → Environment variables) if the build fails with Node-related errors.
 
 **For CLI deploy:** Run `npm run build`, then `npx wrangler pages deploy .svelte-kit/cloudflare --project-name=<your-project-name>`.
 
