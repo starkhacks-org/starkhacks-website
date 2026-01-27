@@ -1,5 +1,0 @@
-{
-  "name": "starkhacks-website",
-  "compatibility_date": "2026-01-27",
-  "main": "src/routes/+page.svelte",
-}
