@@ -1,6 +1,0 @@
-# Cloudflare Pages – SvelteKit
-# https://developers.cloudflare.com/pages/framework-guides/deploy-a-svelte-kit-site
-
-name = "starkhacks-website"
-pages_build_output_dir = ".svelte-kit/cloudflare"
-compatibility_date = "2025-01-27"

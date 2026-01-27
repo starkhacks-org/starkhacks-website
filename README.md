@@ -23,28 +23,6 @@ npm run build
 
 You can preview the production build with `npm run preview`.
 
-## Deploying to Cloudflare Pages
-
-This project uses `@sveltejs/adapter-cloudflare`. **Do not** use `npx wrangler deploy` as the build command—that targets Workers and will fail on `.svelte` files.
-
-**In Cloudflare Pages (Git integration):**
-
-1. **Framework preset:** **SvelteKit** (not "Svelte" — Svelte uses `public`, we use `.svelte-kit/cloudflare`).
-2. **Build command:** `npm run build`
-3. **Build output directory:** `.svelte-kit/cloudflare`
-4. **Root directory:** leave blank unless the app lives in a subfolder (e.g. monorepo).
-
-Cloudflare runs `npm run build`, then deploys the output from `.svelte-kit/cloudflare`. No custom deploy command is needed. A `wrangler.toml` in the repo sets `pages_build_output_dir` for compatibility.
-
-**If nothing gets deployed:**
-
-- **Preset:** Use **SvelteKit**, not Svelte. Wrong preset → wrong build directory → no valid output.
-- **Build output directory:** Must be exactly `.svelte-kit/cloudflare` (no trailing slash).
-- **Build logs:** If the build fails (non‑zero exit), nothing is deployed. Check the build log for errors.
-- **Node version:** Add env var `NODE_VERSION` = `20` (Settings → Environment variables) if the build fails with Node-related errors.
-
-**For CLI deploy:** Run `npm run build`, then `npx wrangler pages deploy .svelte-kit/cloudflare --project-name=<your-project-name>`.
-
 ## Environment Variables
 
 ### Google Analytics
@@ -59,9 +37,10 @@ To enable Google Analytics tracking, you need to set the `PUBLIC_GA_ID` environm
    PUBLIC_GA_ID=G-XXXXXXXXXX
    ```
 
-3. For production deployment:
-   - **Netlify:** Site settings → Environment variables → Add `PUBLIC_GA_ID`
-   - **Cloudflare Pages:** Project → Settings → Environment variables → Add `PUBLIC_GA_ID`
+3. For production deployment on Netlify:
+   - Go to your Netlify site settings
+   - Navigate to "Environment variables"
+   - Add `PUBLIC_GA_ID` with your measurement ID value
 
 The Google Analytics component will automatically:
 - Load the GA4 script
