@@ -11,6 +11,11 @@ const pages = [
 		url: '/apply',
 		changefreq: 'monthly',
 		priority: 0.9
+	},
+	{
+		url: '/policies',
+		changefreq: 'monthly',
+		priority: 0.6
 	}
 ];
 
