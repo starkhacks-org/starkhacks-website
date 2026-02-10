@@ -265,6 +265,30 @@
   padding-top: 0.5rem;
 }
 
+.answerText p {
+  margin: 0 0 0.5rem 0;
+}
+
+.answerText p:last-child {
+  margin-bottom: 0;
+}
+
+.answerLinks {
+  margin-top: 0.5rem !important;
+}
+
+.answerLinks a {
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.answerLinks a:hover {
+  color: rgba(255, 255, 255, 1);
+  border-bottom-color: rgba(255, 255, 255, 0.9);
+}
+
 .questionSeparator {
   width: 100%;
   /* 376px → 23.5rem, 2px → 0.125rem, 12px → 0.75rem */

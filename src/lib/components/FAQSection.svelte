@@ -217,7 +217,16 @@
 								<div
 									class={faqStyles.answerContainer}
 								>
-									<p class={faqStyles.answerText}>{question.answer}</p>
+									<div class={faqStyles.answerText}>
+										<p>{question.answer}</p>
+										{#if question.links}
+											<p class={faqStyles.answerLinks}>
+												{#each question.links as link, i}
+													<a href={link.url} target="_blank" rel="noopener noreferrer">{link.text}</a>{#if i < question.links.length - 1}<span> · </span>{/if}
+												{/each}
+											</p>
+										{/if}
+									</div>
 								</div>
 								{#if index < faqData.miscellaneous.length - 1}
 									<img src="/q-sep.svg" alt="" class={faqStyles.questionSeparator} />

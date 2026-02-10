@@ -71,6 +71,14 @@
     {
       "question": "Do you have travel reimbursements?",
       "answer": "Travel Reimbursements would be available for certain participants. Please indicate so in the application. More details will be released closer to the hackathon."
+    },
+    {
+      "question": "What are your policies and MLH's code of conduct?",
+      "answer": "We follow MLH's Code of Conduct to ensure a safe and welcoming environment for all participants.",
+      "links": [
+        { "text": "StarkHacks policies", "url": "https://starkhacks.com/policies" },
+        { "text": "MLH Code of Conduct", "url": "https://github.com/MLH/mlh-policies/blob/main/code-of-conduct.md" }
+      ]
     }
   ]
 }
