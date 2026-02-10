@@ -15,7 +15,7 @@
 
 			// Only trap when the section is near the top of the viewport
 			const rect = section.getBoundingClientRect();
-			const sectionNearTop = rect.top <= 250 && rect.bottom > window.innerHeight * 0.5;
+			const sectionNearTop = rect.top <= 400 && rect.bottom > window.innerHeight * 0.5;
 			if (!sectionNearTop) return;
 
 			const { scrollTop, scrollHeight, clientHeight } = scrollContainer;
