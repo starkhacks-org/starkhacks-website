@@ -163,11 +163,11 @@
 }
 
 .questionsList::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.1);
+  background: transparent;
 }
 
 .questionsList::-webkit-scrollbar-thumb {
-  background: rgba(255, 142, 42, 0.5);
+  background: #ff8e2a;
   /* 2px → 0.125rem */
   border-radius: 0.125rem;
 }

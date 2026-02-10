@@ -110,6 +110,29 @@ html {
   overflow-y: auto;
 }
 
+/* Themed scrollbars - transparent track, orange thumb */
+html::-webkit-scrollbar,
+*::-webkit-scrollbar {
+  width: 0.5rem;
+  height: 0.5rem;
+}
+
+html::-webkit-scrollbar-track,
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+html::-webkit-scrollbar-thumb,
+*::-webkit-scrollbar-thumb {
+  background: #ff8e2a;
+  border-radius: 0.25rem;
+}
+
+html::-webkit-scrollbar-thumb:hover,
+*::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 142, 42, 0.9);
+}
+
 body {
   margin: 0;
   padding: 0;
