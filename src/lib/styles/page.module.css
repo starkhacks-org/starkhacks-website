@@ -45,4 +45,9 @@
   .pageWrapper > :global(#speakers) {
     display: block !important;
   }
+
+  /* Show Sponsors section on mobile */
+  .pageWrapper > :global(#sponsors) {
+    display: block !important;
+  }
 }
