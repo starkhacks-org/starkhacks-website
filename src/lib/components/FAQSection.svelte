@@ -1,7 +1,7 @@
 <script>
 	import faqStyles from '../styles/faq.module.css';
 	import faqData from '../data/faq.json';
-	import { onMount } from 'svelte';
+	import { onMount, onDestroy } from 'svelte';
 
 	/** @type {number | null} */
 	let expandedGeneral = null;
@@ -10,12 +10,35 @@
 	/** @type {number | null} */
 	let expandedMiscellaneous = null;
 
+	/** @type {HTMLAudioElement | null} */
+	let clickSound = null;
+	let sectionEl;
+	let isInView = false;
+	let globalAudioEnabled = false;
+
+	function playClickSound() {
+		if (clickSound && globalAudioEnabled) {
+			clickSound.currentTime = 0;
+			clickSound.play().catch(() => {});
+		}
+	}
+
+	function handleGlobalAudioEnable() {
+		globalAudioEnabled = true;
+	}
+
+	function handleGlobalAudioDisable() {
+		globalAudioEnabled = false;
+	}
+
 	/**
 	 * @param {'general' | 'registration' | 'miscellaneous'} category
 	 * @param {number} index
 	 * @param {MouseEvent} event
 	 */
 	function toggleQuestion(category, index, event) {
+		// Play click sound
+		playClickSound();
 		// Get the button that was clicked
 		const button = event.currentTarget;
 		if (!button || !(button instanceof HTMLButtonElement)) return;
@@ -87,7 +110,44 @@
 		return false;
 	}
 
+	function handleIntersection(entries) {
+		entries.forEach(entry => {
+			const wasInView = isInView;
+			isInView = entry.isIntersecting;
+
+			if (isInView && !wasInView) {
+				// Entering FAQ section - mute main audio
+				window.dispatchEvent(new CustomEvent('faq-section-enter'));
+			} else if (!isInView && wasInView) {
+				// Leaving FAQ section - unmute main audio
+				window.dispatchEvent(new CustomEvent('faq-section-leave'));
+			}
+		});
+	}
+
 	onMount(() => {
+		// Set up click sound
+		clickSound = new Audio('/edr-switch-click-and-beep-001a-11602.mp3');
+		clickSound.volume = 0.5;
+		clickSound.preload = 'auto';
+
+		// Listen for global audio control
+		window.addEventListener('audio-global-enable', handleGlobalAudioEnable);
+		window.addEventListener('audio-global-disable', handleGlobalAudioDisable);
+
+		// Set up intersection observer for muting other sounds
+		const observer = new IntersectionObserver(handleIntersection, {
+			threshold: [0, 0.1, 0.3],
+			rootMargin: '0px'
+		});
+
+		// Use setTimeout to ensure sectionEl is bound
+		setTimeout(() => {
+			if (sectionEl) {
+				observer.observe(sectionEl);
+			}
+		}, 100);
+
 		// Dynamic font sizing logic (skip on mobile to prevent glitches)
 		function adjustFontSizes() {
 			// Skip on mobile devices
@@ -114,11 +174,22 @@
 		// Adjust on mount and window resize
 		setTimeout(adjustFontSizes, 100);
 		window.addEventListener('resize', adjustFontSizes);
-		return () => window.removeEventListener('resize', adjustFontSizes);
+		return () => {
+			window.removeEventListener('resize', adjustFontSizes);
+			window.removeEventListener('audio-global-enable', handleGlobalAudioEnable);
+			window.removeEventListener('audio-global-disable', handleGlobalAudioDisable);
+			observer.disconnect();
+		};
+	});
+
+	onDestroy(() => {
+		if (clickSound) {
+			clickSound.src = '';
+		}
 	});
 </script>
 
-<section id="faq" class={faqStyles.faq}>
+<section id="faq" class={faqStyles.faq} bind:this={sectionEl}>
 	<div class={faqStyles.content}>
 		<h2 class={faqStyles.title}>
 			<img src="/triangle.svg" alt="" class={faqStyles.triangleIcon} />

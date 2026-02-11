@@ -1,5 +1,6 @@
 <script>
 	import applyStyles from '../styles/apply.module.css';
+	import WeldingSparks from './WeldingSparks.svelte';
 	
 	function handleApplyClick() {
 		// Open apply page in new tab
@@ -8,6 +9,7 @@
 </script>
 
 <section id="apply" class={applyStyles.apply}>
+	<WeldingSparks />
 	<div class={applyStyles.content}>
 		<div class={applyStyles.textContainer}>
 			<h2 class={applyStyles.stopWatching}>Stop Watching</h2>

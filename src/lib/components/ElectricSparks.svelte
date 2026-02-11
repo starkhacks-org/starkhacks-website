@@ -18,9 +18,11 @@
 	let audioStarted = false;
 	let audioUnlocked = false;
 	let audioRetryInterval = null;
+	let audioMuted = false; // For speakers section muting
+	let globalAudioEnabled = false; // Global audio control
 
 	function startAudio() {
-		if (audioStarted) return;
+		if (audioStarted || !globalAudioEnabled) return;
 
 		const promises = [];
 		if (electricAudio) {
@@ -43,9 +45,21 @@
 		});
 	}
 
+	function stopAudioCompletely() {
+		if (electricAudio) {
+			electricAudio.pause();
+			electricAudio.currentTime = 0;
+		}
+		if (gearsAudio) {
+			gearsAudio.pause();
+			gearsAudio.currentTime = 0;
+		}
+		audioStarted = false;
+	}
+
 	// Keep retrying audio every 500ms until it works
 	function startAudioRetryLoop() {
-		if (audioRetryInterval) return;
+		if (audioRetryInterval || !globalAudioEnabled) return;
 		audioRetryInterval = setInterval(() => {
 			if (audioStarted) {
 				clearInterval(audioRetryInterval);
@@ -54,6 +68,79 @@
 			}
 			startAudio();
 		}, 500);
+	}
+
+	function handleGlobalAudioEnable() {
+		globalAudioEnabled = true;
+		startAudio();
+		startAudioRetryLoop();
+	}
+
+	function handleGlobalAudioDisable() {
+		globalAudioEnabled = false;
+		stopAudioCompletely();
+		if (audioRetryInterval) {
+			clearInterval(audioRetryInterval);
+			audioRetryInterval = null;
+		}
+	}
+
+	// Track which sections want audio muted
+	let mutedBy = new Set();
+
+	function muteAudio(source) {
+		mutedBy.add(source);
+		if (electricAudio) electricAudio.volume = 0;
+		if (gearsAudio) gearsAudio.volume = 0;
+	}
+
+	function unmuteAudio(source) {
+		mutedBy.delete(source);
+		// Only unmute if no other section wants it muted
+		if (mutedBy.size === 0) {
+			if (electricAudio) electricAudio.volume = 0.3;
+			if (gearsAudio) gearsAudio.volume = 0.25;
+		}
+	}
+
+	function handleSpeakersEnter() {
+		muteAudio('speakers');
+	}
+
+	function handleSpeakersLeave() {
+		unmuteAudio('speakers');
+	}
+
+	function handleFaqEnter() {
+		muteAudio('faq');
+	}
+
+	function handleFaqLeave() {
+		unmuteAudio('faq');
+	}
+
+	function handleSponsorsEnter() {
+		muteAudio('sponsors');
+	}
+
+	function handleSponsorsLeave() {
+		unmuteAudio('sponsors');
+	}
+
+	function handleApplyEnter() {
+		muteAudio('apply');
+	}
+
+	function handleApplyLeave() {
+		unmuteAudio('apply');
+	}
+
+	function handleFooterEnter() {
+		muteAudio('footer');
+	}
+
+	function handleFooterLeave() {
+		unmuteAudio('footer');
 	}
 
 	// ── Color palettes ────────────────────────────────────
@@ -427,13 +514,6 @@
 		embers.push(new Ember(src.x, y, src.side));
 	}
 
-	// ── Start audio on first interaction ──────────────────
-	function handleUserInteraction() {
-		startAudio();
-		// Also start the retry loop in case first attempt fails
-		startAudioRetryLoop();
-	}
-
 	// ── Animation loop ────────────────────────────────────
 	function animate() {
 		if (!ctx) return;
@@ -488,13 +568,6 @@
 		initEmberSources();
 	}
 
-	// Called when lamp intro finishes — best moment to start audio
-	function onLampIntroComplete() {
-		startAudio();
-		// If still blocked, start aggressive retry
-		startAudioRetryLoop();
-	}
-
 	onMount(() => {
 		ctx = canvas.getContext('2d');
 		handleResize();
@@ -513,22 +586,29 @@
 		animate();
 		window.addEventListener('resize', handleResize);
 
-		// Listen for lamp intro completion — start audio right when the light turns on
-		window.addEventListener('lamp-intro-complete', onLampIntroComplete);
+		// Listen for global audio control
+		window.addEventListener('audio-global-enable', handleGlobalAudioEnable);
+		window.addEventListener('audio-global-disable', handleGlobalAudioDisable);
 
-		// Listen for early audio unlock (user clicked/touched the dark intro overlay)
-		window.addEventListener('audio-unlock', handleUserInteraction);
+		// Listen for speakers section enter/leave to mute/unmute
+		window.addEventListener('speakers-section-enter', handleSpeakersEnter);
+		window.addEventListener('speakers-section-leave', handleSpeakersLeave);
 
-		// Try to start audio immediately (will work if browser allows autoplay)
-		startAudio();
+		// Listen for FAQ section enter/leave to mute/unmute
+		window.addEventListener('faq-section-enter', handleFaqEnter);
+		window.addEventListener('faq-section-leave', handleFaqLeave);
 
-		// Fallback: start on any real user gesture (click/touch/key are the only
-		// events browsers accept to unlock audio — scroll/mousemove don't work)
-		document.addEventListener('click', handleUserInteraction);
-		document.addEventListener('touchstart', handleUserInteraction);
-		document.addEventListener('touchend', handleUserInteraction);
-		document.addEventListener('keydown', handleUserInteraction);
-		document.addEventListener('pointerdown', handleUserInteraction);
+		// Listen for sponsors section enter/leave to mute/unmute
+		window.addEventListener('sponsors-section-enter', handleSponsorsEnter);
+		window.addEventListener('sponsors-section-leave', handleSponsorsLeave);
+
+		// Listen for apply section enter/leave to mute/unmute
+		window.addEventListener('apply-section-enter', handleApplyEnter);
+		window.addEventListener('apply-section-leave', handleApplyLeave);
+
+		// Listen for footer section enter/leave to mute/unmute
+		window.addEventListener('footer-section-enter', handleFooterEnter);
+		window.addEventListener('footer-section-leave', handleFooterLeave);
 	});
 
 	onDestroy(() => {
@@ -544,13 +624,18 @@
 		}
 		if (typeof window !== 'undefined') {
 			window.removeEventListener('resize', handleResize);
-			window.removeEventListener('lamp-intro-complete', onLampIntroComplete);
-			window.removeEventListener('audio-unlock', handleUserInteraction);
-			document.removeEventListener('click', handleUserInteraction);
-			document.removeEventListener('touchstart', handleUserInteraction);
-			document.removeEventListener('touchend', handleUserInteraction);
-			document.removeEventListener('keydown', handleUserInteraction);
-			document.removeEventListener('pointerdown', handleUserInteraction);
+			window.removeEventListener('audio-global-enable', handleGlobalAudioEnable);
+			window.removeEventListener('audio-global-disable', handleGlobalAudioDisable);
+			window.removeEventListener('speakers-section-enter', handleSpeakersEnter);
+			window.removeEventListener('speakers-section-leave', handleSpeakersLeave);
+			window.removeEventListener('faq-section-enter', handleFaqEnter);
+			window.removeEventListener('faq-section-leave', handleFaqLeave);
+			window.removeEventListener('sponsors-section-enter', handleSponsorsEnter);
+			window.removeEventListener('sponsors-section-leave', handleSponsorsLeave);
+			window.removeEventListener('apply-section-enter', handleApplyEnter);
+			window.removeEventListener('apply-section-leave', handleApplyLeave);
+			window.removeEventListener('footer-section-enter', handleFooterEnter);
+			window.removeEventListener('footer-section-leave', handleFooterLeave);
 		}
 	});
 </script>

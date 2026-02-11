@@ -1,5 +1,5 @@
 <script>
-	import { onMount } from 'svelte';
+	import { onMount, onDestroy } from 'svelte';
 	import sponsorsStyles from '../styles/sponsors.module.css';
 
 	/** @type {HTMLDivElement} */
@@ -7,19 +7,82 @@
 	/** @type {HTMLElement} */
 	let section;
 
-	// Scroll pause states — downward
-	let entryPauseActive = false;   // true while the entry pause is running (scrolling down into section)
-	let entryPauseDone = false;     // true after entry pause has completed
-	let exitPauseActive = false;    // true while the exit pause is running (scrolling down out of section)
-	let exitPauseDone = false;      // true after exit pause has completed
-	// Scroll pause states — upward
-	let upEntryPauseActive = false;  // true while entry pause is running (scrolling up into section)
-	let upEntryPauseDone = false;    // true after upward entry pause has completed
-	let upExitPauseActive = false;   // true while exit pause is running (scrolling up out of section)
-	let upExitPauseDone = false;     // true after upward exit pause has completed
-	let wasInTrapZone = false;       // track when section leaves viewport to reset
+	// Scroll pause states — downward only
+	let entryPauseActive = false;
+	let entryPauseDone = false;
+	let exitPauseActive = false;
+	let exitPauseDone = false;
+	let wasInTrapZone = false;
+
+	// Audio
+	/** @type {HTMLAudioElement | null} */
+	let glitchAudio = null;
+	let audioStarted = false;
+	let isInView = false;
+	let globalAudioEnabled = false;
+
+	function startGlitchAudio() {
+		if (!glitchAudio || audioStarted || !globalAudioEnabled) return;
+		glitchAudio.play().then(() => {
+			audioStarted = true;
+		}).catch(() => {});
+	}
+
+	function stopGlitchAudio() {
+		if (glitchAudio) {
+			glitchAudio.pause();
+			glitchAudio.currentTime = 0;
+			audioStarted = false;
+		}
+	}
+
+	function handleIntersection(entries) {
+		entries.forEach(entry => {
+			const wasInView = isInView;
+			isInView = entry.isIntersecting && entry.intersectionRatio > 0.2;
+
+			if (isInView && !wasInView) {
+				// Entering sponsors section - mute main audio, play glitch
+				window.dispatchEvent(new CustomEvent('sponsors-section-enter'));
+				if (globalAudioEnabled) startGlitchAudio();
+			} else if (!isInView && wasInView) {
+				// Leaving sponsors section - unmute main audio, stop glitch
+				window.dispatchEvent(new CustomEvent('sponsors-section-leave'));
+				stopGlitchAudio();
+			}
+		});
+	}
+
+	function handleGlobalAudioEnable() {
+		globalAudioEnabled = true;
+		if (isInView) startGlitchAudio();
+	}
+
+	function handleGlobalAudioDisable() {
+		globalAudioEnabled = false;
+		stopGlitchAudio();
+	}
 
 	onMount(() => {
+		// Set up glitch audio
+		glitchAudio = new Audio('/virtual_vibes-glitch-sound-effect-hd-379466.mp3');
+		glitchAudio.loop = true;
+		glitchAudio.volume = 0.4;
+		glitchAudio.preload = 'auto';
+
+		// Set up intersection observer
+		const observer = new IntersectionObserver(handleIntersection, {
+			threshold: [0, 0.2, 0.5, 1],
+			rootMargin: '-5% 0px'
+		});
+
+		if (section) {
+			observer.observe(section);
+		}
+
+		// Listen for global audio control
+		window.addEventListener('audio-global-enable', handleGlobalAudioEnable);
+		window.addEventListener('audio-global-disable', handleGlobalAudioDisable);
 		/** @param {WheelEvent} e */
 		function onWheel(e) {
 			if (!scrollContainer || !section) return;
@@ -35,10 +98,6 @@
 					entryPauseDone = false;
 					exitPauseActive = false;
 					exitPauseDone = false;
-					upEntryPauseActive = false;
-					upEntryPauseDone = false;
-					upExitPauseActive = false;
-					upExitPauseDone = false;
 					wasInTrapZone = false;
 				}
 				return;
@@ -58,7 +117,7 @@
 					setTimeout(() => {
 						entryPauseDone = true;
 						entryPauseActive = false;
-					}, 2000);
+					}, 1000);
 				}
 				return;
 			}
@@ -86,49 +145,15 @@
 				}
 				// If exitPauseDone, let the page scroll naturally (don't preventDefault)
 			}
-			// Scrolling up
+			// Scrolling up — no pauses, just trap inside container
 			else if (e.deltaY < 0) {
-				// Reset downward exit pause if scrolling back up from bottom
-				if (!atBottom) {
-					exitPauseDone = false;
-				}
-
-				// ── Up-entry pause: freeze when first scrolling up into the section ──
-				if (!upEntryPauseDone) {
-					e.preventDefault();
-					if (!upEntryPauseActive) {
-						upEntryPauseActive = true;
-						setTimeout(() => {
-							upEntryPauseDone = true;
-							upEntryPauseActive = false;
-						}, 1000);
-					}
-					return;
-				}
-
-				// ── Up-exit pause: freeze after scrolling to the top ──
-				if (upExitPauseActive) {
-					e.preventDefault();
-					return;
-				}
-
 				if (!atTop) {
 					e.preventDefault();
 					scrollContainer.scrollTop += e.deltaY;
-				} else if (!upExitPauseDone) {
-					// Reached the top — start exit pause before page scrolls up
-					e.preventDefault();
-					upExitPauseActive = true;
-					setTimeout(() => {
-						upExitPauseDone = true;
-						upExitPauseActive = false;
-					}, 1000);
 				}
-				// If upExitPauseDone, let the page scroll naturally upward
-
-				// Reset downward entry pause if scrolling back up from top area
+				// Reset downward pauses if scrolling back up
 				if (!atBottom) {
-					entryPauseDone = false;
+					exitPauseDone = false;
 				}
 			}
 		}
@@ -137,7 +162,17 @@
 
 		return () => {
 			window.removeEventListener('wheel', onWheel);
+			observer.disconnect();
+			window.removeEventListener('audio-global-enable', handleGlobalAudioEnable);
+			window.removeEventListener('audio-global-disable', handleGlobalAudioDisable);
 		};
+	});
+
+	onDestroy(() => {
+		stopGlitchAudio();
+		if (glitchAudio) {
+			glitchAudio.src = '';
+		}
 	});
 </script>
 
