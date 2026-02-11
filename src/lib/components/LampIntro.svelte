@@ -457,8 +457,9 @@
 </script>
 
 <!-- Dark overlay: only during intro, removed entirely after -->
-<!-- svelte-ignore a11y-no-static-element-interactions -->
 {#if showDarkOverlay}
+	<!-- svelte-ignore a11y-no-static-element-interactions -->
+	<!-- svelte-ignore a11y-click-events-have-key-events -->
 	<div
 		class={lampStyles.darkOverlay}
 		style="opacity: {revealOpacity}; cursor: default;"
