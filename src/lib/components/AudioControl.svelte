@@ -5,10 +5,10 @@
 		audioEnabled = !audioEnabled;
 		
 		if (audioEnabled) {
-			// Dispatch event to enable/unmute all audio
+			// Dispatch event to enable audio and trigger lamp to turn on
 			window.dispatchEvent(new CustomEvent('audio-global-enable'));
+			window.dispatchEvent(new CustomEvent('lever-pulled'));
 		} else {
-			// Dispatch event to disable/mute all audio
 			window.dispatchEvent(new CustomEvent('audio-global-disable'));
 		}
 	}
@@ -32,7 +32,7 @@
 		position: fixed;
 		bottom: 20px;
 		right: 20px;
-		z-index: 9999;
+		z-index: 10002;
 		background: none;
 		border: none;
 		cursor: pointer;
@@ -49,7 +49,7 @@
 	}
 
 	.lever-img {
-		width: 100px;
+		width: 140px;
 		height: auto;
 		display: block;
 		filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
@@ -62,7 +62,7 @@
 		}
 
 		.lever-img {
-			width: 70px;
+			width: 100px;
 		}
 	}
 </style>

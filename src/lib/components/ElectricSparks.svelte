@@ -143,6 +143,20 @@
 		unmuteAudio('footer');
 	}
 
+	function handleTracksEnter() {
+		// In tracks section: gears louder, electricity quieter
+		if (electricAudio) electricAudio.volume = 0.15;
+		if (gearsAudio) gearsAudio.volume = 0.4;
+	}
+
+	function handleTracksLeave() {
+		// Restore normal volumes (if not muted by another section)
+		if (mutedBy.size === 0) {
+			if (electricAudio) electricAudio.volume = 0.3;
+			if (gearsAudio) gearsAudio.volume = 0.25;
+		}
+	}
+
 	// ── Color palettes ────────────────────────────────────
 	// Rusty electrical — warm amber, muted, not neon
 	const WIRE_COLORS = {
@@ -609,6 +623,10 @@
 		// Listen for footer section enter/leave to mute/unmute
 		window.addEventListener('footer-section-enter', handleFooterEnter);
 		window.addEventListener('footer-section-leave', handleFooterLeave);
+
+		// Listen for tracks section enter/leave to adjust volumes
+		window.addEventListener('tracks-section-enter', handleTracksEnter);
+		window.addEventListener('tracks-section-leave', handleTracksLeave);
 	});
 
 	onDestroy(() => {
@@ -636,6 +654,8 @@
 			window.removeEventListener('apply-section-leave', handleApplyLeave);
 			window.removeEventListener('footer-section-enter', handleFooterEnter);
 			window.removeEventListener('footer-section-leave', handleFooterLeave);
+			window.removeEventListener('tracks-section-enter', handleTracksEnter);
+			window.removeEventListener('tracks-section-leave', handleTracksLeave);
 		}
 	});
 </script>

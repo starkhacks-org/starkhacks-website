@@ -13,10 +13,12 @@
 
 	// Animation state
 	let startTime = 0;
-	let phase = 'drop'; // 'drop' | 'bounce' | 'flicker' | 'reveal' | 'steady'
+	let phase = 'drop'; // 'drop' | 'bounce' | 'waiting' | 'flicker' | 'reveal' | 'steady'
 	let introComplete = false;
 	let showDarkOverlay = true;
 	let revealOpacity = 1; // separate opacity for the dark overlay fade
+	let waitingForLever = false;
+	let leverSpotlightIntensity = 0;
 
 	// Lamp geometry
 	const PIVOT_X_RATIO = 0.30;
@@ -239,29 +241,66 @@
 	}
 
 	function drawRevealMask(lampPos) {
-		if (revealRadius <= 0) {
-			ctx.fillStyle = '#000';
-			ctx.fillRect(0, 0, width, height);
-			return;
-		}
-
 		const bulbX = lampPos.x;
 		const bulbY = lampPos.y + LAMP_HEIGHT * 0.38;
 
+		// Draw the black overlay first
 		ctx.save();
 		ctx.fillStyle = `rgba(0, 0, 0, ${overlayOpacity})`;
 		ctx.fillRect(0, 0, width, height);
 
+		// Cut out the spotlight areas using destination-out
 		ctx.globalCompositeOperation = 'destination-out';
-		const grad = ctx.createRadialGradient(bulbX, bulbY, 0, bulbX, bulbY, revealRadius);
-		grad.addColorStop(0, 'rgba(0, 0, 0, 1)');
-		grad.addColorStop(0.6, 'rgba(0, 0, 0, 0.8)');
-		grad.addColorStop(1, 'rgba(0, 0, 0, 0)');
-		ctx.fillStyle = grad;
-		ctx.fillRect(0, 0, width, height);
+
+		// Draw lever spotlight (bottom-right corner) - cuts a hole in the darkness
+		if (leverSpotlightIntensity > 0) {
+			const leverX = width - 70; // Approximate lever center
+			const leverY = height - 70;
+			const spotlightRadius = 200;
+			
+			const leverGrad = ctx.createRadialGradient(leverX, leverY, 0, leverX, leverY, spotlightRadius);
+			leverGrad.addColorStop(0, 'rgba(0, 0, 0, 1)');
+			leverGrad.addColorStop(0.3, 'rgba(0, 0, 0, 1)');
+			leverGrad.addColorStop(0.6, `rgba(0, 0, 0, ${leverSpotlightIntensity * 0.7})`);
+			leverGrad.addColorStop(1, 'rgba(0, 0, 0, 0)');
+			ctx.fillStyle = leverGrad;
+			ctx.beginPath();
+			ctx.arc(leverX, leverY, spotlightRadius, 0, Math.PI * 2);
+			ctx.fill();
+		}
+
+		// Draw lamp reveal (if active)
+		if (revealRadius > 0) {
+			const grad = ctx.createRadialGradient(bulbX, bulbY, 0, bulbX, bulbY, revealRadius);
+			grad.addColorStop(0, 'rgba(0, 0, 0, 1)');
+			grad.addColorStop(0.6, 'rgba(0, 0, 0, 0.8)');
+			grad.addColorStop(1, 'rgba(0, 0, 0, 0)');
+			ctx.fillStyle = grad;
+			ctx.fillRect(0, 0, width, height);
+		}
 
 		ctx.globalCompositeOperation = 'source-over';
 		ctx.restore();
+
+		// Draw a warm glow effect on top of the lever area (additive)
+		if (leverSpotlightIntensity > 0) {
+			ctx.save();
+			const leverX = width - 70;
+			const leverY = height - 70;
+			const glowRadius = 180;
+			
+			const glowGrad = ctx.createRadialGradient(leverX, leverY, 0, leverX, leverY, glowRadius);
+			const glowAlpha = leverSpotlightIntensity * 0.5;
+			glowGrad.addColorStop(0, `rgba(212, 160, 74, ${glowAlpha})`);
+			glowGrad.addColorStop(0.4, `rgba(212, 160, 74, ${glowAlpha * 0.6})`);
+			glowGrad.addColorStop(0.7, `rgba(212, 160, 74, ${glowAlpha * 0.3})`);
+			glowGrad.addColorStop(1, 'rgba(212, 160, 74, 0)');
+			ctx.fillStyle = glowGrad;
+			ctx.beginPath();
+			ctx.arc(leverX, leverY, glowRadius, 0, Math.PI * 2);
+			ctx.fill();
+			ctx.restore();
+		}
 	}
 
 	// ── Draw lamp on the hero-positioned steady canvas ────
@@ -324,14 +363,27 @@
 			wiggleAmplitude = 8 * Math.exp(-bounceElapsed * 4);
 
 			if ((Math.abs(yStretch) < 0.4 && Math.abs(yVelocity) < 0.1) || elapsed >= 1.0) {
-				phase = 'flicker';
+				phase = 'waiting';
 				yStretch = 0;
 				yVelocity = 0;
-				flickerPhase = 0;
+				waitingForLever = true;
 			}
 		}
 
-		// ── Phase: FLICKER (1.0–1.8s) ──
+		// ── Phase: WAITING — lamp is down but dark, spotlight on lever ──
+		if (phase === 'waiting') {
+			yStretch = 0;
+			wiggleAmplitude = 0;
+			bulbBrightness = 0;
+			
+			// Fade in the lever spotlight with pulsing effect
+			const pulseSpeed = 0.03;
+			leverSpotlightIntensity = 0.7 + 0.3 * Math.sin(Date.now() * 0.003);
+			
+			// Stay in this phase until lever is pulled
+		}
+
+		// ── Phase: FLICKER (after lever pull) ──
 		if (phase === 'flicker') {
 			yStretch = 0;
 			wiggleTime = elapsed;
@@ -423,6 +475,15 @@
 		}
 	}
 
+	function handleLeverPulled() {
+		if (phase === 'waiting') {
+			phase = 'flicker';
+			flickerPhase = 0;
+			leverSpotlightIntensity = 0;
+			waitingForLever = false;
+		}
+	}
+
 	onMount(() => {
 		if (window.innerWidth <= 768) {
 			phase = 'steady';
@@ -432,6 +493,9 @@
 			window.dispatchEvent(new CustomEvent('lamp-intro-complete'));
 			return;
 		}
+
+		// Listen for lever pull event
+		window.addEventListener('lever-pulled', handleLeverPulled);
 
 		if (introCanvas) {
 			ctx = introCanvas.getContext('2d');
@@ -452,6 +516,7 @@
 		if (animationId) cancelAnimationFrame(animationId);
 		if (typeof window !== 'undefined') {
 			window.removeEventListener('resize', handleResize);
+			window.removeEventListener('lever-pulled', handleLeverPulled);
 		}
 	});
 </script>
@@ -463,8 +528,6 @@
 	<div
 		class={lampStyles.darkOverlay}
 		style="opacity: {revealOpacity}; cursor: default;"
-		on:pointerdown={() => window.dispatchEvent(new Event('audio-unlock'))}
-		on:click={() => window.dispatchEvent(new Event('audio-unlock'))}
 	></div>
 {/if}
 

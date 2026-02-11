@@ -66,6 +66,110 @@
   width: 100%;
 }
 
+/* Conveyor belt container - clips the overflow */
+.conveyorContainer {
+  width: 82%;
+  margin: 0 auto;
+  margin-left: calc(5% + 25px);
+  margin-top: 1.5rem;
+  overflow: hidden;
+  position: relative;
+  z-index: 2;
+}
+
+/* The moving belt containing both sets */
+.conveyorBelt {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 2rem;
+  animation: conveyorMove 25s linear infinite;
+  width: fit-content;
+}
+
+/* Each set contains heading boxes + boxes image */
+.conveyorSet {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+@keyframes conveyorMove {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* Pause animation on hover for better UX */
+.conveyorContainer:hover .conveyorBelt {
+  animation-play-state: paused;
+}
+
+/* Track items container */
+.trackItems {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  gap: 2rem;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+/* Individual track item (heading + box) */
+.trackItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  flex-shrink: 0;
+  width: 18rem;
+}
+
+/* Box image below heading */
+.trackBoxImage {
+  width: 100%;
+  height: 18rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.boxImg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+@media (max-width: 1400px) {
+  .trackItems {
+    gap: 1.5rem;
+  }
+  .trackItem {
+    width: 15rem;
+  }
+  .trackBoxImage {
+    height: 15rem;
+  }
+}
+
+@media (max-width: 1200px) {
+  .trackItems {
+    gap: 1rem;
+  }
+  .trackItem {
+    width: 12rem;
+  }
+  .trackBoxImage {
+    height: 12rem;
+  }
+}
+
 .headingBoxes {
   display: flex;
   justify-content: center;
@@ -73,19 +177,24 @@
   flex-wrap: nowrap;
   gap: 1.5rem;
   margin-bottom: 0.5rem;
-  margin-left: -5rem;
   width: 100%;
   position: relative;
   z-index: 2;
 }
 
 @media (max-width: 1400px) {
+  .trackItems {
+    gap: 1.25rem;
+  }
   .headingBoxes {
     gap: 1.25rem;
   }
 }
 
 @media (max-width: 1200px) {
+  .trackItems {
+    gap: 1rem;
+  }
   .headingBoxes {
     gap: 1rem;
   }
