@@ -104,11 +104,6 @@
   }
 }
 
-/* Pause animation on hover for better UX */
-.conveyorContainer:hover .conveyorBelt {
-  animation-play-state: paused;
-}
-
 /* Track items container */
 .trackItems {
   display: flex;

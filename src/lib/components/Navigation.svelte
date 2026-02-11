@@ -6,11 +6,25 @@
 	let mobileMenuOpen = false;
 	let menuElement;
 	let toggleButton;
+	let clickSound = null;
+	
+	function playClickSound() {
+		if (clickSound) {
+			clickSound.currentTime = 0;
+			clickSound.play().catch(() => {});
+		}
+	}
+	
+	function handleNavClick() {
+		playClickSound();
+		closeMenu();
+	}
 	
 	function toggleMobileMenu() {
 		// Only toggle on mobile/tablet
 		if (window.innerWidth > 1024) return;
 		
+		playClickSound();
 		mobileMenuOpen = !mobileMenuOpen;
 		
 		if (menuElement) {
@@ -43,6 +57,11 @@
 	}
 	
 	onMount(() => {
+		// Set up click sound
+		clickSound = new Audio('/edr-switch-click-and-beep-001a-11602.mp3');
+		clickSound.volume = 0.5;
+		clickSound.preload = 'auto';
+		
 		// Ensure menu is closed on mount, but only apply transform on mobile
 		if (menuElement && window.innerWidth <= 1024) {
 			menuElement.classList.remove('open');
@@ -73,24 +92,24 @@
 		</button>
 		
 		<ul bind:this={menuElement} class={navStyles.menu} role="menubar">
-			<li role="none"><a href="#about" class={navStyles.link} on:click={closeMenu} role="menuitem">ABOUT</a></li>
-			<li role="none"><a href="#tracks" class={navStyles.link} on:click={closeMenu} role="menuitem">TRACKS</a></li>
-			<li role="none"><a href="#speakers" class={navStyles.link} on:click={closeMenu} role="menuitem">SPEAKERS</a></li>
-			<li role="none"><a href="#sponsors" class={navStyles.link} on:click={closeMenu} role="menuitem">SPONSORS</a></li>
-			<li role="none"><a href="#faq" class={navStyles.link} on:click={closeMenu} role="menuitem">FAQ</a></li>
+			<li role="none"><a href="#about" class={navStyles.link} on:click={handleNavClick} role="menuitem">ABOUT</a></li>
+			<li role="none"><a href="#tracks" class={navStyles.link} on:click={handleNavClick} role="menuitem">TRACKS</a></li>
+			<li role="none"><a href="#speakers" class={navStyles.link} on:click={handleNavClick} role="menuitem">SPEAKERS</a></li>
+			<li role="none"><a href="#sponsors" class={navStyles.link} on:click={handleNavClick} role="menuitem">SPONSORS</a></li>
+			<li role="none"><a href="#faq" class={navStyles.link} on:click={handleNavClick} role="menuitem">FAQ</a></li>
 			<li role="none" class={navStyles.socialMediaContainer}>
-				<a href="https://www.instagram.com/humanoid.purdue/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class={navStyles.socialLink}>
+				<a href="https://www.instagram.com/humanoid.purdue/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class={navStyles.socialLink} on:click={playClickSound}>
 					<img src="/icon-instagram.svg" alt="Instagram" class={navStyles.socialIcon} />
 				</a>
-				<a href="https://www.linkedin.com/company/starkhacks/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class={navStyles.socialLink}>
+				<a href="https://www.linkedin.com/company/starkhacks/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class={navStyles.socialLink} on:click={playClickSound}>
 					<img src="/icon-linkedin.svg" alt="LinkedIn" class={navStyles.socialIcon} />
 				</a>
-				<a href="https://x.com/HumanoidPurdue" target="_blank" rel="noopener noreferrer" aria-label="Twitter" class={navStyles.socialLink}>
+				<a href="https://x.com/HumanoidPurdue" target="_blank" rel="noopener noreferrer" aria-label="Twitter" class={navStyles.socialLink} on:click={playClickSound}>
 					<img src="/icon-twitter.svg" alt="Twitter" class={navStyles.socialIcon} />
 				</a>
 			</li>
 			<li role="none">
-				<a href={getApplyUrl()} target="_blank" rel="noopener noreferrer" class={navStyles.joinButton} on:click={closeMenu} role="menuitem">
+				<a href={getApplyUrl()} target="_blank" rel="noopener noreferrer" class={navStyles.joinButton} on:click={handleNavClick} role="menuitem">
 					<img src="/apply-box.svg" alt="" class={navStyles.applyBoxSvg} />
 					<img src="/apply-text.svg" alt="APPLY" class={navStyles.applyTextSvg} />
 				</a>

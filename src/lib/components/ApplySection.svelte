@@ -1,8 +1,22 @@
 <script>
+	import { onMount } from 'svelte';
 	import applyStyles from '../styles/apply.module.css';
 	import WeldingSparks from './WeldingSparks.svelte';
 	
+	let clickSound = null;
+	
+	onMount(() => {
+		clickSound = new Audio('/edr-switch-click-and-beep-001a-11602.mp3');
+		clickSound.volume = 0.5;
+		clickSound.preload = 'auto';
+	});
+	
 	function handleApplyClick() {
+		// Play click sound
+		if (clickSound) {
+			clickSound.currentTime = 0;
+			clickSound.play().catch(() => {});
+		}
 		// Open apply page in new tab
 		window.open('/apply', '_blank');
 	}

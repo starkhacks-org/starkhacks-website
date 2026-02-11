@@ -1,5 +1,5 @@
 <script>
-	import { onMount, onDestroy, createEventDispatcher } from 'svelte';
+	import { onMount, onDestroy, createEventDispatcher, tick } from 'svelte';
 	import lampStyles from '../styles/lamp-intro.module.css';
 
 	const dispatch = createEventDispatcher();
@@ -370,17 +370,14 @@
 			}
 		}
 
-		// ── Phase: WAITING — lamp is down but dark, spotlight on lever ──
+		// ── Phase: WAITING — lamp is down but dark, waiting for user interaction ──
 		if (phase === 'waiting') {
 			yStretch = 0;
 			wiggleAmplitude = 0;
 			bulbBrightness = 0;
+			leverSpotlightIntensity = 0;
 			
-			// Fade in the lever spotlight with pulsing effect
-			const pulseSpeed = 0.03;
-			leverSpotlightIntensity = 0.7 + 0.3 * Math.sin(Date.now() * 0.003);
-			
-			// Stay in this phase until lever is pulled
+			// Stay in this phase until user interacts
 		}
 
 		// ── Phase: FLICKER (after lever pull) ──
@@ -439,6 +436,7 @@
 
 		// ── Phase: STEADY — stop intro animation ──
 		if (phase === 'steady') {
+			animationId = null; // Clear so we know loop stopped
 			return;
 		}
 
@@ -475,12 +473,72 @@
 		}
 	}
 
-	function handleLeverPulled() {
-		if (phase === 'waiting') {
+	// Switch states: 'off' (dark), 'on' (red - full), 'muted' (orange - no sound)
+	let switchState = 'off';
+	
+	// Track if we're in the intro/dark mode (switch needs to be above overlay)
+	$: isInIntroMode = switchState === 'off' || phase === 'waiting' || phase === 'flicker' || phase === 'reveal';
+
+	async function handleSwitchClick() {
+		if (switchState === 'off') {
+			// Turn on: play lamp flicker animation (lamp already at full length)
+			switchState = 'on';
 			phase = 'flicker';
 			flickerPhase = 0;
 			leverSpotlightIntensity = 0;
 			waitingForLever = false;
+			bulbBrightness = 0;
+			// Ensure lamp is at full length (not dropping)
+			dropProgress = 1;
+			yStretch = 0;
+			yVelocity = 0;
+			wiggleAmplitude = 0;
+			
+			// introCanvas should exist since introComplete is false
+			// Start the animation loop for flicker/reveal sequence
+			if (introCanvas) {
+				ctx = introCanvas.getContext('2d');
+				handleResize();
+				// Always start the animation loop when turning on
+				if (animationId) {
+					cancelAnimationFrame(animationId);
+				}
+				animationId = requestAnimationFrame(animate);
+			}
+			
+			window.dispatchEvent(new CustomEvent('audio-global-enable'));
+		} else if (switchState === 'on') {
+			// Mute: orange light, lamp stays on, sound off
+			switchState = 'muted';
+			window.dispatchEvent(new CustomEvent('audio-global-disable'));
+		} else if (switchState === 'muted') {
+			// Turn off: dark indicator, lamp and switch visible on dark screen
+			switchState = 'off';
+			phase = 'waiting';
+			introComplete = false;
+			showDarkOverlay = true;
+			overlayOpacity = 1;
+			revealOpacity = 1;
+			revealRadius = 0;
+			bulbBrightness = 0;
+			waitingForLever = true;
+			// Keep lamp at full length (not dropping)
+			dropProgress = 1;
+			yStretch = 0;
+			yVelocity = 0;
+			wiggleAmplitude = 0;
+			
+			// Wait for Svelte to re-render and bring back the intro canvas
+			await tick();
+			
+			// Now set up the canvas context and start animation
+			if (introCanvas) {
+				ctx = introCanvas.getContext('2d');
+				handleResize();
+				if (!animationId) {
+					animationId = requestAnimationFrame(animate);
+				}
+			}
 		}
 	}
 
@@ -489,13 +547,13 @@
 			phase = 'steady';
 			introComplete = true;
 			showDarkOverlay = false;
+			switchState = 'on';
 			dispatch('complete');
 			window.dispatchEvent(new CustomEvent('lamp-intro-complete'));
+			// Enable audio immediately on mobile
+			window.dispatchEvent(new CustomEvent('audio-global-enable'));
 			return;
 		}
-
-		// Listen for lever pull event
-		window.addEventListener('lever-pulled', handleLeverPulled);
 
 		if (introCanvas) {
 			ctx = introCanvas.getContext('2d');
@@ -507,8 +565,10 @@
 			phase = 'steady';
 			introComplete = true;
 			showDarkOverlay = false;
+			switchState = 'on';
 			dispatch('complete');
 			window.dispatchEvent(new CustomEvent('lamp-intro-complete'));
+			window.dispatchEvent(new CustomEvent('audio-global-enable'));
 		}
 	});
 
@@ -516,7 +576,6 @@
 		if (animationId) cancelAnimationFrame(animationId);
 		if (typeof window !== 'undefined') {
 			window.removeEventListener('resize', handleResize);
-			window.removeEventListener('lever-pulled', handleLeverPulled);
 		}
 	});
 </script>
@@ -539,4 +598,44 @@
 <!-- Steady canvas: absolute within hero, always present for the persistent lamp -->
 <div class={lampStyles.overlay}>
 	<canvas bind:this={steadyCanvas} class={lampStyles.canvas}></canvas>
+	
+	<!-- Switch button - stays on landing page only (inside overlay div) -->
+	{#if !isInIntroMode}
+		<div class={lampStyles.switchContainer}>
+			<span class={lampStyles.switchLabel}>SWITCH</span>
+			<button 
+				class={lampStyles.switchButton}
+				on:click={handleSwitchClick}
+				aria-label="Toggle lamp"
+			>
+				{#if switchState === 'off'}
+					<div class={lampStyles.switchIndicator}></div>
+				{:else if switchState === 'on'}
+					<div class={lampStyles.switchIndicatorActive}></div>
+				{:else}
+					<div class={lampStyles.switchIndicatorOrange}></div>
+				{/if}
+			</button>
+		</div>
+	{/if}
 </div>
+
+<!-- Switch during intro mode (fixed, above dark overlay) -->
+{#if isInIntroMode}
+	<div class={lampStyles.switchContainerIntro}>
+		<span class={lampStyles.switchLabel}>SWITCH</span>
+		<button 
+			class={lampStyles.switchButton}
+			on:click={handleSwitchClick}
+			aria-label="Toggle lamp"
+		>
+			{#if switchState === 'off'}
+				<div class={lampStyles.switchIndicator}></div>
+			{:else if switchState === 'on'}
+				<div class={lampStyles.switchIndicatorActive}></div>
+			{:else}
+				<div class={lampStyles.switchIndicatorOrange}></div>
+			{/if}
+		</button>
+	</div>
+{/if}
