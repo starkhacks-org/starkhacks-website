@@ -1,0 +1,53 @@
+/* Lamp container — always absolute within the hero section */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Dark intro overlay — covers everything during intro */
+.darkOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #000;
+  z-index: 10000;
+  pointer-events: all;
+}
+
+/* Intro canvas — fixed above dark overlay */
+.introCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 10001;
+  pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .overlay {
+    display: none;
+  }
+  .darkOverlay {
+    display: none;
+  }
+  .introCanvas {
+    display: none;
+  }
+}
