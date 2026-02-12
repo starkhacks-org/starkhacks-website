@@ -1,0 +1,8 @@
+{
+  "frame_width": 512,
+  "frame_height": 512,
+  "frames": 192,
+  "fps": 24.0,
+  "columns": 10,
+  "rows": 20
+}

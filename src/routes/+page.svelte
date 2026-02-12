@@ -8,6 +8,7 @@
 	import FAQSection from '$lib/components/FAQSection.svelte';
 	import ApplySection from '$lib/components/ApplySection.svelte';
 	import Footer from '$lib/components/Footer.svelte';
+	import LampIntro from '$lib/components/LampIntro.svelte';
 	import pageStyles from '$lib/styles/page.module.css';
 </script>
 
@@ -21,6 +22,7 @@
 </svelte:head>
 
 <Navigation />
+<LampIntro />
 <div class={pageStyles.pageWrapper}>
 	<HeroSection />
 	<AboutSection />

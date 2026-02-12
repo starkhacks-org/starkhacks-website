@@ -5,7 +5,7 @@
 	import { onMount } from 'svelte';
 	import { navigating } from '$app/stores';
 	
-	let isLoading = true;
+	let isLoading = false;
 	let isInitialLoad = true;
 	let minDisplayTime = 300; // Minimum display time in ms
 	let startTime = Date.now();
@@ -157,21 +157,33 @@
 	};
 	
 	onMount(() => {
-		// Handle initial page load
-		const handleLoad = () => {
+		// Lamp intro (inside +page.svelte) handles the initial page reveal.
+		// Listen for its completion via window event.
+		function onLampComplete() {
+			isLoading = false;
 			isInitialLoad = false;
-			hideLoading();
+		}
+		window.addEventListener('lamp-intro-complete', onLampComplete);
+
+		// Handle initial page load (fallback for non-home pages)
+		const handleLoad = () => {
+			// Only auto-hide if lamp intro hasn't taken over
+			setTimeout(() => {
+				if (isInitialLoad) {
+					isInitialLoad = false;
+					hideLoading();
+				}
+			}, 3500); // Fallback: if lamp intro doesn't fire within 3.5s
 		};
 		
 		// Check if page is already loaded
 		if (document.readyState === 'complete') {
-			// Small delay to ensure smooth transition
 			setTimeout(handleLoad, 100);
 		} else {
 			window.addEventListener('load', handleLoad);
 		}
 		
-		// Monitor navigation for slow loads
+		// Monitor navigation for slow loads (after initial load)
 		const unsubscribe = navigating.subscribe((nav) => {
 			if (nav) {
 				// Navigation started - show loading if it takes too long
@@ -183,7 +195,7 @@
 					if (!isInitialLoad) {
 						isLoading = true;
 					}
-				}, 200); // Show loading if navigation takes more than 200ms
+				}, 200);
 			} else {
 				// Navigation completed
 				if (navigationTimeout) {
@@ -196,6 +208,7 @@
 		});
 		
 		return () => {
+			window.removeEventListener('lamp-intro-complete', onLampComplete);
 			window.removeEventListener('load', handleLoad);
 			unsubscribe();
 			if (navigationTimeout) {

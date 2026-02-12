@@ -1,0 +1,8 @@
+{
+  "frameWidth": 512,
+  "frameHeight": 512,
+  "frameCount": 120,
+  "cols": 10,
+  "rows": 12,
+  "fps": 15
+}
