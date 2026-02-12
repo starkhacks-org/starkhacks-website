@@ -351,6 +351,30 @@
 }
 
 @media (max-width: 768px) {
+  .sponsors {
+    position: relative;
+    top: auto;
+    padding: 3rem 0;
+  }
+
+  .titleContainer {
+    max-height: none;
+  }
+
+  .titleImage {
+    width: 100%;
+  }
+
+  .glitchWrap {
+    width: 100%;
+  }
+
+  .subtitle {
+    margin-top: 2rem;
+    white-space: normal;
+    font-size: clamp(0.75rem, 3vw, 1rem);
+  }
+
   .logoCollage {
     gap: 0.375rem;
     row-gap: 0;

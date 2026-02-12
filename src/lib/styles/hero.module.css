@@ -53,11 +53,27 @@
 }
 
 @media (max-width: 768px) {
+  .hero {
+    position: relative;
+    height: auto;
+    min-height: 100vh;
+    padding: 5rem 0 3rem;
+  }
+
+  .backgroundImage {
+    opacity: 0; /* Still let the page background show through */
+  }
+
   .centerBox {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
     width: 90%;
     max-width: 420px;
     height: auto;
-    min-height: 400px;
+    min-height: 350px;
+    margin: 0 auto;
   }
 
   .content {
@@ -66,6 +82,16 @@
 
   .titleSvg {
     max-width: 100%;
+  }
+
+  .date {
+    font-size: clamp(1.1rem, 4.5vw, 1.5rem);
+    white-space: normal;
+  }
+
+  .countdownWrapper {
+    height: auto;
+    min-height: 120px;
   }
 }
 

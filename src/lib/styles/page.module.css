@@ -11,39 +11,28 @@
   overflow-x: hidden;
 }
 
-/* Mobile: Hide all content and ensure full image scrollability */
+/* Mobile: switch to natural document flow so all sections are visible */
 @media (max-width: 768px) {
   .pageWrapper {
-    /* Use mobile-specific background image */
-    background-image: url("/full-hero-mobile.jpg");
-    /* Background image starts from top since navbar is hidden */
+    background-image: url("/full-hero.jpg");
     background-position: top center;
-    /* Ensure full image height is scrollable, extend to include all sections and footer */
-    min-height: calc(100vw * 5.26 + 200px);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: #0a0a0a; /* Dark fallback when content exceeds image */
+    /* Natural flow instead of fixed image-height calc */
+    min-height: 100vh;
     height: auto;
     overflow-y: auto;
     max-height: none;
     overflow-x: hidden;
   }
 
-  /* Hide all direct children (all sections) on mobile */
+  /* All sections flow naturally on mobile — override absolute positioning */
   .pageWrapper > :global(*) {
-    display: none !important;
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    width: 100% !important;
   }
-
-  /* Show FAQ section on mobile */
-  .pageWrapper > :global(#faq) {
-    display: block !important;
-  }
-
-  /* Show Apply section on mobile */
-  .pageWrapper > :global(#apply) {
-    display: block !important;
-  }
-
-  /* Show Speakers section on mobile */
-  .pageWrapper > :global(#speakers) {
-    display: block !important;
-  }
-
 }

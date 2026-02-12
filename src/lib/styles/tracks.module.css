@@ -281,3 +281,52 @@
     top: calc(100vw * 5.26 * 0.288);
   }
 }
+
+@media (max-width: 768px) {
+  .tracks {
+    position: relative;
+    top: auto;
+    padding: 3rem 0;
+  }
+
+  .content {
+    padding: 1rem;
+  }
+
+  .titleContainer {
+    margin-left: 0;
+    justify-content: flex-start;
+  }
+
+  .subtitle {
+    margin-left: 0;
+    font-size: clamp(0.875rem, 3.5vw, 1.125rem);
+  }
+
+  .tracksWrapper {
+    margin-top: 2rem;
+  }
+
+  .conveyorContainer {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .trackItem {
+    width: 10rem;
+    gap: 1rem;
+  }
+
+  .trackBoxImage {
+    height: 10rem;
+  }
+
+  .headingBox {
+    width: 10rem;
+    height: 4.5rem;
+  }
+
+  .trackName {
+    font-size: clamp(0.7rem, 2.5vw, 0.95rem);
+  }
+}

@@ -230,12 +230,11 @@
 
 @media (max-width: 768px) {
   .speakers {
-    top: calc(100vw * 5.26 * 0.48);
-    position: absolute;
+    position: relative;
+    top: auto;
     width: 100%;
-    left: 0;
-    right: 0;
     z-index: 1;
+    padding: 3rem 0 2rem;
   }
 
   .titleRow {
@@ -298,7 +297,7 @@
   }
 
   .content {
-    padding: 1rem 5rem 0 0.5rem;
+    padding: 1rem 1rem 0 0.5rem;
     text-align: left;
   }
 
@@ -307,11 +306,13 @@
   }
 
   .triangleIcon {
-    width: clamp(6px, 1.5vw, 8px);
-    height: clamp(6px, 1.5vw, 8px);
+    width: clamp(8px, 2.5vw, 12px);
+    height: clamp(8px, 2.5vw, 12px);
   }
 
+  /* Restore title visibility on mobile */
   .title {
-    display: none;
+    display: flex;
+    font-size: clamp(1.25rem, 5vw, 2rem);
   }
 }
