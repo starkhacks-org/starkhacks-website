@@ -242,7 +242,7 @@
 
 	@media (max-width: 768px) {
 		:global(html) {
-			scroll-padding-top: 0;
+			scroll-padding-top: 70px;
 		}
 	}
 </style>

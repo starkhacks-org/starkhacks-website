@@ -56,6 +56,36 @@
 		}
 	}
 	
+	function handleKeydown(e) {
+		if (e.key === 'Escape' && mobileMenuOpen) {
+			closeMenu();
+		}
+	}
+
+	function handleClickOutside(e) {
+		if (
+			mobileMenuOpen &&
+			menuElement &&
+			!menuElement.contains(e.target) &&
+			toggleButton &&
+			!toggleButton.contains(e.target)
+		) {
+			closeMenu();
+		}
+	}
+
+	function handleResize() {
+		if (window.innerWidth > 1024 && menuElement) {
+			// Moved to desktop — clear inline transform and close state
+			mobileMenuOpen = false;
+			menuElement.classList.remove('open');
+			menuElement.style.transform = '';
+			if (toggleButton) {
+				toggleButton.setAttribute('aria-expanded', 'false');
+			}
+		}
+	}
+
 	onMount(() => {
 		// Set up click sound
 		clickSound = new Audio('/edr-switch-click-and-beep-001a-11602.mp3');
@@ -70,6 +100,16 @@
 			// On desktop, ensure no transform is applied
 			menuElement.style.transform = '';
 		}
+
+		document.addEventListener('keydown', handleKeydown);
+		document.addEventListener('click', handleClickOutside);
+		window.addEventListener('resize', handleResize);
+
+		return () => {
+			document.removeEventListener('keydown', handleKeydown);
+			document.removeEventListener('click', handleClickOutside);
+			window.removeEventListener('resize', handleResize);
+		};
 	});
 </script>
 

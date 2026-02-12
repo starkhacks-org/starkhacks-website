@@ -179,6 +179,7 @@
 @media (max-width: 1024px) {
   .nav {
     padding: 1rem 1.5rem;
+    padding-right: 1.5rem;
   }
 
   .menu {
@@ -236,7 +237,8 @@
 
 @media (max-width: 768px) {
   .nav {
-    display: none;
+    padding: 0.75rem 1rem;
+    padding-right: 1rem;
   }
 
   .logoImg {
@@ -269,7 +271,7 @@
 
 @media (max-width: 480px) {
   .nav {
-    padding: 0.75rem;
+    padding: 0.5rem 0.75rem;
   }
 
   .logoImg {
