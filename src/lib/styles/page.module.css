@@ -11,39 +11,16 @@
   overflow-x: hidden;
 }
 
-/* Mobile: Hide all content and ensure full image scrollability */
+/* Mobile: Hide all content */
 @media (max-width: 768px) {
   .pageWrapper {
-    /* Use mobile-specific background image */
-    background-image: url("/full-hero-mobile.jpg");
-    /* Background image starts from top since navbar is hidden */
-    background-position: top center;
-    /* Ensure full image height is scrollable, extend to include all sections and footer */
-    min-height: calc(100vw * 5.26 + 200px);
+    background: none;
+    min-height: 0;
     height: auto;
-    overflow-y: auto;
-    max-height: none;
-    overflow-x: hidden;
   }
 
   /* Hide all direct children (all sections) on mobile */
   .pageWrapper > :global(*) {
     display: none !important;
   }
-
-  /* Show FAQ section on mobile */
-  .pageWrapper > :global(#faq) {
-    display: block !important;
-  }
-
-  /* Show Apply section on mobile */
-  .pageWrapper > :global(#apply) {
-    display: block !important;
-  }
-
-  /* Show Speakers section on mobile */
-  .pageWrapper > :global(#speakers) {
-    display: block !important;
-  }
-
 }

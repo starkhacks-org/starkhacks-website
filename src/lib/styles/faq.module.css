@@ -302,13 +302,7 @@
   }
 
   .title {
-    font-size: clamp(0.625rem, 3vw, 0.875rem);
-    margin-bottom: -2rem;
-    margin-top: 4.75rem;
-    gap: 4px;
-    letter-spacing: 0.02em;
-    text-align: left;
-    justify-content: flex-start;
+    display: none;
   }
 
   .triangleIcon {
