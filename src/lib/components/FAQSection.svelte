@@ -159,11 +159,12 @@
 				const content = box.querySelector(`.${faqStyles.questionsList}`);
 				if (!content) return;
 
-				let fontSize = 16;
+				// Reset inline override so CSS clamp() drives the initial size
+				content.style.fontSize = '';
+				let fontSize = parseFloat(getComputedStyle(content).fontSize);
 				const minFontSize = 12;
-				content.style.fontSize = `${fontSize}px`;
 
-				// Check if content overflows
+				// Shrink only if content overflows
 				while (content.scrollHeight > content.clientHeight && fontSize > minFontSize) {
 					fontSize -= 0.5;
 					content.style.fontSize = `${fontSize}px`;
