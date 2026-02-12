@@ -1,7 +1,5 @@
 <script>
 	import heroStyles from '../styles/hero.module.css';
-	import CountdownTimer from './CountdownTimer.svelte';
-	import ElectricSparks from './ElectricSparks.svelte';
 </script>
 
 <section class={heroStyles.hero}>
@@ -10,7 +8,6 @@
 		alt="StarkHacks - World's Largest Hardware Hackathon at Purdue University in West Lafayette, Indiana" 
 		class={heroStyles.backgroundImage}
 	/>
-	<ElectricSparks />
 	<div class={heroStyles.centerBox}>
 		<img src="/center-box.svg" alt="" class={heroStyles.boxSvg} />
 		<div class={heroStyles.content}>
@@ -23,13 +20,6 @@
 				<span class={heroStyles.dateSlash}>/</span>
 				<span> April 17-19, 2026</span>
 			</p>
-			
-			<div class={heroStyles.countdownWrapper}>
-				<img src="/countdown-box.svg" alt="" class={heroStyles.countdownBoxSvg} />
-				<div class={heroStyles.countdownContent}>
-					<CountdownTimer />
-				</div>
-			</div>
 		</div>
 	</div>
 </section>

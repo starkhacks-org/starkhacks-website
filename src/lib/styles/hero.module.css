@@ -118,36 +118,3 @@
   color: #ff8e2a;
 }
 
-.countdownWrapper {
-  position: relative;
-  margin-top: 0.25rem;
-  width: 100%;
-  max-width: 479px;
-  height: 171px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.countdownBoxSvg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  z-index: 0;
-  pointer-events: none;
-}
-
-.countdownContent {
-  position: relative;
-  z-index: 1;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1.5rem 1rem;
-  box-sizing: border-box;
-}

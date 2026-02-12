@@ -1,10 +1,8 @@
 <script>
 	import aboutStyles from '../styles/about.module.css';
-	import AboutSparks from './AboutSparks.svelte';
 </script>
 
 <section id="about" class={aboutStyles.about}>
-	<AboutSparks />
 	<div class={aboutStyles.content}>
 		<!-- Title with Accent -->
 		<div class={aboutStyles.titleContainer}>
