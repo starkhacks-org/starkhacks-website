@@ -47,7 +47,7 @@
 .subtitle {
   font-family: "Space Grotesk", sans-serif;
   font-weight: 400;
-  font-size: clamp(0.875rem, 2vw, 1rem);
+  font-size: clamp(1.125rem, 2.5vw, 1.5rem);
   line-height: 1.5;
   color: white;
   margin: 0 0 2rem 7rem;

@@ -47,10 +47,9 @@
   width: min(100%, 900px);
 }
 
-
 .glitchWrap::before,
 .glitchWrap::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -73,7 +72,9 @@
 
 /* Top-slice glitch — shifts right with cyan tint */
 @keyframes glitchTop {
-  0%, 85%, 100% {
+  0%,
+  85%,
+  100% {
     opacity: 0;
     clip-path: inset(0 0 100% 0);
     transform: none;
@@ -127,7 +128,9 @@
 
 /* Bottom-slice glitch — shifts left with red tint */
 @keyframes glitchBottom {
-  0%, 84%, 100% {
+  0%,
+  84%,
+  100% {
     opacity: 0;
     clip-path: inset(100% 0 0 0);
     transform: none;
@@ -181,7 +184,9 @@
 
 /* Scan-line flicker on the container itself */
 @keyframes glitchFlicker {
-  0%, 83%, 100% {
+  0%,
+  83%,
+  100% {
     opacity: 1;
     transform: none;
   }
@@ -244,11 +249,12 @@
 .subtitle {
   font-family: "Demoarchimotov01", sans-serif;
   font-weight: 500;
-  font-size: clamp(0.875rem, 2vw, 1rem);
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
   line-height: 1.5;
   color: rgba(255, 255, 255, 0.75);
-  margin: 2rem auto 0;
-  max-width: 761px;
+  margin: 12rem auto 0;
+  max-width: none;
+  white-space: nowrap;
 }
 
 .subtitle a {
