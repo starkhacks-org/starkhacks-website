@@ -109,7 +109,7 @@
 
 @media (max-width: 768px) {
   .speakers {
-    top: calc(100vw * 5.26 * 0.48);
+    top: calc(100vw * 5.26 * 0.405);
     position: absolute;
     width: 100%;
     left: 0;
@@ -123,7 +123,7 @@
   }
 
   .content {
-    padding: 1rem 5rem 0 0.5rem;
+    padding: 1rem 5rem 0 3.5rem;
     text-align: left;
   }
 
@@ -132,11 +132,12 @@
   }
 
   .triangleIcon {
-    width: clamp(6px, 1.5vw, 8px);
-    height: clamp(6px, 1.5vw, 8px);
+    width: 7px;
+    height: 7px;
   }
 
   .title {
-    display: none;
+    font-size: 1.05rem;
+    gap: 6px;
   }
 }
