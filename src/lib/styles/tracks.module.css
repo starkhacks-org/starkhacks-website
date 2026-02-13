@@ -281,3 +281,101 @@
     top: calc(100vw * 5.26 * 0.288);
   }
 }
+
+/* ─── Mobile (768px and below) ─── */
+@media (max-width: 768px) {
+  .tracks {
+    top: calc(100vw * 5.26 * 0.30);
+    position: absolute;
+    width: 100%;
+    left: 0;
+    right: 0;
+    z-index: 1;
+  }
+
+  .content {
+    padding: 0 0.75rem;
+    max-width: 100%;
+  }
+
+  .titleContainer {
+    margin-left: 0.5rem;
+    gap: 0.35rem;
+    margin-bottom: 0.15rem;
+  }
+
+  .accentTriangle {
+    width: 7px;
+    height: 7px;
+  }
+
+  .title {
+    font-size: 1.05rem;
+  }
+
+  .subtitle {
+    font-size: 0.62rem;
+    margin: 0 0 0.25rem 0.5rem;
+  }
+
+  .tracksWrapper {
+    margin-top: 0.25rem;
+  }
+
+  /* Make the conveyor a horizontal scroll instead of animated belt */
+  .conveyorContainer {
+    width: 100%;
+    margin: 0;
+    margin-left: 0;
+    margin-top: 0.25rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+
+    /* Hide scrollbar */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .conveyorContainer::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Stop the conveyor animation */
+  .conveyorBelt {
+    animation: none;
+    gap: 0.5rem;
+    padding: 0 0.75rem;
+  }
+
+  /* Hide the duplicate set — only show one on mobile */
+  .conveyorSet:nth-child(2) {
+    display: none;
+  }
+
+  .trackItems {
+    gap: 0.5rem;
+  }
+
+  .trackItem {
+    width: 4rem;
+    gap: 0.28rem;
+  }
+
+  .trackBoxImage {
+    height: 4rem;
+  }
+
+  .headingBox {
+    width: 4.75rem;
+    height: 2.1rem;
+  }
+
+  .trackName {
+    font-size: 0.36rem;
+  }
+
+  .headingBoxes {
+    gap: 0.5rem;
+  }
+}

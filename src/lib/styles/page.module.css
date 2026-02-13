@@ -46,4 +46,9 @@
     display: block !important;
   }
 
+  /* Show Tracks section on mobile */
+  .pageWrapper > :global(#tracks) {
+    display: block !important;
+  }
+
 }

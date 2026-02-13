@@ -13,134 +13,13 @@
   display: none;
 }
 
-/* Title row with lights beside text */
+/* Title row */
 .titleRow {
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
   gap: 40px;
   position: relative;
-}
-
-/* Industrial light fixture */
-.lightFixture {
-  position: relative;
-  width: 60px;
-  height: 200px;
-  flex-shrink: 0;
-}
-
-/* Metal housing at top */
-.lightHousing {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 50px;
-  height: 30px;
-  background: linear-gradient(180deg, #2a2a2a 0%, #1a1a1a 50%, #0d0d0d 100%);
-  border-radius: 5px 5px 0 0;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-}
-
-.lightHousing::after {
-  content: '';
-  position: absolute;
-  bottom: -8px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 20px;
-  height: 8px;
-  background: #1a1a1a;
-  border-radius: 0 0 3px 3px;
-}
-
-/* The glowing bulb */
-.lightBulb {
-  position: absolute;
-  top: 30px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 24px;
-  height: 35px;
-  background: radial-gradient(ellipse at center, #fff8e7 0%, #ffb347 40%, #ff8c00 70%, #cc5500 100%);
-  border-radius: 50% 50% 45% 45%;
-  box-shadow: 
-    0 0 15px rgba(255, 140, 0, 0.9),
-    0 0 30px rgba(255, 140, 0, 0.7),
-    0 0 50px rgba(255, 100, 0, 0.5),
-    0 0 80px rgba(255, 80, 0, 0.3);
-  transition: opacity 0.05s ease, filter 0.05s ease;
-}
-
-/* Visible light beam cone - reduced to 50% length */
-.lightBeam {
-  position: absolute;
-  top: 55px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 0;
-  height: 0;
-  border-left: 60px solid transparent;
-  border-right: 60px solid transparent;
-  border-top: 200px solid rgba(255, 160, 50, 0.15);
-  filter: blur(15px);
-  pointer-events: none;
-  transition: opacity 0.05s ease;
-}
-
-/* Secondary inner beam for more glow */
-.lightBeam::before {
-  content: '';
-  position: absolute;
-  top: -200px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 0;
-  height: 0;
-  border-left: 30px solid transparent;
-  border-right: 30px solid transparent;
-  border-top: 190px solid rgba(255, 180, 80, 0.2);
-  filter: blur(8px);
-}
-
-/* Light pool on ground - adjusted position */
-.lightPool {
-  position: absolute;
-  top: 230px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 180px;
-  height: 50px;
-  background: radial-gradient(ellipse at center, rgba(255, 160, 50, 0.4) 0%, rgba(255, 120, 30, 0.25) 40%, rgba(255, 100, 0, 0.1) 70%, transparent 100%);
-  border-radius: 50%;
-  filter: blur(12px);
-  pointer-events: none;
-  transition: opacity 0.05s ease;
-}
-
-/* Light 1 beam - angled diagonal towards right */
-.lightBeamDiagonal {
-  transform: translateX(-50%) skewX(-15deg);
-}
-
-.lightPoolDiagonal {
-  left: calc(50% + 80px);
-}
-
-/* Light 2 - shifted more to the right */
-.lightFixture2 {
-  margin-left: 140px;
-}
-
-/* Light 3 - positioned on the right above third speaker */
-.lightFixtureRight {
-  position: absolute;
-  top: 32px;
-  right: 18%;
-  width: 60px;
-  height: 200px;
-  z-index: 10;
 }
 
 .content {
@@ -241,60 +120,6 @@
   .titleRow {
     gap: 15px;
     flex-wrap: wrap;
-  }
-
-  .lightFixture {
-    width: 30px;
-    height: 120px;
-  }
-
-  .lightHousing {
-    width: 25px;
-    height: 18px;
-  }
-
-  .lightHousing::after {
-    width: 10px;
-    height: 5px;
-    bottom: -5px;
-  }
-
-  .lightBulb {
-    top: 18px;
-    width: 14px;
-    height: 20px;
-  }
-
-  .lightBeam {
-    top: 35px;
-    border-left-width: 20px;
-    border-right-width: 20px;
-    border-top-width: 75px;
-  }
-
-  .lightPool {
-    top: 100px;
-    width: 60px;
-    height: 20px;
-  }
-
-  .lightFixtureRight {
-    top: 18px;
-    right: 10%;
-    width: 30px;
-    height: 120px;
-  }
-
-  .lightBeamDiagonal {
-    transform: translateX(-50%) skewX(-10deg);
-  }
-
-  .lightPoolDiagonal {
-    left: calc(50% + 40px);
-  }
-
-  .lightFixture2 {
-    margin-left: 30px;
   }
 
   .content {
