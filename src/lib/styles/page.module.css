@@ -46,4 +46,14 @@
     display: block !important;
   }
 
+  /* Show Tracks section on mobile */
+  .pageWrapper > :global(#tracks) {
+    display: block !important;
+  }
+
+  /* Show Sponsors section on mobile */
+  .pageWrapper > :global(#sponsors) {
+    display: block !important;
+  }
+
 }
