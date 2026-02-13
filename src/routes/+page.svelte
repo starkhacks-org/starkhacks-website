@@ -1,9 +1,6 @@
 <script>
 	import HeroSection from '$lib/components/HeroSection.svelte';
 	import AboutSection from '$lib/components/AboutSection.svelte';
-	import TracksSection from '$lib/components/TracksSection.svelte';
-	import SpeakersSection from '$lib/components/SpeakersSection.svelte';
-	import FAQSection from '$lib/components/FAQSection.svelte';
 	import ApplySection from '$lib/components/ApplySection.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 	import pageStyles from '$lib/styles/page.module.css';
@@ -21,9 +18,6 @@
 <div class={pageStyles.pageWrapper}>
 	<HeroSection />
 	<AboutSection />
-	<TracksSection />
-	<SpeakersSection />
-	<FAQSection />
 	<ApplySection />
 	<Footer />
 </div>
