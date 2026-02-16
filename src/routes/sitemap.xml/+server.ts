@@ -13,6 +13,16 @@ const pages = [
 		priority: 0.9
 	},
 	{
+		url: '/mentors',
+		changefreq: 'monthly',
+		priority: 0.9
+	},
+	{
+		url: '/judges',
+		changefreq: 'monthly',
+		priority: 0.9
+	},
+	{
 		url: '/policies',
 		changefreq: 'monthly',
 		priority: 0.6
