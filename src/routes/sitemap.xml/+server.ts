@@ -13,12 +13,7 @@ const pages = [
 		priority: 0.9
 	},
 	{
-		url: '/mentors',
-		changefreq: 'monthly',
-		priority: 0.9
-	},
-	{
-		url: '/judges',
+		url: '/mentors-judges',
 		changefreq: 'monthly',
 		priority: 0.9
 	},
