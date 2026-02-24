@@ -31,4 +31,8 @@
 		height: 100%;
 		border: none;
 	}
+
+	:global(#mlh-trust-badge) {
+		display: none !important;
+	}
 </style>
