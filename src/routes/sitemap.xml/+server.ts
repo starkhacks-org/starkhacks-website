@@ -28,6 +28,11 @@ const pages = [
 		priority: 0.9
 	},
 	{
+		url: '/sponsorship-guide',
+		changefreq: 'monthly',
+		priority: 0.8
+	},
+	{
 		url: '/policies',
 		changefreq: 'monthly',
 		priority: 0.6
