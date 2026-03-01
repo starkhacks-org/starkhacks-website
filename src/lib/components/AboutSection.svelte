@@ -15,10 +15,10 @@
 		<!-- Description Paragraphs -->
 		<div class={aboutStyles.description}>
 			<p class={aboutStyles.paragraph}>
-				Stark Hacks is the world's largest hardware hackathon, a 36 hour project sprint where you can build any physical project with other smart people. You get access to free food, free equipment like 3D printers, soldering stations, microcontrollers, sensors, and more, and a community ready to build.
+				StarkHacks is the world's largest hardware hackathon, presented by the Humanoid Robot Club and AMD, and cohosted by Ford Motor Company. It is a 36 hour project sprint where you can build any physical project with other smart people. You get access to free food, free equipment like 3D printers, soldering stations, microcontrollers, sensors, and more, and a community ready to build.
 			</p>
 			<p class={aboutStyles.paragraph}>
-				Hosted by the Humanoid Robot Club Purdue, a student club building world's first humanoid robot for space, StarkHacks is meant to give students of all experience levels a chance to prototype, solder, and ship physical projects without any limitations. This is your chance to join 1000+ of the best hardware students from all over the world and set a World Record!
+				The Humanoid Robot Club Purdue, a student club building world's first humanoid robot for space, StarkHacks is meant to give students of all experience levels a chance to prototype, solder, and ship physical projects without any limitations. This is your chance to join 1000+ of the best hardware students from all over the world and set a World Record!
 			</p>
 		</div>
 		
