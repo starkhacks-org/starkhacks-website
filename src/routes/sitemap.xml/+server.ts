@@ -18,6 +18,11 @@ const pages = [
 		priority: 0.9
 	},
 	{
+		url: '/volunteers',
+		changefreq: 'monthly',
+		priority: 0.9
+	},
+	{
 		url: '/mentors-judges',
 		changefreq: 'monthly',
 		priority: 0.9
