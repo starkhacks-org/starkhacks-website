@@ -1,0 +1,37 @@
+{
+  "days": [
+    {
+      "date": "Friday, April 17",
+      "events": [
+        { "time": "3:00 PM", "title": "Check-In Opens", "type": "logistics" },
+        { "time": "5:00 PM", "title": "Opening Ceremony", "type": "ceremony" },
+        { "time": "6:00 PM", "title": "Hacking Begins", "type": "hacking" },
+        { "time": "7:00 PM", "title": "Dinner", "type": "food" },
+        { "time": "9:00 PM", "title": "Workshop: Intro to Hardware", "type": "workshop" },
+        { "time": "11:00 PM", "title": "Late Night Snack", "type": "food" }
+      ]
+    },
+    {
+      "date": "Saturday, April 18",
+      "events": [
+        { "time": "7:00 AM", "title": "Breakfast", "type": "food" },
+        { "time": "10:00 AM", "title": "Workshop: AI & Automation", "type": "workshop" },
+        { "time": "12:00 PM", "title": "Lunch", "type": "food" },
+        { "time": "2:00 PM", "title": "Mentor Office Hours", "type": "mentorship" },
+        { "time": "4:00 PM", "title": "Workshop: Wearable Technology", "type": "workshop" },
+        { "time": "6:00 PM", "title": "Dinner", "type": "food" },
+        { "time": "10:00 PM", "title": "Midnight Snack & Activities", "type": "food" }
+      ]
+    },
+    {
+      "date": "Sunday, April 19",
+      "events": [
+        { "time": "6:00 AM", "title": "Breakfast", "type": "food" },
+        { "time": "9:00 AM", "title": "Hacking Ends — Submissions Close", "type": "hacking" },
+        { "time": "10:00 AM", "title": "Judging Begins", "type": "ceremony" },
+        { "time": "1:00 PM", "title": "Closing Ceremony & Awards", "type": "ceremony" },
+        { "time": "3:00 PM", "title": "Event Ends", "type": "logistics" }
+      ]
+    }
+  ]
+}
