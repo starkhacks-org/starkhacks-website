@@ -32,5 +32,22 @@
 			</div>
 		</div>
 	</div>
+
+	<div class={heroStyles.heroCredits}>
+		<p class={heroStyles.organizedBy}>
+			organized by
+			<a href="https://humanoidrobot.club/" target="_blank" rel="noopener noreferrer" class={heroStyles.creditLink}>
+				<img src="/hrc-logo.png" alt="Humanoid Robot Club" class={heroStyles.creditLogo} />
+			</a>
+		</p>
+		<p class={heroStyles.cohostedBy}>
+			cohosted by
+			<span class={heroStyles.cohostedLogos}>
+				<img src="/amd-logo.png" alt="AMD" class={heroStyles.cohostedLogo} />
+				<span class={heroStyles.ampersand}>&</span>
+				<img src="/ford-logo.png" alt="Ford" class={heroStyles.cohostedLogo} />
+			</span>
+		</p>
+	</div>
 </section>
 
