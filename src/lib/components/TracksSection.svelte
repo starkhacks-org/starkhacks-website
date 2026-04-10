@@ -3,11 +3,14 @@
 	import tracksStyles from '../styles/tracks.module.css';
 
 	const tracks = [
-		{ name: 'Space Exploration', lines: ['Space', 'Exploration'], boxImage: '/space exploration.svg' },
-		{ name: 'Gaming/Entertainment', lines: ['Gaming/', 'Entertainment'], boxImage: '/gaming and entertainment.svg' },
-		{ name: 'Wearable Technology', lines: ['Wearable', 'Technology'], boxImage: '/wearable technology.svg' },
-		{ name: 'AI & Automation', lines: ['AI & Automation'], boxImage: '/AI & Automation.svg' },
-		{ name: 'Smart Home', lines: ['Smart Home'], boxImage: '/smart home.svg' }
+		{ name: 'Best Use of AMD', lines: ['Best Use of', 'AMD'], boxImage: '/general.svg' },
+		{ name: 'Ford Industrial Robotics Grippers', lines: ['Ford Industrial', 'Robotics Grippers'], boxImage: '/misc.svg' },
+		{ name: 'Espressif Smart Home/City', lines: ['Espressif', 'Smart Home/City'], boxImage: '/smart home.svg' },
+		{ name: 'Qualcomm Robotics', lines: ['Qualcomm', 'Robotics'], boxImage: '/wearable technology.svg' },
+		{ name: 'QTexAI Creative Tech', lines: ['QTexAI', 'Creative Tech'], boxImage: '/gaming and entertainment.svg' },
+		{ name: 'Analog Devices Sensor Fusion', lines: ['Analog Devices', 'Sensor Fusion'], boxImage: '/space exploration.svg' },
+		{ name: 'Best Use of Viam', lines: ['Best Use of', 'Viam'], boxImage: '/AI & Automation.svg' },
+		{ name: 'Microsoft AI and Automation', lines: ['Microsoft', 'AI & Automation'], boxImage: '/AI & Automation.svg' }
 	];
 
 	// Duplicate tracks for seamless looping
