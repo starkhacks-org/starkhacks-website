@@ -6,308 +6,92 @@
   color: white;
   z-index: 1;
   overflow: visible;
+
+  /* Slot centres (from the "COMING" placeholder centres in the background art)
+     and the box that covers each slot's "COMING SOON + description" block. */
+  --slot1-x: 21.24%;
+  --slot2-x: 50.75%;
+  --slot3-x: 79.92%;
+
+  /* Top of each card (photo). The card's dark fill (colour-matched to the slot
+     interior) hides the "COMING SOON + description" placeholder underneath. */
+  --card-top: 21.8vw;
+  --slot-w: 16.32vw;
+
+  /* The visible speaker photo — shown at the source images' native 281x301
+     framing (notched corners) so it fills the slot opening without cropping. */
+  --photo-w: 16.32vw;
+  --photo-h: 17.48vw;
 }
 
-/* Dark overlay - removed */
-.darkOverlay {
-  display: none;
-}
-
-/* Title row */
-.titleRow {
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
-  gap: 40px;
-  position: relative;
-}
-
-.content {
-  position: relative;
-  z-index: 2;
-  /* 1200px → 75rem to keep layout but be font-scale friendly */
-  max-width: 75rem;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: left;
-}
-
-.titleContainer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.75rem;
-  margin-top: 5rem;
-  margin-bottom: 1rem;
-}
-
-.accentTriangle {
-  /* 18px → 1.125rem */
-  width: 1.125rem;
-  height: 1.125rem;
-  flex-shrink: 0;
-  display: block;
-}
-
-.triangleIcon {
-  width: 1.125rem;
-  height: 1.125rem;
-  flex-shrink: 0;
-}
-
-.title {
-  font-family: "Demoarchimotov01", sans-serif;
-  font-weight: 500;
-  font-size: clamp(2rem, 5vw, 3.125rem);
-  line-height: 1.2;
-  color: white;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  text-align: left;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.subtitle {
-  font-family: "Space Grotesk", sans-serif;
-  font-weight: 400;
-  font-size: clamp(0.875rem, 2vw, 1rem);
-  line-height: 1.5;
-  color: rgba(255, 255, 255, 0.75);
-  margin: 0;
-}
-
-/* Laptop size optimizations */
-@media (min-width: 1280px) and (max-width: 1366px) {
-  /* 13" laptops */
-  .speakers {
-    top: calc(100vw * 5.26 * 0.395);
-  }
-}
-
-@media (min-width: 1366px) and (max-width: 1440px) {
-  /* 13-14" laptops */
-  .speakers {
-    top: calc(100vw * 5.26 * 0.396);
-  }
-}
-
-@media (min-width: 1440px) and (max-width: 1920px) {
-  /* 14-15" laptops */
-  .speakers {
-    top: calc(100vw * 5.26 * 0.397);
-  }
-}
-
-@media (min-width: 1920px) and (max-width: 2560px) {
-  /* 15-16" laptops */
-  .speakers {
-    top: calc(100vw * 5.26 * 0.398);
-  }
-}
-
-/* Speaker grid */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 2.5rem;
-  margin-top: 2.5rem;
-  padding: 0 1rem;
-}
-
-.card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
-}
-
-.label {
-  font-family: "Space Grotesk", sans-serif;
-  font-size: 0.68rem;
-  font-weight: 600;
-  letter-spacing: 0.22em;
-  color: rgba(255, 255, 255, 0.92);
-  background: linear-gradient(180deg, #2a2a30 0%, #18181c 100%);
-  padding: 0.5rem 1.6rem;
-  position: relative;
-  z-index: 3;
-  text-transform: uppercase;
-  margin-bottom: 0;
-  clip-path: polygon(10px 0, calc(100% - 10px) 0, 100% 100%, 0 100%);
-  box-shadow: inset 0 1px 0 rgba(255, 142, 42, 0.45);
-}
-
-.frame {
-  width: 100%;
-  background:
-    linear-gradient(180deg, rgba(36, 36, 42, 0.95) 0%, rgba(18, 18, 22, 0.95) 100%);
-  padding: 1.5rem 1.25rem 2.25rem;
+/* Card: photo + name + role, seated into the (now placeholder-free) slot */
+.slot {
+  position: absolute;
+  top: var(--card-top);
+  width: var(--slot-w);
+  transform: translateX(-50%);
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  position: relative;
-  clip-path: polygon(
-    0 0,
-    24px 0,
-    32px 8px,
-    calc(100% - 32px) 8px,
-    calc(100% - 24px) 0,
-    100% 0,
-    100% calc(100% - 14px),
-    calc(100% - 14px) 100%,
-    14px 100%,
-    0 calc(100% - 14px)
-  );
-}
-
-/* Top orange accent strip with corner tabs */
-.frame::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 8px;
-  background: linear-gradient(180deg, #ff8e2a 0%, #c46414 100%);
-  clip-path: polygon(
-    0 0,
-    24px 0,
-    32px 100%,
-    calc(100% - 32px) 100%,
-    calc(100% - 24px) 0,
-    100% 0,
-    100% 100%,
-    0 100%
-  );
-  z-index: 1;
-}
-
-/* Bottom mechanical accent strip */
-.frame::after {
-  content: "";
-  position: absolute;
-  left: 14px;
-  right: 14px;
-  bottom: 10px;
-  height: 4px;
-  background:
-    linear-gradient(90deg,
-      #ff8e2a 0 14%,
-      transparent 14% 16%,
-      #ff8e2a 16% 50%,
-      transparent 50% 52%,
-      #ff8e2a 52% 86%,
-      transparent 86% 88%,
-      #ff8e2a 88% 100%);
-  opacity: 0.85;
-  z-index: 1;
-}
-
-.photoWrap {
-  width: 100%;
-  aspect-ratio: 4 / 5;
-  overflow: hidden;
-  background: #0a0a0c;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  margin-top: 0.5rem;
-  margin-bottom: 1.25rem;
-  position: relative;
+  padding-bottom: 1.2vw;
   z-index: 2;
-  clip-path: polygon(
-    18px 0,
-    calc(100% - 18px) 0,
-    100% 18px,
-    100% 100%,
-    0 100%,
-    0 18px
-  );
 }
+
+.slot:nth-of-type(1) { left: var(--slot1-x); }
+.slot:nth-of-type(2) { left: var(--slot2-x); }
+.slot:nth-of-type(3) { left: var(--slot3-x); }
 
 .photo {
-  width: 100%;
-  height: 100%;
+  width: var(--photo-w);
+  height: var(--photo-h);
   object-fit: cover;
   display: block;
 }
 
 .name {
-  margin: 0 0 0.75rem;
+  margin: 1.05vw 0 0;
   font-family: "Demoarchimotov01", sans-serif;
   font-weight: 500;
-  letter-spacing: 0.04em;
-  line-height: 1.05;
+  letter-spacing: 0.02em;
+  line-height: 1.14;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.15rem;
 }
 
 .firstName {
-  font-size: clamp(1.25rem, 2.2vw, 1.85rem);
+  font-size: 1.95vw;
   color: #ff8e2a;
 }
 
 .lastName {
-  font-size: clamp(1.25rem, 2.2vw, 1.85rem);
+  font-size: 1.95vw;
   color: #ffffff;
 }
 
 .role {
   font-family: "Space Grotesk", sans-serif;
-  font-size: 0.78rem;
+  font-size: 0.8vw;
   font-weight: 500;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.78);
-  margin: 0;
-  max-width: 18rem;
-  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.72);
+  margin: 0.85vw 0 0;
+  max-width: 74%;
+  line-height: 1.6;
 }
 
-@media (max-width: 900px) {
-  .grid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    max-width: 22rem;
-    margin-left: auto;
-    margin-right: auto;
-  }
+/* Keep the row locked to the slots across laptop widths */
+@media (min-width: 1280px) and (max-width: 1366px) {
+  .speakers { top: calc(100vw * 5.26 * 0.395); }
 }
-
-@media (max-width: 768px) {
-  .speakers {
-    top: calc(100vw * 5.26 * 0.405);
-    position: absolute;
-    width: 100%;
-    left: 0;
-    right: 0;
-    z-index: 1;
-  }
-
-  .titleRow {
-    gap: 15px;
-    flex-wrap: wrap;
-  }
-
-  .content {
-    padding: 1rem 5rem 0 3.5rem;
-    text-align: left;
-  }
-
-  .titleContainer {
-    margin-top: 0;
-  }
-
-  .triangleIcon {
-    width: 7px;
-    height: 7px;
-  }
-
-  .title {
-    font-size: 1.05rem;
-    gap: 6px;
-  }
+@media (min-width: 1366px) and (max-width: 1440px) {
+  .speakers { top: calc(100vw * 5.26 * 0.396); }
+}
+@media (min-width: 1440px) and (max-width: 1920px) {
+  .speakers { top: calc(100vw * 5.26 * 0.397); }
+}
+@media (min-width: 1920px) and (max-width: 2560px) {
+  .speakers { top: calc(100vw * 5.26 * 0.398); }
 }
